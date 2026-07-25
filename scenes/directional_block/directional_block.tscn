@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=3 uid="uid://bk5wkvb2swvfv"]
+
+[ext_resource type="Script" path="res://scenes/directional_block/directional_block.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/directional_block/directional_block_raycast.gd" id="3"]
+[ext_resource type="Script" path="res://scenes/directional_block/ray_cast_side.gd" id="4"]
+[ext_resource type="AudioStream" uid="uid://bfjt8ud3w6wts" path="res://assets/sfx/HELICOPTER_Hover_Deep_loop_mono.wav" id="5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaio3"]
+atlas = ExtResource("2")
+region = Rect2(18, 126, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hdtw"]
+atlas = ExtResource("2")
+region = Rect2(36, 126, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2um0c"]
+atlas = ExtResource("2")
+region = Rect2(54, 126, 18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epvow"]
+size = Vector2(16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhs83"]
+atlas = ExtResource("2")
+region = Rect2(0, 90, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ceja"]
+atlas = ExtResource("2")
+region = Rect2(18, 90, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1m1u"]
+size = Vector2(7.54717, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gladi"]
+size = Vector2(14, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p37ss"]
+size = Vector2(1, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4hjx"]
+size = Vector2(1, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bv66y"]
+size = Vector2(14, 6)
+
+[node name="DirectionalBlock" type="Node2D" node_paths=PackedStringArray("audio", "arrow", "animatable_body", "collision_shape", "raycast", "raycast_l", "raycast_r", "kill_collider_up", "kill_collider_down", "kill_collider_left", "kill_collider_right", "block_collider_down")]
+z_index = 1
+script = ExtResource("1")
+audio = NodePath("AudioStreamPlayer2D")
+arrow = NodePath("AnimatableBody2D/Block/Arrow")
+arrow_sprites = [SubResource("AtlasTexture_xaio3"), SubResource("AtlasTexture_4hdtw"), SubResource("AtlasTexture_2um0c")]
+animatable_body = NodePath("AnimatableBody2D")
+collision_shape = NodePath("AnimatableBody2D/CollisionShape2D")
+raycast = NodePath("AnimatableBody2D/RayCast2D")
+raycast_l = NodePath("AnimatableBody2D/RayCastL")
+raycast_r = NodePath("AnimatableBody2D/RayCastR")
+kill_collider_up = NodePath("AnimatableBody2D/KillColliderUp/CollisionShape2D")
+kill_collider_down = NodePath("AnimatableBody2D/KillColliderDown/CollisionShape2D")
+kill_collider_left = NodePath("AnimatableBody2D/KillColliderLeft/CollisionShape2D")
+kill_collider_right = NodePath("AnimatableBody2D/KillColliderRight/CollisionShape2D")
+block_collider_down = NodePath("AnimatableBody2D/BlockColliderDown/CollisionShape2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_epvow")
+
+[node name="Block" type="Sprite2D" parent="AnimatableBody2D"]
+texture = SubResource("AtlasTexture_uhs83")
+
+[node name="Arrow" type="Sprite2D" parent="AnimatableBody2D/Block"]
+position = Vector2(0, 2)
+texture = SubResource("AtlasTexture_6ceja")
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+position = Vector2(0, -7.5)
+scale = Vector2(2.65, 1)
+shape = SubResource("RectangleShape2D_x1m1u")
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatableBody2D"]
+target_position = Vector2(900, 0)
+collision_mask = 257
+script = ExtResource("3")
+
+[node name="RayCastR" type="RayCast2D" parent="AnimatableBody2D"]
+position = Vector2(8, 0)
+target_position = Vector2(14, 0)
+collision_mask = 257
+script = ExtResource("4")
+
+[node name="RayCastL" type="RayCast2D" parent="AnimatableBody2D"]
+position = Vector2(-8, 0)
+target_position = Vector2(-14, 0)
+collision_mask = 257
+script = ExtResource("4")
+
+[node name="KillColliderUp" type="StaticBody2D" parent="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/KillColliderUp"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_gladi")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.42)
+
+[node name="KillColliderDown" type="StaticBody2D" parent="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/KillColliderDown"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_gladi")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.42)
+
+[node name="KillColliderLeft" type="StaticBody2D" parent="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/KillColliderLeft"]
+position = Vector2(-8.5, 0.5)
+shape = SubResource("RectangleShape2D_p37ss")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.42)
+
+[node name="KillColliderRight" type="StaticBody2D" parent="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/KillColliderRight"]
+position = Vector2(8.5, 0.5)
+shape = SubResource("RectangleShape2D_o4hjx")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.42)
+
+[node name="BlockColliderDown" type="StaticBody2D" parent="AnimatableBody2D"]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/BlockColliderDown"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_bv66y")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5")
+panning_strength = 2.5
+bus = &"SFX"
+
+[connection signal="body_entered" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_exited"]

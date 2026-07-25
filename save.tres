@@ -1,0 +1,478 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=68 format=3]
+
+[ext_resource type="Script" path="res://scripts/save_data.gd" id="1"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ml362"]
+device = -1
+physical_keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_gmt3s"]
+device = -1
+button_index = 13
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_85pcq"]
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_i3bpj"]
+device = 1
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ykfb5"]
+device = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_2fwsd"]
+device = 3
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_4tfvx"]
+device = 4
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_axljm"]
+device = 5
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_umtdt"]
+device = 6
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ptieu"]
+device = 7
+axis_value = -1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_hcqek"]
+device = -1
+physical_keycode = 4194319
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_kdird"]
+device = -1
+button_index = 2
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_mx7kj"]
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_fchec"]
+device = 1
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_u1nql"]
+device = 2
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_d1eqs"]
+device = 3
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_0u4c8"]
+device = 4
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_rigt4"]
+device = 5
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_jq625"]
+device = 6
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_jcgtl"]
+device = 7
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_36nhc"]
+device = -1
+physical_keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_ktjy7"]
+device = -1
+button_index = 6
+
+[sub_resource type="InputEventKey" id="InputEventKey_yxdgr"]
+device = -1
+physical_keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_1cjb0"]
+device = -1
+button_index = 4
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_qow1q"]
+device = -1
+keycode = 68
+physical_keycode = 68
+key_label = 68
+unicode = 100
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_nqv0g"]
+device = -1
+button_index = 14
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_t2kaa"]
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_0caor"]
+device = 1
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_mo3kh"]
+device = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_xs4d7"]
+device = 3
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_2xkk6"]
+device = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_416yt"]
+device = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_i77lv"]
+device = 6
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_mc6vu"]
+device = 7
+axis_value = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_h3jn6"]
+device = -1
+physical_keycode = 4194321
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_irg7s"]
+device = -1
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_o7mrp"]
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_frqrl"]
+device = 1
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_vy1j7"]
+device = 2
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_a2q1p"]
+device = 3
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_kt25d"]
+device = 4
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_wo87b"]
+device = 5
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_mib84"]
+device = 6
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_bt5xm"]
+device = 7
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_8d2ug"]
+device = -1
+physical_keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_sd50v"]
+button_index = 9
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_delw2"]
+device = -1
+button_index = 11
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_guqwb"]
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_dstqo"]
+device = 1
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_gcmee"]
+device = 2
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ui86j"]
+device = 3
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_x73fb"]
+device = 4
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_atg37"]
+device = 5
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_7qgjp"]
+device = 6
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_iisj2"]
+device = 7
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_nm60d"]
+device = -1
+physical_keycode = 4194320
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_44mn7"]
+device = -1
+button_index = 10
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_dsfwl"]
+device = -1
+button_index = 3
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_1svs0"]
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_3p3c2"]
+device = 1
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_50xyt"]
+device = 2
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_w0ejl"]
+device = 3
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_x7u8x"]
+device = 4
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_3r2c1"]
+device = 5
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_57c6x"]
+device = 6
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_wljmh"]
+device = 7
+axis = 5
+axis_value = 1.0
+
+[resource]
+script = ExtResource("1")
+data = {
+"achievements": {
+"ambidexterity": true,
+"bellows": true,
+"box": true,
+"button": true,
+"directional_block": true,
+"dungeon_master": true,
+"final_stretch": true,
+"fireball": true,
+"glass": true,
+"moving_platform": true,
+"quantum_platform": true,
+"retries": true,
+"sandstone": true,
+"smasher": true,
+"speedrun": true,
+"spike_ball": true,
+"spiked_pendulum": true,
+"spikes": true,
+"springboard": true,
+"swapper": true,
+"switch": true,
+"symmetrical": true,
+"toggle_platform": true,
+"wooden_platform": true
+},
+"audio": {
+"master": 100,
+"music": 100,
+"sounds": 100
+},
+"controls": {
+"left_l": [SubResource("InputEventKey_ml362"), SubResource("InputEventJoypadButton_gmt3s"), SubResource("InputEventJoypadMotion_85pcq"), SubResource("InputEventJoypadMotion_i3bpj"), SubResource("InputEventJoypadMotion_ykfb5"), SubResource("InputEventJoypadMotion_2fwsd"), SubResource("InputEventJoypadMotion_4tfvx"), SubResource("InputEventJoypadMotion_axljm"), SubResource("InputEventJoypadMotion_umtdt"), SubResource("InputEventJoypadMotion_ptieu")],
+"left_r": [SubResource("InputEventKey_hcqek"), SubResource("InputEventJoypadButton_kdird"), SubResource("InputEventJoypadMotion_mx7kj"), SubResource("InputEventJoypadMotion_fchec"), SubResource("InputEventJoypadMotion_u1nql"), SubResource("InputEventJoypadMotion_d1eqs"), SubResource("InputEventJoypadMotion_0u4c8"), SubResource("InputEventJoypadMotion_rigt4"), SubResource("InputEventJoypadMotion_jq625"), SubResource("InputEventJoypadMotion_jcgtl")],
+"pause": [SubResource("InputEventKey_36nhc"), SubResource("InputEventJoypadButton_ktjy7")],
+"reset": [SubResource("InputEventKey_yxdgr"), SubResource("InputEventJoypadButton_1cjb0")],
+"right_l": [SubResource("InputEventKey_qow1q"), SubResource("InputEventJoypadButton_nqv0g"), SubResource("InputEventJoypadMotion_t2kaa"), SubResource("InputEventJoypadMotion_0caor"), SubResource("InputEventJoypadMotion_mo3kh"), SubResource("InputEventJoypadMotion_xs4d7"), SubResource("InputEventJoypadMotion_2xkk6"), SubResource("InputEventJoypadMotion_416yt"), SubResource("InputEventJoypadMotion_i77lv"), SubResource("InputEventJoypadMotion_mc6vu")],
+"right_r": [SubResource("InputEventKey_h3jn6"), SubResource("InputEventJoypadButton_irg7s"), SubResource("InputEventJoypadMotion_o7mrp"), SubResource("InputEventJoypadMotion_frqrl"), SubResource("InputEventJoypadMotion_vy1j7"), SubResource("InputEventJoypadMotion_a2q1p"), SubResource("InputEventJoypadMotion_kt25d"), SubResource("InputEventJoypadMotion_wo87b"), SubResource("InputEventJoypadMotion_mib84"), SubResource("InputEventJoypadMotion_bt5xm")],
+"up_l": [SubResource("InputEventKey_8d2ug"), SubResource("InputEventJoypadButton_sd50v"), SubResource("InputEventJoypadButton_delw2"), SubResource("InputEventJoypadMotion_guqwb"), SubResource("InputEventJoypadMotion_dstqo"), SubResource("InputEventJoypadMotion_gcmee"), SubResource("InputEventJoypadMotion_ui86j"), SubResource("InputEventJoypadMotion_x73fb"), SubResource("InputEventJoypadMotion_atg37"), SubResource("InputEventJoypadMotion_7qgjp"), SubResource("InputEventJoypadMotion_iisj2")],
+"up_r": [SubResource("InputEventKey_nm60d"), SubResource("InputEventJoypadButton_44mn7"), SubResource("InputEventJoypadButton_dsfwl"), SubResource("InputEventJoypadMotion_1svs0"), SubResource("InputEventJoypadMotion_3p3c2"), SubResource("InputEventJoypadMotion_50xyt"), SubResource("InputEventJoypadMotion_w0ejl"), SubResource("InputEventJoypadMotion_x7u8x"), SubResource("InputEventJoypadMotion_3r2c1"), SubResource("InputEventJoypadMotion_57c6x"), SubResource("InputEventJoypadMotion_wljmh")]
+},
+"default_save_file": 3,
+"extra_time": 0,
+"keyboard_test": true,
+"language": "en",
+"last_level": true,
+"save_file_1": {
+"cutscenes": 1,
+"ended": true,
+"extra_time": 0,
+"intro_cutscene": true,
+"level": 101,
+"mirror": 0,
+"order": 0,
+"retries": 85,
+"speedrun_pausable": 0,
+"speedrun_time": 1392.57,
+"speedrun_timer": 1,
+"swap": 0,
+"time": 1386.72
+},
+"save_file_2": {
+"cutscenes": 0,
+"ended": true,
+"extra_time": 0,
+"intro_cutscene": true,
+"level": 101,
+"mirror": 0,
+"order": 0,
+"retries": 0,
+"speedrun_pausable": 0,
+"speedrun_time": 80.4009,
+"speedrun_timer": 1,
+"swap": 0,
+"time": 69.2759
+},
+"save_file_3": {
+"cutscenes": 0,
+"ended": false,
+"extra_time": 10,
+"intro_cutscene": true,
+"level": 1,
+"mirror": 0,
+"order": 0,
+"retries": 0,
+"speedrun_pausable": 0,
+"speedrun_time": 41.8282,
+"speedrun_timer": 1,
+"swap": 0,
+"time": 8.8769
+},
+"save_file_4": {
+"ended": false,
+"level": 0,
+"retries": 0,
+"speedrun_time": 0,
+"time": 0
+},
+"save_file_5": {
+"cutscenes": 0,
+"ended": false,
+"level": 0,
+"mirror": 0,
+"order": 0,
+"retries": 0,
+"speedrun_pausable": 0,
+"speedrun_time": 0,
+"speedrun_timer": 0,
+"swap": 0,
+"time": 0
+},
+"save_file_6": {
+"cutscenes": 0,
+"ended": false,
+"extra_time": 0,
+"intro_cutscene": true,
+"level": 101,
+"mirror": 1,
+"order": 0,
+"retries": 0,
+"speedrun_pausable": 0,
+"speedrun_time": 26.7611,
+"speedrun_timer": 0,
+"swap": 0,
+"time": 21.7954
+},
+"save_file_7": {
+"ended": false,
+"extra_time": 0,
+"intro_cutscene": true,
+"level": 6,
+"retries": 0,
+"speedrun_time": 40.8748,
+"time": 39.3124
+},
+"save_file_8": {
+"ended": false,
+"level": 0,
+"retries": 0,
+"speedrun_time": 0,
+"time": 0
+},
+"save_file_9": {
+"cutscenes": 0,
+"ended": false,
+"extra_time": 0,
+"intro_cutscene": true,
+"level": 2,
+"mirror": 0,
+"order": 0,
+"retries": 0,
+"speedrun_pausable": 0,
+"speedrun_time": 32.5837,
+"speedrun_timer": 0,
+"swap": 0,
+"time": 18.3412
+},
+"video": {
+"fullscreen": true,
+"pixel_perfect": false,
+"shader_aberration": true,
+"shader_curvature": true,
+"shader_distortion": true,
+"shader_scanlines": true,
+"window_resolution": Vector2i(1775, 1103)
+}
+}

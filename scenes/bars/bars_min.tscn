@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx5xthi1un7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgkws"]
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ystlb"]
+size = Vector2(30, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x40q"]
+size = Vector2(26, 4)
+
+[node name="BarsMin" type="Sprite2D" groups=["bars"]]
+texture = SubResource("AtlasTexture_hgkws")
+
+[node name="BottomMarker" type="Marker2D" parent="."]
+position = Vector2(0, -12)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -14.5)
+shape = SubResource("RectangleShape2D_ystlb")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" groups=["bars_damage"]]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_8x40q")
+disabled = true

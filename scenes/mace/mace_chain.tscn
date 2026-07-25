@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn0ulr5lu2ry3"]
+
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1yr7"]
+atlas = ExtResource("1")
+region = Rect2(54, 36, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[node name="MaceChain" type="Sprite2D"]
+z_index = -4
+rotation = -1.5708
+texture = SubResource("AtlasTexture_j1yr7")

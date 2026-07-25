@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=4 uid="uid://hs58f80kchjg"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dcjonyvavvxv1" path="res://scenes/mace/mace.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://hfj4fk1p11c2" path="res://scenes/moving_platform/moving_platform.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cmqnu17jsp054" path="res://scenes/shooter/shooter.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://bq3hbcmjp5sg2" path="res://scenes/target/target.tscn" id="8"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 10.0
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAZAAQAAgAAAAEAAAD5//z/AgACAAAAAAD6//z/AgACAAAAAAD7//z/AgACAAAAAAD8//z/AgACAAAAAAD9//z/AgACAAAAAAD+//z/AgACAAAAAAD///z/AgACAAAAAAAAAPz/AgACAAAAAAABAPz/AgACAAAAAAACAPz/AgACAAAAAAADAPz/AgACAAAAAAAEAPz/AgACAAAAAAAFAPz/AgACAAAAAAAGAPz/AgACAAAAAAAHAPz/AgACAAAAAAAIAPz/AgACAAAAAAD///3/AgAAAAEAAAD///7/AgAAAAEAAAD/////AgAAAAEAAAD//wAAAgAAAAEAAAD//wEAAgAAAAEAAAD//wIAAgAAAAEAAAD//wMAAgAAAAEAAAD//wQAAgAAAAEAAAD//wUAAgAAAAEAAAD//wYAAgAAAAEAAAAAAAYAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAAAAgAAAAEAAAAAAP//AgAAAAEAAAAAAP7/AgAAAAEAAAAAAP3/AgAAAAEAAADz/wQAAgACAAAAAAD0/wQAAgACAAAAAAD1/wQAAgAAAAEAAAD2/wQAAgAAAAEAAAD3/wQAAgACAAAAAAD4/wQAAgACAAAAAAD5/wQAAgAAAAEAAAD5/wMAAgAAAAEAAAD5/wIAAgAAAAEAAAD5/wEAAgAAAAEAAAD5/wAAAgAAAAEAAAD5////AgACAAAAAAD3//z/AgAAAAEAAAD2//z/AgACAAAAAAD1//z/AgACAAAAAAD1//3/AgAAAAEAAAD1//7/AgAAAAEAAAD1////AgAAAAEAAAD1/wMAAgAEAAEAAAD2/wMAAgAEAAEAAAD3//v/AgAEAAEAAAD5/wUAAgAHAAAAAAD4/wUAAgAHAAAAAAD3/wUAAgAHAAAAAAD2/wUAAgAHAAAAAAD1/wUAAgAHAAAAAAD0/wUAAgAHAAAAAADz/wUAAgAHAAAAAAAJAPz/AgACAAAAAAAKAPz/AgACAAAAAAAMAAQAAgAEAAAAAAALAAQAAgAEAAAAAAAKAAQAAgAEAAAAAAAJAAQAAgAEAAAAAAAIAAQAAgAEAAAAAAAHAAQAAgAEAAAAAAAGAAQAAgAEAAAAAAAFAAQAAgAEAAAAAAAEAAQAAgAEAAAAAAADAAQAAgAEAAAAAAACAAQAAgAEAAAAAAABAAQAAgAEAAAAAAABAAAAAgAEAAAAAAACAAAAAgAEAAAAAAADAAAAAgAEAAAAAAAEAAAAAgAEAAAAAAAFAAAAAgAEAAAAAAAGAAAAAgAEAAAAAAAHAAAAAgAEAAAAAAAIAAAAAgAEAAAAAAAJAAAAAgAEAAAAAAAKAAAAAgAEAAAAAAALAAAAAgAEAAAAAAAMAAAAAgAEAAAAAAABAAIAAgAEAAAAAAAMAP7/AgAEAAAAAAAFAAYAAgAAAAEAAAAEAAYAAgAAAAEAAAADAAYAAgAAAAEAAAACAAYAAgAAAAEAAAABAAYAAgAAAAEAAAD4//z/AgACAAAAAAABAAUAAgAAAAEAAAACAAUAAgAAAAEAAAADAAUAAgAAAAEAAAAEAAUAAgAAAAEAAAAFAAUAAgAAAAEAAAANAAAAAgAAAAEAAAANAP//AgAAAAEAAAD8//j/AgAAAAEAAAADAPj/AgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 110)
+side = 2
+
+[node name="Mace" parent="." instance=ExtResource("4")]
+position = Vector2(-56, -112)
+duration = 2.0
+
+[node name="Mace2" parent="." instance=ExtResource("4")]
+position = Vector2(-56, -112)
+duration = 4.0
+start_left = false
+
+[node name="Mace3" parent="." instance=ExtResource("4")]
+position = Vector2(56, -112)
+duration = 4.0
+
+[node name="Mace4" parent="." instance=ExtResource("4")]
+position = Vector2(56, -112)
+duration = 2.0
+start_left = false
+
+[node name="MovingPlatform" parent="." instance=ExtResource("5")]
+position = Vector2(-88, 76)
+length = 5
+speed = 4.0
+long = true
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("5")]
+position = Vector2(-88, 44)
+length = 5
+speed = 3.0
+start_left = false
+long = true
+
+[node name="MovingPlatform3" parent="." instance=ExtResource("5")]
+position = Vector2(-88, 12)
+length = 5
+speed = 4.0
+start_left = false
+long = true
+
+[node name="CrumblingPlatform" parent="." instance=ExtResource("6")]
+position = Vector2(-200, 24)
+
+[node name="CrumblingPlatform2" parent="." instance=ExtResource("6")]
+position = Vector2(-184, 24)
+
+[node name="CrumblingPlatform3" parent="." instance=ExtResource("6")]
+position = Vector2(-200, -8)
+
+[node name="CrumblingPlatform4" parent="." instance=ExtResource("6")]
+position = Vector2(-184, -8)
+
+[node name="CrumblingPlatform5" parent="." instance=ExtResource("6")]
+position = Vector2(-200, -40)
+
+[node name="CrumblingPlatform6" parent="." instance=ExtResource("6")]
+position = Vector2(-184, -40)
+
+[node name="Shooter" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7")]
+position = Vector2(24, 67)
+rotation = -3.14159
+prepopulation_offset = 0.5
+target = NodePath("../Target")
+
+[node name="Target" parent="." instance=ExtResource("8")]
+position = Vector2(200, 67)
+rotation = 3.14159
+
+[node name="Shooter2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7")]
+position = Vector2(200, 3)
+prepopulation_offset = 0.5
+target = NodePath("../Target2")
+
+[node name="Target2" parent="." instance=ExtResource("8")]
+position = Vector2(24, 3)

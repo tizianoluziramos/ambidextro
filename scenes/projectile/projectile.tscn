@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://bsudxgc35ko4b"]
+
+[ext_resource type="Script" path="res://scenes/projectile/projectile.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://dvf37t60bmd1y" path="res://assets/sfx/ArrowImpact1.mp3" id="3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6mrk2"]
+radius = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgquy"]
+atlas = ExtResource("2")
+region = Rect2(90, 36, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynq2x"]
+atlas = ExtResource("2")
+region = Rect2(108, 36, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xtc3"]
+atlas = ExtResource("2")
+region = Rect2(126, 36, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jbkm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgquy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynq2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xtc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynq2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Projectile" type="AnimatableBody2D" node_paths=PackedStringArray("animation", "audio", "collision", "sprite")]
+z_index = -1
+z_as_relative = false
+collision_layer = 2
+collision_mask = 2
+sync_to_physics = false
+script = ExtResource("1")
+animation = NodePath("Mask/AnimatedSprite2D")
+audio = NodePath("AudioStreamPlayer2D")
+collision = NodePath("CollisionShape2D")
+sprite = NodePath("Mask/AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6mrk2")
+
+[node name="Mask" type="ColorRect" parent="."]
+clip_contents = true
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 12.0
+offset_bottom = 6.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mask"]
+position = Vector2(8, 6)
+rotation = 3.14159
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_6jbkm")
+frame_progress = 0.22265
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3")
+volume_db = -5.0
+panning_strength = 2.5
+bus = &"Projectile"

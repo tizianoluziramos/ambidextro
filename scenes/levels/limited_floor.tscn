@@ -1,0 +1,171 @@
+[gd_scene load_steps=15 format=4 uid="uid://dofyfrdonxoyx"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://626abysmbyys" path="res://scenes/toggle_platform/toggle_platform_r.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://c5fs87a6onot8" path="res://scenes/swapper/swapper_container.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://baxaglhdovda4" path="res://scenes/swapper/swapper.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cbdveht8gtgwk" path="res://scenes/quantum_cube/quantum_manager.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://dkujj037vmli3" path="res://scenes/quantum_cube/quantum_cube.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://plorlk2r38r" path="res://scenes/bars/bars_container.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://lnej0x7u6a48" path="res://scenes/bars/bars.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://cmqnu17jsp054" path="res://scenes/shooter/shooter.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://bq3hbcmjp5sg2" path="res://scenes/target/target.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://naknfr18rbr6" path="res://scenes/switch/switch.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="14"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." node_paths=PackedStringArray("quantum_managers") instance=ExtResource("1")]
+time = 9.0
+quantum_managers = [NodePath("QuantumManager"), NodePath("QuantumManager2")]
+toggles_should_swap_on_chara_swap = true
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz/wUAAgAFAAUAAADz/wYAAgAFAAYAAAALAPn/AgAFAAQAAADz//3/AgABAAQAAAD5//3/AgABAAQAAAD7//n/AgABAAQAAAACAPn/AgABAAQAAAAMAPn/AgABAAQAAAD2/wIAAgABAAQAAADz/wQAAgABAAQAAAD2/wYAAgABAAQAAAD///z/AgABAAQAAAD0//3/AgACAAQAAADz//7/AgACAAQAAAD8//n/AgACAAQAAAD7//r/AgACAAQAAAD4//3/AgAAAAQAAAD5//7/AgAAAAQAAAD2/wMAAgAAAAQAAAABAPn/AgAAAAQAAAACAPr/AgAAAAQAAAD+//z/AgAAAAQAAAD///3/AgAAAAQAAAAMAPr/AgAAAAQAAAAJAAEAAgAGAAQAAAAFAAEAAgAGAAQAAAD+//r/AgAGAAQAAAD6////AgADAAQAAAD6/wAAAgADAAQAAAD6/wEAAgADAAQAAAD6/wIAAgADAAQAAAD1/wAAAgAEAAQAAAD+/wMAAgAEAAQAAAD8//7/AgAEAAQAAAABAP7/AgAEAAQAAAACAAQAAgAEAAQAAAAIAAYAAgAEAAQAAAALAAMAAgAEAAQAAAAMAP7/AgAEAAQAAAAMAP//AgAHAAQAAAAKAAQAAgAHAAQAAAAHAAUAAgAHAAQAAAACAAMAAgAHAAQAAAACAP3/AgAHAAQAAAD8//3/AgAHAAQAAAD+/wQAAgAHAAQAAAD4/wMAAgAHAAQAAAD2/wAAAgAHAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAYAAgAAAAEAAAABAAYAAgAFAAEAAAACAAYAAgAFAAEAAAADAAYAAgAFAAEAAAAEAAYAAgAFAAEAAAAFAAYAAgAFAAEAAAAGAAYAAgAFAAEAAAAHAAYAAgAFAAEAAAAIAAYAAgAFAAEAAAAJAAYAAgAFAAEAAAAKAAYAAgAFAAEAAAALAAYAAgAFAAEAAAAMAAYAAgAFAAEAAAAAAAUAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAAAAgAAAAEAAAAAAP//AgAAAAEAAAAAAP7/AgAAAAEAAAAAAP3/AgAAAAEAAAAAAPz/AgAAAAEAAAD3/wYAAgAAAAEAAAD3/wUAAgAAAAEAAAD3/wQAAgAAAAEAAAD3/wMAAgAAAAEAAAD3/wIAAgAAAAEAAAD2/wUAAgACAAAAAADz/wMAAgACAAAAAAALAPv/AgAAAAEAAAALAPz/AgAAAAEAAAALAP3/AgAAAAEAAAALAP7/AgAAAAEAAAALAP//AgAAAAEAAAD2/wEAAgACAAAAAAD3/wEAAgACAAAAAAD//wMAAgACAAAAAAD6//7/AgAAAAEAAAD6//3/AgAAAAEAAAD6//z/AgAAAAEAAAD6//v/AgAAAAEAAAD6//r/AgAAAAEAAAD6//n/AgAAAAEAAAD+//z/AgADAAAAAAD///z/AgADAAAAAAAAAPv/AgAFAAEAAAAKAPr/AgAAAAEAAAAKAPn/AgAAAAEAAAALAPr/AgACAAAAAAD4/wUAAgAEAAEAAAD4/wYAAgAAAAEAAAD5/wUAAgAEAAEAAAD5/wYAAgAAAAEAAAD6/wUAAgAEAAEAAAD6/wYAAgAAAAEAAAD7/wUAAgAEAAEAAAD7/wYAAgAAAAEAAAD8/wUAAgAEAAEAAAD8/wYAAgAAAAEAAAD9/wUAAgAEAAEAAAD9/wYAAgAAAAEAAAD+/wUAAgAEAAEAAAD+/wYAAgAAAAEAAAD//wUAAgAAAAEAAAD//wYAAgAAAAEAAAD//wQAAgAAAAEAAADz//n/AgAAAAEAAADz//r/AgAAAAEAAADz//v/AgAAAAEAAADz//z/AgAAAAEAAAD0//n/AgAAAAEAAAD0//r/AgAAAAEAAAD0//v/AgAAAAEAAAD0//z/AgAAAAEAAAD1//n/AgAAAAEAAAD1//r/AgAAAAEAAAD1//v/AgAAAAEAAAD1//z/AgAAAAEAAAD2//n/AgAAAAEAAAD2//r/AgAAAAEAAAD2//v/AgAAAAEAAAD2//z/AgAAAAEAAAD3//n/AgAAAAEAAAD3//r/AgAAAAEAAAD3//v/AgAAAAEAAAD3//z/AgAAAAEAAAD4//n/AgAAAAEAAAD4//r/AgAAAAEAAAD4//v/AgAAAAEAAAD4//z/AgAAAAEAAAD5//n/AgAAAAEAAAD5//r/AgAAAAEAAAD5//v/AgAAAAEAAAD5//z/AgAAAAEAAAAKAPv/AgAAAAEAAAAKAPz/AgAAAAEAAAAKAP3/AgAAAAEAAAAKAP7/AgAAAAEAAAAKAP//AgAAAAEAAAAEAPn/AgAAAAEAAAAEAPr/AgAAAAEAAAAEAPv/AgAAAAEAAAAEAPz/AgAAAAEAAAAEAP3/AgAAAAEAAAAEAP7/AgAAAAEAAAAEAP//AgAAAAEAAAAFAPn/AgAAAAEAAAAFAPr/AgAAAAEAAAAFAPv/AgAAAAEAAAAFAPz/AgAAAAEAAAAFAP3/AgAAAAEAAAAFAP7/AgAAAAEAAAAFAP//AgAAAAEAAAAGAPn/AgAAAAEAAAAGAPr/AgAAAAEAAAAGAPv/AgAAAAEAAAAGAPz/AgAAAAEAAAAGAP3/AgAAAAEAAAAGAP7/AgAAAAEAAAAGAP//AgAAAAEAAAAHAPn/AgAAAAEAAAAHAPr/AgAAAAEAAAAHAPv/AgAAAAEAAAAHAPz/AgAAAAEAAAAHAP3/AgAAAAEAAAAHAP7/AgAAAAEAAAAHAP//AgAAAAEAAAAIAPn/AgAAAAEAAAAIAPr/AgAAAAEAAAAIAPv/AgAAAAEAAAAIAPz/AgAAAAEAAAAIAP3/AgAAAAEAAAAIAP7/AgAAAAEAAAAIAP//AgAAAAEAAAAJAPn/AgAAAAEAAAAJAPr/AgAAAAEAAAAJAPv/AgAAAAEAAAAJAPz/AgAAAAEAAAAJAP3/AgAAAAEAAAAJAP7/AgAAAAEAAAAJAP//AgAAAAEAAAADAPn/AgAAAAEAAAADAPr/AgAAAAEAAAADAPv/AgAAAAEAAAADAPz/AgAAAAEAAAADAP3/AgAAAAEAAAADAP7/AgAAAAEAAAADAP//AgAAAAEAAAANAAQAAgAAAAEAAADy/wMAAgAAAAEAAADy//z/AgAAAAEAAADy//v/AgAAAAEAAADy//r/AgAAAAEAAADy//n/AgAAAAEAAADy//j/AgAAAAEAAADz//j/AgAAAAEAAAD0//j/AgAAAAEAAAD1//j/AgAAAAEAAAD2//j/AgAAAAEAAAD3//j/AgAAAAEAAAD4//j/AgAAAAEAAAD5//j/AgAAAAEAAAD6//j/AgAAAAEAAAADAPj/AgAAAAEAAAAEAPj/AgAAAAEAAAAFAPj/AgAAAAEAAAAGAPj/AgAAAAEAAAAHAPj/AgAAAAEAAAAIAPj/AgAAAAEAAAAJAPj/AgAAAAEAAAAKAPj/AgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD3/wYAAgAJAAAAAAD3/wQAAgAJAAAAAAD3/wMAAgAJAAAAAAD3/wIAAgAJAAAAAAD2/wUAAgAJAAAAAAD3/wUAAgAKAAAAACD3/wEAAgANAAMAAAD2/wEAAgAJAAAAAAD//wUAAgALAAAAACD//wQAAgAJAAAAAAD//wMAAgAJAAAAAAAAAAIAAgAJAAAAAAAAAAEAAgAJAAAAAAAAAAAAAgAJAAAAAAAAAP//AgAJAAAAAAAAAP7/AgAJAAAAAAAAAP3/AgAJAAAAAAAAAAMAAgAKAAAAACAAAPz/AgAJAAQAAAD+//z/AgALAAAAACD6//7/AgAJAAAAAAD6//3/AgAJAAAAAAD6//z/AgANAAMAAAADAPj/AgANAAMAAAAAAPv/AgAKAAAAAAADAPn/AgAJAAAAAAADAPr/AgAJAAAAAAADAPv/AgAJAAAAAAADAPz/AgAJAAAAAAADAP3/AgAJAAAAAAADAP7/AgAJAAAAAAADAP//AgAJAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADy/wMAAgAKAAAAADDz/wMAAgAJAAAAABDy//z/AgANAAMAABD3/wEAAgAJAAAAABD3/wIAAgAJAAAAABD3/wMAAgAJAAAAABD3/wQAAgAJAAAAABD3/wUAAgALAAAAADD6//7/AgAJAAAAABD6//3/AgAJAAAAABD6//z/AgAJAAAAABD6//v/AgAJAAAAABD6//r/AgAJAAAAABD6//n/AgAJAAAAABD6//j/AgANAAMAABAAAPv/AgAKAAAAABAAAPz/AgAJAAAAABAAAP3/AgAJAAAAABAAAP7/AgAJAAAAABAAAP//AgAJAAAAABAAAAAAAgAJAAAAABAAAAEAAgAJAAAAABAAAAIAAgAJAAAAABAAAAMAAgAJAAAAABAAAAQAAgAJAAAAABAAAAUAAgAJAAAAABAAAAYAAgAJAAAAABALAP//AgAJAAAAABALAP7/AgAJAAAAABALAP3/AgAJAAAAABALAPz/AgAJAAAAABALAPv/AgAJAAAAABALAPr/AgAJAAAAABAKAPn/AgAJAAAAABAKAPj/AgANAAMAABAKAPr/AgAKAAAAADA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADz/wMAAgAJAAAAAGD2/wUAAgAJAAAAAGD2/wEAAgAJAAAAAGDz//z/AgAJAAAAAGD0//z/AgAJAAAAAGD1//z/AgAJAAAAAGD2//z/AgAJAAAAAGD3//z/AgAJAAAAAGD4//z/AgAJAAAAAGD5//z/AgAJAAAAAGD6//7/AgAJAAAAAGADAP//AgAJAAAAAGAEAP//AgAJAAAAAGAFAP//AgAJAAAAAGAGAP//AgAJAAAAAGAHAP//AgAJAAAAAGAIAP//AgAJAAAAAGAJAP//AgAJAAAAAGAKAP//AgAJAAAAAGALAP//AgAJAAAAAGD+//z/AgALAAIAAAD///z/AgALAAIAAADy/wMAAgANAAMAABD3/wUAAgANAAMAAAAAAPz/AgAKAAAAACA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(184, -94)
+side = 2
+
+[node name="TogglePlatformR" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-8, 12)
+toggle_count = 3
+
+[node name="TogglePlatformR2" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-56, -20)
+toggle_count = 3
+
+[node name="TogglePlatformR3" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-72, -20)
+toggle_count = 3
+
+[node name="SwapperContainer" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(62, 0)
+
+[node name="Swapper" parent="LevelLayout/SwapperContainer" instance=ExtResource("6")]
+
+[node name="Swapper2" parent="LevelLayout/SwapperContainer" instance=ExtResource("6")]
+position = Vector2(3.55402e-05, 16)
+
+[node name="Swapper3" parent="LevelLayout/SwapperContainer" instance=ExtResource("6")]
+position = Vector2(7.10805e-05, 32)
+
+[node name="Swapper4" parent="LevelLayout/SwapperContainer" instance=ExtResource("6")]
+position = Vector2(7.10805e-05, 48)
+
+[node name="Swapper5" parent="LevelLayout/SwapperContainer" instance=ExtResource("6")]
+position = Vector2(7.10805e-05, 64)
+
+[node name="QuantumManager" parent="LevelLayout" instance=ExtResource("7")]
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager" instance=ExtResource("8")]
+position = Vector2(-120, 72)
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager" instance=ExtResource("8")]
+position = Vector2(-104, 72)
+start_active = false
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager" instance=ExtResource("8")]
+position = Vector2(-88, 72)
+start_active = false
+
+[node name="QuantumManager2" parent="LevelLayout" instance=ExtResource("7")]
+position = Vector2(64, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager2" instance=ExtResource("8")]
+position = Vector2(-120, 72)
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager2" instance=ExtResource("8")]
+position = Vector2(-104, 72)
+start_active = false
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager2" instance=ExtResource("8")]
+position = Vector2(-88, 72)
+
+[node name="BarsContainer" parent="." instance=ExtResource("9")]
+position = Vector2(-208, 24)
+rotation = -1.57079
+
+[node name="BarsFull" parent="BarsContainer" instance=ExtResource("10")]
+position = Vector2(6.9938e-07, 0)
+
+[node name="BarsFull2" parent="BarsContainer" instance=ExtResource("10")]
+position = Vector2(0.000100581, 16)
+
+[node name="BarsFull3" parent="BarsContainer" instance=ExtResource("10")]
+position = Vector2(0.000200462, 32)
+
+[node name="Shooter" parent="." node_paths=PackedStringArray("target") instance=ExtResource("11")]
+position = Vector2(24, 74)
+rotation = 3.14159
+speed = 300.0
+prepopulation_offset = 0.5
+target = NodePath("../Target")
+
+[node name="Target" parent="." instance=ExtResource("12")]
+position = Vector2(200, 74)
+rotation = -3.14159
+
+[node name="Switch" parent="." instance=ExtResource("13")]
+position = Vector2(200, -8)
+
+[node name="CrumblingPlatform" parent="." instance=ExtResource("14")]
+position = Vector2(24, 82)
+
+[node name="CrumblingPlatform2" parent="." instance=ExtResource("14")]
+position = Vector2(40, 82)
+
+[node name="CrumblingPlatform3" parent="." instance=ExtResource("14")]
+position = Vector2(56, 82)
+
+[node name="CrumblingPlatform4" parent="." instance=ExtResource("14")]
+position = Vector2(72, 82)
+
+[node name="CrumblingPlatform5" parent="." instance=ExtResource("14")]
+position = Vector2(88, 82)
+
+[node name="CrumblingPlatform6" parent="." instance=ExtResource("14")]
+position = Vector2(104, 82)
+
+[node name="CrumblingPlatform7" parent="." instance=ExtResource("14")]
+position = Vector2(120, 82)
+
+[node name="CrumblingPlatform8" parent="." instance=ExtResource("14")]
+position = Vector2(136, 82)
+
+[node name="CrumblingPlatform9" parent="." instance=ExtResource("14")]
+position = Vector2(152, 82)
+
+[node name="CrumblingPlatform10" parent="." instance=ExtResource("14")]
+position = Vector2(168, 82)
+
+[node name="CrumblingPlatform11" parent="." instance=ExtResource("14")]
+position = Vector2(184, 82)
+
+[node name="CrumblingPlatform12" parent="." instance=ExtResource("14")]
+position = Vector2(200, 82)

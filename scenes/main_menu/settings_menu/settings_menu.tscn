@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://juk7oxq1e3mw"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/settings_menu/settings_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="4"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="6"]
+
+[node name="SettingsMenu" type="Node2D" node_paths=PackedStringArray("options", "labels")]
+script = ExtResource("1")
+options = NodePath("Options")
+labels = [NodePath("Settings/Title"), NodePath("Settings/VBoxContainer/Language"), NodePath("Settings/VBoxContainer/Video"), NodePath("Settings/VBoxContainer/Audio"), NodePath("Settings/VBoxContainer/Controls"), NodePath("Settings/VBoxContainer/Accessibility"), NodePath("Settings/VBoxContainer/Data"), NodePath("Settings/VBoxContainer/Credits"), NodePath("Settings/VBoxContainer/Back")]
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Options" type="Node" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+script = ExtResource("4")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("../Settings/SelectionArrow")
+options = [NodePath("../Settings/VBoxContainer/Language"), NodePath("../Settings/VBoxContainer/Video"), NodePath("../Settings/VBoxContainer/Audio"), NodePath("../Settings/VBoxContainer/Controls"), NodePath("../Settings/VBoxContainer/Accessibility"), NodePath("../Settings/VBoxContainer/Data"), NodePath("../Settings/VBoxContainer/Credits"), NodePath("../Settings/VBoxContainer/Back")]
+
+[node name="Settings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -97.0
+offset_right = 230.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 0
+offset_left = -250.0
+offset_top = -34.0
+offset_right = 250.0
+offset_bottom = 102.0
+theme_override_constants/separation = 0
+
+[node name="Language" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Language"
+horizontal_alignment = 1
+
+[node name="Video" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Video"
+horizontal_alignment = 1
+
+[node name="Audio" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Accessibility" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Accessibility"
+horizontal_alignment = 1
+
+[node name="Data" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Data
+"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Separator" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "
+"
+horizontal_alignment = 1
+
+[node name="Back" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="SelectionArrow" type="Node2D" parent="Settings"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Settings/SelectionArrow"]
+texture = ExtResource("6")
+centered = false

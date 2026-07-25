@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cq54aflwhakb0"
+path="res://.godot/imported/camera 6 shutter mechanism mono 192kHz.mp3-dcfa0cad12912f6bf4f3f3e7ae75a43f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/camera 6 shutter mechanism mono 192kHz.mp3"
+dest_files=["res://.godot/imported/camera 6 shutter mechanism mono 192kHz.mp3-dcfa0cad12912f6bf4f3f3e7ae75a43f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

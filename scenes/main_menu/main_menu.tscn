@@ -1,0 +1,656 @@
+[gd_scene load_steps=29 format=3 uid="uid://ddjkj5tq4p1s"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="4"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="5"]
+[ext_resource type="PackedScene" uid="uid://bkvryhxdh1us4" path="res://scenes/mobile/clickable_area/clickable_area.tscn" id="6"]
+[ext_resource type="FontFile" uid="uid://bi25slua7huqa" path="res://assets/fonts/lanapixel_everything/LanaPixel.ttf" id="7"]
+[ext_resource type="FontFile" uid="uid://cuibndptg6bn2" path="res://assets/fonts/byte_bounce/bytebounce.medium.ttf" id="8"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://cn37bovla4stg" path="res://assets/sprites/title_wizards/wizards_united.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://cv4tidcvwq7n3" path="res://assets/sprites/title_wizards/wizard_left_.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://b7uftl6vsxgbg" path="res://assets/sprites/title_wizards/wizard_right_.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bpulo7gxog2c1" path="res://assets/sprites/forest_tileset_16.png" id="13"]
+[ext_resource type="AudioStream" uid="uid://cjyrrg4jsmpgw" path="res://assets/sfx/Weapons_SwordWhoosh_Type2_05.wav" id="14"]
+[ext_resource type="AudioStream" uid="uid://ia7vt3xjbj7f" path="res://assets/sfx/Baseball Ball Throw - Uniform Jersey Clothing Swoosh Whoosh Throwing Noise - 02    [008602].wav" id="15"]
+[ext_resource type="AudioStream" uid="uid://bsyi41r753jh8" path="res://assets/sfx/Builder_Game_Magic_Buff_Fire_1.wav" id="16"]
+[ext_resource type="Texture2D" uid="uid://bmxsir2sgepb7" path="res://assets/sprites/ambidextro_logo_pixel.png" id="17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywiko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhkp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmvai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byx0h"]
+
+[sub_resource type="Theme" id="Theme_dkr28"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("7")
+Button/styles/disabled = SubResource("StyleBoxEmpty_ywiko")
+Button/styles/focus = SubResource("StyleBoxEmpty_jhkp4")
+Button/styles/hover = SubResource("StyleBoxEmpty_jmvai")
+Button/styles/normal = SubResource("StyleBoxEmpty_byx0h")
+Button/styles/pressed = null
+Label/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("8")
+
+[sub_resource type="Animation" id="Animation_r0cb2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/WizardsUnited:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/WizardRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/WizardLeft:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/WizardLeft:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/WizardLeft:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-6.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/WizardRight:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/WizardRight:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-6.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/WizardsUnited:scale:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.9, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer/WizardsUnited:scale:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AnimationPlayer/CPUParticles2D_1:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AnimationPlayer/CPUParticles2D_2:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AnimationPlayer/AudioStreamPlayerWhoosh2:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AnimationPlayer/AudioStreamPlayerMagic:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimationPlayer/AudioStreamPlayerWhoosh1:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer/WizardsUnited:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("WizardsUnitedFinal:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_50mq5"]
+resource_name = "fade_in"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/WizardLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/WizardRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WizardsUnitedFinal:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6hajm"]
+resource_name = "fuse"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/WizardsUnited:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.93333, 2.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/WizardRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.93333, 2.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/WizardLeft:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.93333, 2.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/WizardLeft:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, -150, -0.25, 0, 0.25, 0, -170, -0.25, 0, 0.25, 0, -38, -0.0666667, -0.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.5, 2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/WizardLeft:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-6, -0.25, 0, 0.25, 0, -6, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0, -6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.5, 2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/WizardRight:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(150, -0.25, 0, 0.25, 0, 150, -0.25, 0, 0.25, 0, 170, -0.25, 0, 0.25, 0, 38, -0.0666667, 0.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.5, 2)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/WizardRight:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-6, -0.25, 0, 0.25, 0, -6.5, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0, -6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.5, 2)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/WizardsUnited:scale:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 2.2, 2.5)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer/WizardsUnited:scale:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 2.2, 2.5)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AnimationPlayer/CPUParticles2D_1:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AnimationPlayer/CPUParticles2D_2:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AnimationPlayer/AudioStreamPlayerWhoosh2:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AnimationPlayer/AudioStreamPlayerMagic:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimationPlayer/AudioStreamPlayerWhoosh1:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer/WizardsUnited:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("WizardsUnitedFinal:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(2.46667, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ssymb"]
+_data = {
+"RESET": SubResource("Animation_r0cb2"),
+"fade_in": SubResource("Animation_50mq5"),
+"fuse": SubResource("Animation_6hajm")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fumoy"]
+atlas = ExtResource("13")
+region = Rect2(36, 126, 18, 18)
+
+[sub_resource type="Gradient" id="Gradient_h3pde"]
+offsets = PackedFloat32Array(0, 0.554955, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("options", "labels", "animation_player", "v_box_container", "logo", "wizard_left", "wizard_right")]
+script = ExtResource("1")
+options = NodePath("Options")
+labels = [NodePath("Options/VBoxContainer/Play"), NodePath("Options/VBoxContainer/Levels"), NodePath("Options/VBoxContainer/Settings"), NodePath("Options/VBoxContainer/Exit")]
+animation_player = NodePath("AnimationPlayer")
+v_box_container = NodePath("Options/VBoxContainer")
+logo = NodePath("TitleLogo")
+wizard_left = NodePath("AnimationPlayer/WizardLeft")
+wizard_right = NodePath("AnimationPlayer/WizardRight")
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Options" type="Control" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("SelectionArrow")
+options = [NodePath("VBoxContainer/Play"), NodePath("VBoxContainer/Levels"), NodePath("VBoxContainer/Settings"), NodePath("VBoxContainer/Exit")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 0
+offset_left = -256.0
+offset_top = 14.0
+offset_right = 256.0
+offset_bottom = 226.0
+localize_numeral_system = false
+theme_override_constants/separation = 0
+
+[node name="Play" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme = ExtResource("5")
+text = "PLAY"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/Play" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 13.0
+offset_right = 40.0
+offset_bottom = 27.0
+options = NodePath("../../..")
+
+[node name="Levels" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dkr28")
+text = "LEVELS"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/Levels" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 42.0
+options = NodePath("../../..")
+
+[node name="Settings" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dkr28")
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/Settings" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 43.0
+offset_right = 40.0
+offset_bottom = 57.0
+options = NodePath("../../..")
+
+[node name="Exit" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dkr28")
+text = "EXIT"
+horizontal_alignment = 1
+
+[node name="SelectionArrow" type="Node2D" parent="Options"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Options/SelectionArrow"]
+texture = ExtResource("9")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WizardsUnitedFinal" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = -10
+position = Vector2(0, -16)
+texture = ExtResource("10")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ssymb")
+}
+
+[node name="WizardLeft" type="Sprite2D" parent="AnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(-150, -6.5)
+texture = ExtResource("11")
+
+[node name="WizardRight" type="Sprite2D" parent="AnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(150, -6.5)
+texture = ExtResource("12")
+
+[node name="WizardsUnited" type="Sprite2D" parent="AnimationPlayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = -10
+position = Vector2(0, -16)
+scale = Vector2(0.9, 1)
+texture = ExtResource("10")
+
+[node name="CPUParticles2D_1" type="CPUParticles2D" parent="AnimationPlayer"]
+z_index = -14
+rotation = -1.5708
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+preprocess = 0.3
+explosiveness = 1.0
+randomness = 1.0
+texture = SubResource("AtlasTexture_fumoy")
+direction = Vector2(0, 0)
+spread = 120.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+color_ramp = SubResource("Gradient_h3pde")
+
+[node name="CPUParticles2D_2" type="CPUParticles2D" parent="AnimationPlayer"]
+z_index = -15
+rotation = -1.5708
+emitting = false
+amount = 200
+lifetime = 2.0
+preprocess = 0.3
+randomness = 1.0
+texture = SubResource("AtlasTexture_fumoy")
+direction = Vector2(0, 0)
+spread = 120.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+color_ramp = SubResource("Gradient_h3pde")
+
+[node name="AudioStreamPlayerWhoosh1" type="AudioStreamPlayer" parent="AnimationPlayer"]
+stream = ExtResource("14")
+volume_db = 5.0
+pitch_scale = 0.75
+bus = &"SFX"
+
+[node name="AudioStreamPlayerWhoosh2" type="AudioStreamPlayer" parent="AnimationPlayer"]
+stream = ExtResource("15")
+bus = &"SFX"
+
+[node name="AudioStreamPlayerMagic" type="AudioStreamPlayer" parent="AnimationPlayer"]
+stream = ExtResource("16")
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="TitleLogo" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.901961, 0.901961, 1)
+position = Vector2(0, -52)
+texture = ExtResource("17")

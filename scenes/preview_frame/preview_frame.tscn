@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cvunwx74qa4x3"]
+
+[node name="PreviewFrame" type="ColorRect"]
+z_index = -30
+offset_left = -114.0
+offset_top = -94.0
+offset_right = 114.0
+offset_bottom = 38.0
+color = Color(0.473958, 0.473958, 0.473958, 1)
+
+[node name="PreviewFrame2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 131.0
+color = Color(0.283854, 0.283854, 0.283854, 1)

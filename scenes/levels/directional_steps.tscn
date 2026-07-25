@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=4 uid="uid://dd2vp5wkshrwm"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bk5wkvb2swvfv" path="res://scenes/directional_block/directional_block.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://hfj4fk1p11c2" path="res://scenes/moving_platform/moving_platform.tscn" id="5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 7.5
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz//n/AgABAAQAAAAMAPn/AgABAAQAAAD0//n/AgACAAQAAADz//r/AgACAAQAAAALAPn/AgAAAAQAAAAMAPr/AgAAAAQAAAAMAAQAAgAFAAQAAADz/wUAAgAFAAUAAADz/wYAAgAFAAYAAAACAP//AgAGAAQAAAAIAP//AgAGAAQAAAD3////AgAGAAQAAAD6/wYAAgAEAAQAAAD0/wMAAgAEAAQAAAD6//z/AgAEAAQAAAD9//n/AgAEAAQAAAAGAPr/AgAEAAQAAAD9//3/AgAEAAQAAAAEAAIAAgAEAAQAAAAKAAUAAgAEAAQAAAAMAAEAAgAEAAQAAAD9/wQAAgAEAAQAAAAJAAUAAgAHAAQAAAD+/wMAAgAHAAQAAAAMAAAAAgAHAAQAAAAFAAEAAgAHAAQAAAD9//z/AgAHAAQAAAAFAPn/AgAHAAQAAAD8//r/AgAHAAQAAAD6//3/AgAHAAQAAADz/wMAAgAHAAQAAAD6/wUAAgAHAAQAAAD5/wYAAgAHAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD7/wYAAgAAAAEAAAD7/wUAAgAAAAEAAAD7/wQAAgAAAAEAAAD7/wMAAgAAAAEAAAD7/wIAAgAAAAEAAAD7/wEAAgAAAAEAAAD7/wAAAgAAAAEAAAD7////AgAAAAEAAAD7//7/AgAAAAEAAAD7//3/AgAAAAEAAAD7//z/AgAAAAEAAAD7//v/AgACAAAAAAAMAAYAAgAAAAEAAAALAAYAAgAAAAEAAAALAAUAAgACAAAAAAAMAAUAAgACAAAAAAAKAAYAAgAEAAEAAAAJAAYAAgAEAAEAAAAIAAYAAgAEAAEAAAAHAAYAAgAEAAEAAAAGAAYAAgAEAAEAAAAFAAYAAgAEAAEAAAAEAAYAAgAEAAEAAAADAAYAAgAEAAEAAAACAAYAAgAEAAEAAAABAAYAAgAEAAEAAAAAAAYAAgAEAAEAAAD//wYAAgAEAAEAAAD+/wYAAgAEAAEAAAD9/wYAAgAEAAEAAAD8/wYAAgAEAAEAAAD8/wMAAgAGAAAAAAD9/wMAAgAGAAAAAAD8/wEAAgAGAAAAAAD9/wEAAgAGAAAAAAD8//v/AgAGAAAAAAD9//v/AgAGAAAAAAD+//v/AgAGAAAAAAD///v/AgAGAAAAAAAAAPv/AgAGAAAAAAABAPv/AgAGAAAAAAACAPv/AgAGAAAAAAADAPv/AgAGAAAAAAAEAPv/AgAGAAAAAAAFAPv/AgAGAAAAAAAGAPv/AgAGAAAAAAAHAPv/AgAGAAAAAAAIAPv/AgAGAAAAAAAJAPv/AgAGAAAAAAAKAPv/AgAGAAAAAAALAPv/AgAGAAAAAAAMAPv/AgAGAAAAAAD6//v/AgAGAAAAAAD5//v/AgAGAAAAAAD4//v/AgAGAAAAAAD3//v/AgAGAAAAAAD2//v/AgAGAAAAAAD1//v/AgAGAAAAAAD0//v/AgAGAAAAAADz//v/AgAGAAAAAADz//z/AgAHAAEAAAD6//7/AgAGAAEAAAAMAPz/AgAGAAEAAAANAAUAAgAAAAEAAAANAAYAAgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD7//v/AgAJAAAAAAD7//z/AgAJAAAAAAD7//3/AgAJAAAAAAD7//7/AgAJAAAAAAD7////AgAJAAAAAAD7/wAAAgAJAAAAAAD7/wEAAgAJAAAAAAD7/wIAAgAJAAAAAAD7/wMAAgAJAAAAAAD7/wQAAgAJAAAAAAD7/wUAAgAJAAAAAAD7/wYAAgAJAAAAAAALAAYAAgALAAAAACALAAUAAgAJAAAAAAANAAUAAgAKAAAAACA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD7//v/AgAJAAAAABD7//z/AgAJAAAAABD7//3/AgAJAAAAABD7//7/AgAJAAAAABD7////AgAJAAAAABD7/wAAAgAJAAAAABD7/wEAAgAJAAAAABD7/wIAAgAJAAAAABD7/wMAAgAJAAAAABD7/wQAAgAJAAAAABD7/wUAAgAJAAAAABD7/wYAAgALAAAAADD9/wMAAgALAAQAABD9/wEAAgALAAQAABA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 82)
+side = 2
+
+[node name="Blocks" type="Node2D" parent="LevelLayout"]
+position = Vector2(0, 16)
+
+[node name="DirectionalBlock" parent="LevelLayout/Blocks" instance=ExtResource("4")]
+position = Vector2(-100, 72)
+direction = 2
+
+[node name="DirectionalBlock2" parent="LevelLayout/Blocks" instance=ExtResource("4")]
+position = Vector2(-200, 40)
+
+[node name="DirectionalBlock3" parent="LevelLayout/Blocks" instance=ExtResource("4")]
+position = Vector2(-104, 8)
+direction = 2
+
+[node name="DirectionalBlock4" parent="LevelLayout/Blocks" instance=ExtResource("4")]
+position = Vector2(-184, -24)
+
+[node name="DirectionalBlock5" parent="LevelLayout/Blocks" instance=ExtResource("4")]
+position = Vector2(-120, -56)
+direction = 2
+
+[node name="MovingPlatform" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(72, 82)
+length = 6
+speed = 4.0
+start_left = false
+long = true
+
+[node name="MovingPlatform2" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-40, 82)
+length = 6
+speed = 4.0
+long = true
+
+[node name="DirectionalBlock" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(8, -8)
+
+[node name="DirectionalBlock2" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(120, -40)

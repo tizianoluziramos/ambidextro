@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=4 uid="uid://bf3s6qgbbdcxi"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ciw32ubax06oe" path="res://scenes/glass/glass.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://w01s74v80mqh" path="res://scenes/moving_spikeball/moving_spikeball.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="6"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 6.0
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AADz//z/AgACAAAAAAD0//z/AgACAAAAAAD3//z/AgACAAAAAAD4//z/AgACAAAAAAD5//z/AgAAAAEAAAD5//v/AgAAAAEAAAD5//r/AgAAAAEAAAD5//n/AgAAAAEAAAD0//3/AgAAAAEAAAD0//7/AgAAAAEAAAD0////AgAAAAEAAAD3//3/AgAAAAEAAAD3//7/AgAAAAEAAAD3////AgAAAAEAAAAMAPz/AgACAAAAAAALAPz/AgACAAAAAAAIAPz/AgACAAAAAAAHAPz/AgACAAAAAAAGAPz/AgAAAAEAAAAGAPv/AgAAAAEAAAAGAPr/AgAAAAEAAAAGAPn/AgAAAAEAAAAIAP3/AgAAAAEAAAAIAP7/AgAAAAEAAAAIAP//AgAAAAEAAAALAP3/AgAAAAEAAAALAP7/AgAAAAEAAAALAP//AgAAAAEAAADz//3/AgAAAAEAAADz//7/AgAAAAEAAADz////AgAAAAEAAAAMAP3/AgAAAAEAAAAMAP7/AgAAAAEAAAAMAP//AgAAAAEAAADz/wAAAgAAAAEAAAD0/wAAAgAAAAEAAAD3/wAAAgAAAAEAAAAIAAAAAgAAAAEAAADz/wEAAgAAAAEAAAD0/wEAAgAAAAEAAAD3/wEAAgAAAAEAAAAIAAEAAgAAAAEAAAAMAAAAAgAAAAEAAAAMAAEAAgAAAAEAAAAMAAIAAgAAAAEAAAD3/wIAAgAAAAEAAAD0/wIAAgAAAAEAAADz/wIAAgAAAAEAAAD//wYAAgAAAAEAAAAAAAYAAgAAAAEAAAD//wUAAgAAAAEAAAAAAAUAAgAAAAEAAAD//wQAAgAAAAEAAAAAAAQAAgAAAAEAAAABAAUAAgADAAAAAAD+/wUAAgADAAAAAAD//wMAAgAFAAEAAAAAAAMAAgAFAAEAAAAIAAIAAgAAAAEAAAALAAIAAgAAAAEAAAALAAEAAgACAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-400, -124)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(400, -124)
+side = 2
+
+[node name="Glass" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(320, 48)
+
+[node name="MovingSpikeball" parent="." instance=ExtResource("5")]
+position = Vector2(-336, 16)
+rotation = -1.57079
+length = 8
+speed = 7.0
+
+[node name="MovingSpikeball4" parent="." instance=ExtResource("5")]
+position = Vector2(-304, 16)
+rotation = -1.57079
+length = 8
+speed = 7.0
+
+[node name="Crumbling" type="Node2D" parent="."]
+
+[node name="CrumblingPlatform" parent="Crumbling" instance=ExtResource("6")]
+position = Vector2(-336, -124)
+
+[node name="CrumblingPlatform2" parent="Crumbling" instance=ExtResource("6")]
+position = Vector2(-304, -124)
+
+[node name="Crumbling2" type="Node2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="CrumblingPlatform" parent="Crumbling2" instance=ExtResource("6")]
+position = Vector2(-336, -124)
+
+[node name="CrumblingPlatform2" parent="Crumbling2" instance=ExtResource("6")]
+position = Vector2(-304, -124)
+
+[node name="MovingSpikeball2" parent="." instance=ExtResource("5")]
+position = Vector2(304, 16)
+rotation = -1.57079
+length = 8
+speed = 7.0
+
+[node name="MovingSpikeball3" parent="." instance=ExtResource("5")]
+position = Vector2(336, 16)
+rotation = -1.57079
+length = 8
+speed = 7.0
+
+[node name="MovingSpikeball5" parent="." instance=ExtResource("5")]
+position = Vector2(-400, 204)
+length = 12
+speed = 10.0
+
+[node name="MovingSpikeball6" parent="." instance=ExtResource("5")]
+position = Vector2(48, 204)
+length = 12
+speed = 10.0
+start_left = false

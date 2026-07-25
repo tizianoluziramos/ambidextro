@@ -1,0 +1,414 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv0w6sv16u3gc"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/settings_menu/controls_menu/keys_finder/keys_finder.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://bi25slua7huqa" path="res://assets/fonts/lanapixel_everything/LanaPixel.ttf" id="5"]
+[ext_resource type="PackedScene" uid="uid://5towwghobect" path="res://scenes/main_menu/settings_menu/controls_menu/keys_finder/key_visualizer.tscn" id="6"]
+
+[sub_resource type="Theme" id="Theme_acr8n"]
+Label/constants/line_spacing = 0
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("5")
+
+[node name="KeysFinder" type="Node2D" node_paths=PackedStringArray("key_visualizers", "timer_line", "done", "labels", "sublabels")]
+script = ExtResource("1")
+key_visualizers = [NodePath("Test/Keys/LeftKeys/Key/KeyVisualizer"), NodePath("Test/Keys/LeftKeys/Key2/KeyVisualizer"), NodePath("Test/Keys/LeftKeys/Key3/KeyVisualizer"), NodePath("Test/Keys/RightKeys/Key/KeyVisualizer"), NodePath("Test/Keys/RightKeys/Key2/KeyVisualizer"), NodePath("Test/Keys/RightKeys/Key3/KeyVisualizer")]
+timer_line = NodePath("Test/TimerLine")
+done = NodePath("Done")
+labels = [NodePath("Test/Title"), NodePath("Test/Info1"), NodePath("Test/Info2"), NodePath("Test/Keys/LeftKeys/Title"), NodePath("Test/Keys/RightKeys/Title"), NodePath("Done/Title"), NodePath("Done/Info1")]
+sublabels = [NodePath("Test/Keys/LeftKeys/Key/Label"), NodePath("Test/Keys/LeftKeys/Key2/Label"), NodePath("Test/Keys/LeftKeys/Key3/Label"), NodePath("Test/Keys/RightKeys/Key/Label"), NodePath("Test/Keys/RightKeys/Key2/Label"), NodePath("Test/Keys/RightKeys/Key3/Label")]
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Test" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="Test"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -108.0
+offset_right = 250.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4")
+text = "KEYS FINDER"
+horizontal_alignment = 1
+
+[node name="Info1" type="Label" parent="Test"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -91.0
+offset_right = 224.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Find 6 keys that can be pressed at the same time.
+3 for your left hand and 3 for your right hand.
+Different keyboards allow for different simultanous key presses."
+horizontal_alignment = 1
+
+[node name="Info2" type="Label" parent="Test"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = 87.0
+offset_right = 224.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Press them in order and keep them pressed to confirm.
+Press Escape to exit."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Keys" type="Control" parent="Test"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftKeys" type="Control" parent="Test/Keys"]
+anchors_preset = 0
+offset_left = -80.0
+offset_top = 30.0
+offset_right = -80.0
+offset_bottom = 30.0
+
+[node name="Title" type="Label" parent="Test/Keys/LeftKeys"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -57.0
+offset_right = 100.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4")
+text = "LEFT HAND"
+horizontal_alignment = 1
+
+[node name="Key" type="Control" parent="Test/Keys/LeftKeys"]
+anchors_preset = 0
+offset_left = -45.0
+offset_top = 29.0
+offset_right = -45.0
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Test/Keys/LeftKeys/Key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Left"
+horizontal_alignment = 1
+
+[node name="KeyVisualizer" parent="Test/Keys/LeftKeys/Key" instance=ExtResource("6")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+number = 1
+
+[node name="Key2" type="Control" parent="Test/Keys/LeftKeys"]
+anchors_preset = 0
+offset_top = -15.0
+offset_bottom = -15.0
+
+[node name="Label" type="Label" parent="Test/Keys/LeftKeys/Key2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Up"
+horizontal_alignment = 1
+
+[node name="KeyVisualizer" parent="Test/Keys/LeftKeys/Key2" instance=ExtResource("6")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+number = 2
+
+[node name="Key3" type="Control" parent="Test/Keys/LeftKeys"]
+anchors_preset = 0
+offset_left = 45.0
+offset_top = 29.0
+offset_right = 45.0
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Test/Keys/LeftKeys/Key3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Right"
+horizontal_alignment = 1
+
+[node name="KeyVisualizer" parent="Test/Keys/LeftKeys/Key3" instance=ExtResource("6")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+number = 3
+
+[node name="RightKeys" type="Control" parent="Test/Keys"]
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 30.0
+offset_right = 80.0
+offset_bottom = 30.0
+
+[node name="Title" type="Label" parent="Test/Keys/RightKeys"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -57.0
+offset_right = 100.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4")
+text = "RIGHT HAND"
+horizontal_alignment = 1
+
+[node name="Key" type="Control" parent="Test/Keys/RightKeys"]
+anchors_preset = 0
+offset_left = -45.0
+offset_top = 29.0
+offset_right = -45.0
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Test/Keys/RightKeys/Key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Left"
+horizontal_alignment = 1
+
+[node name="KeyVisualizer" parent="Test/Keys/RightKeys/Key" instance=ExtResource("6")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+number = 4
+
+[node name="Key2" type="Control" parent="Test/Keys/RightKeys"]
+anchors_preset = 0
+offset_top = -15.0
+offset_bottom = -15.0
+
+[node name="Label" type="Label" parent="Test/Keys/RightKeys/Key2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Up"
+horizontal_alignment = 1
+
+[node name="KeyVisualizer" parent="Test/Keys/RightKeys/Key2" instance=ExtResource("6")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+number = 5
+
+[node name="Key3" type="Control" parent="Test/Keys/RightKeys"]
+anchors_preset = 0
+offset_left = 45.0
+offset_top = 29.0
+offset_right = 45.0
+offset_bottom = 29.0
+
+[node name="Label" type="Label" parent="Test/Keys/RightKeys/Key3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Right"
+horizontal_alignment = 1
+
+[node name="KeyVisualizer" parent="Test/Keys/RightKeys/Key3" instance=ExtResource("6")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+number = 6
+
+[node name="TimerLine" type="ColorRect" parent="Test"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 80.0
+offset_right = 150.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 0)
+color = Color(1, 0.5, 0, 1)
+
+[node name="Done" type="Control" parent="."]
+visible = false
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuBG2" parent="Done" instance=ExtResource("2")]
+z_index = 0
+layout_mode = 1
+offset_left = -1020.0
+offset_top = -1020.0
+offset_right = 980.0
+offset_bottom = 980.0
+
+[node name="Title" type="Label" parent="Done"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -128.0
+offset_right = 230.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4")
+text = "KEYS FINDER"
+horizontal_alignment = 1
+
+[node name="Info1" type="Label" parent="Done"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -28.0
+offset_right = 380.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Controls updated."
+horizontal_alignment = 1

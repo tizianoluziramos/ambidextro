@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://lnej0x7u6a48"]
+
+[ext_resource type="Script" path="res://scenes/bars/bars.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgkws"]
+atlas = ExtResource("2")
+region = Rect2(0, 36, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4epr8"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7cv6"]
+size = Vector2(14, 16)
+
+[node name="Bars" type="Node2D" node_paths=PackedStringArray("collider", "collider_damage") groups=["bars"]]
+script = ExtResource("1")
+collider = NodePath("StaticBody2D/CollisionShape2D")
+collider_damage = NodePath("StaticBodyDamage/CollisionShape2D")
+
+[node name="Sprite" type="Sprite2D" parent="." groups=["bars"]]
+position = Vector2(-8, 0)
+texture = SubResource("AtlasTexture_hgkws")
+centered = false
+
+[node name="BottomMarker" type="Marker2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_4epr8")
+
+[node name="StaticBodyDamage" type="StaticBody2D" parent="."]
+position = Vector2(0, 8)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyDamage" groups=["bars_damage"]]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_g7cv6")
+disabled = true

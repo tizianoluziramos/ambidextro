@@ -1,0 +1,153 @@
+id,en,es,de,fr,it,pr,ru,jp,ko,sc
+lang,English,Español,Deutsch,Français,Italiano,Português,Русский,日本語,한국어,简体中文
+yes,Yes,Sí,Ja,Oui,Sì,Sim,Да,はい,예,是
+no,No,No,Nein,Non,No,Não,Нет,いいえ,아니요,否
+random,Random,Aleatorio,Zufällig,Aléatoire,Casuale,Aleatório,Случайный,ランダム,랜덤,随机
+normal,Normal,Normal,Normal,Normal,Normale,Normal,Обычный,ノーマル,노멀,普通
+,,,,,,,,,,
+mm_play,Play,Jugar,Spielen,Jouer,Gioca,Jogar,Играть,プレー,플레이,开始
+mm_levels,Levels,Niveles,Level,Niveaux,Livelli,Níveis,Уровни,ステージ,레벨,关卡
+mm_settings,Options,Opciones,Optionen,Options,Opzioni,Opções ,Настройки ,オプション,설정,设置
+mm_exit,Exit,Salir,Beenden,Quitter,Esci,Sair,Выход,終了する,나가기,退出
+,,,,,,,,,,
+sm_save,Save,Guardado,Spielstand,Sauvegarde,Salvataggio,Guardado,Сохранение,セーブ,세이브,存档
+sm_level,Level,Nivel,Level,Niveau ,Livello ,Nível ,Уровень ,ステージ,레벨 ,关卡
+sm_retries,Retries,Reintentos,Versuche,Tentatives,Tentativi,Tentativas,Попытки,リトライ回数,재시도 횟수 ,重试次数 
+sm_time,Time,Tiempo,Zeit,Temps,Tempo,Tempo,Время,タイム,시간,时间
+sm_modifiers,Modifiers,Modificadores,Modifikatoren,Modificateurs,Modificatori,Modificadores,Модификаторы,モディファイア,모디파이어,修改器
+sm_delete,Delete,Borrar,Löschen,Supprimer,Elimina,Excluir,Удалить,消去,삭제 ,删除 
+sm_back,Back,Atrás,Zurück ,Retour ,Indietro,Atrás,Назад,戻る ,뒤로,返回
+sm_delete_save,Delete save,Borrar guardado,Spielstand löschen,Supprimer la sauvegarde,Elimina salvataggio,Excluir guardado,Удалить сохранение,セーブを消する,세이브 삭제,删除存档
+sm_delete_everything,Delete all data,Borrar todos los datos,Alle Daten löschen,Supprimer toutes les données,Elimina tutti i dati,Excluir todos os dados,Удалить все данные,すべてのデータをさくじょ,모든 데이터를 삭제,删除所有数据
+,,,,,,,,,,
+mod_cutscenes,Cutscenes,Cinemáticas,Zwischensequenzen,Cinématiques,Cinematiche,Cinemáticas,Катсцены,カットシーン,컷신,过场动画
+mod_timer,Chronometer,Cronómetro,Chronometer,Chronomètre,Cronometro,Cronómetro,Хронометр,クロノメーター,크로노미터,计时器
+mod_speedrun,Speedrun,Speedrun,Speedrun,Speedrun,Speedrun,Speedrun,Спидран,タイムアタック,스피드런,速通
+mod_pausable,Pausable,Pausable,Pausierbar,Pausable,Pausabile,Pausável,Паузируемый,一時停止可能,일시 정지 가능,可暂停
+mod_order,Level order,Orden de niveles,Level-Reihenfolge,Ordre des niveaux,Ordine dei livelli,Ordem dos níveis,Порядок уровней,ステージの順序,레벨 순서,关卡顺序
+mod_mirror,Mirror levels,Niveles espejo,Spiegel-Level,Niveaux miroir,Livelli specchio,Níveis espelho,Зеркальные уровни,ミラーステージ,미러 레벨,镜像关卡
+mod_swap,Swap positions,Intercambiar posiciones,Positionen tauschen,Échanger les positions,Scambiare le posizioni,Trocar posições,Поменяться позициями,位置を入れ替える,위치 변경,交换位置
+,,,,,,,,,,
+lm_clear,On clear,Al superarlo,Beim Abschluss,À la réussite,Al completamento,Ao completar,После прохождения,クリア時,클리어 시,通关时
+lm_next,Next level,Siguiente nivel,Nächstes Level,Niveau suivant,Prossimo livello,Próximo nível,Следующий уровень,次のステージ,다음 레벨,下一关
+lm_repeat,Repeat level,Repetir nivel,Level wiederholen,Refaire le niveau,Ripeti livello,Repetir nível,Повторить уровень,ステージを繰り返す,레벨 다시 시도,重玩关卡
+lm_random,Random level,Nivel aleatorio,Zufälliges Level,Niveau aléatoire,Livello casuale,Nível aleatório,Случайный уровень,ランダムステージ,랜덤 레벨,随机关卡
+,,,,,,,,,,
+setm_language,Language,Idioma,Sprache,Langue,Lingua,Idioma,Язык,言語,언어,语言
+setm_video,Video,Video,Video,Vidéo,Video,Vídeo,Видео,ビデオ,영상,视频 
+setm_audio,Audio,Audio,Audio,Audio,Audio,Áudio,Аудио,オーディオ,오디오,音频 
+setm_controls,Controls,Controles,Steuerung,Contrôles,Comandi,Controles,Управление,操作方法,조작,控制
+setm_accessibility,Accessibility,Accesibilidad,Barrierefreiheit,Accessibilité,Accessibilità,Acessibilidade,Настройки доступности,アクセシビリティ,접근성,辅助功能
+setm_data,Data,Datos,Daten,Données,Dati,Dados,данные,データ,데이터,数据
+setm_credits,Credits,Créditos,Credits,Crédits,Crediti,Créditos,Авторы,スタッフロール,크레딧,制作人员
+,,,,,,,,,,
+credits_title,Ambidextro,,,,,,,,,
+credits_created,Created by Alva Majo,Creado por Alva Majo,Erstellt von Alva Majo,Créé par Alva Majo,Creato da Alva Majo,Criado por Alva Majo,Создано Альва Майо,作成者 Alva Majo,제작자 Alva Majo,创建者 Alva Majo
+credits_music,Music by Alejandro Maciá,Música por Alejandro Maciá,Musik von Alejandro Maciá,Musique par Alejandro Maciá,Musica di Alejandro Maciá,Música por Alejandro Maciá,Музыка Алехандро Масия,音楽 Alejandro Maciá,음악 Alejandro Maciá,音乐 Alejandro Maciá
+credits_illustrations,Illustrations by SunPixels,Ilustraciones por SunPixels,Illustrationen von Sunpixels,Illustrations par SunPixels,Illustrazioni di SunPixels,Ilustrações por SunPixels,Иллюстрации SunPixels,イラスト SunPixels,일러스트 SunPixels,插画 SunPixels
+credits_thanks,Special thanks to,Agradecimientos especiales a,Besonderer Dank an,Remerciements spéciaux à,Ringraziamenti speciali a,Agradecimentos especiais a,Особая благодарность,スペシャルサンクス,특별히 감사,特别感谢 
+credits_lariat,Lariat the Witch,Lariat la Bruja,Lariat die Hexe,Lariat la Sorcière,Lariat la Strega,Lariat a Bruxa,Ведьма Лариат,ラリアットの魔女,마녀 라리아트,拉里亚特女巫
+credits_nico,NicoCore,,,,,,,,,
+credits_migu,ChaosMigu,,,,,,,,,
+credits_guinxu,Guinxu,,,,,,,,,
+credits_gius,Gius Caminiti,,,,,,,,,
+credits_kony,Kony Pyon,,,,,,,,,
+credits_nosgo,C. Navarro,,,,,,,,,
+credits_david_chen,David Chen,,,,,,,,,
+credits_fanzy_pants,Fanzy Pants,,,,,,,,,
+credits_majorariatto,Majorariatto,,,,,,,,,
+credits_engine,Made with Godot Engine,Hecho con Godot Engine,Hergestellt mit Godot Engine,Fait avec Godot Engine,Fatto con Godot Engine,Feito com Godot Engine,Сделано с помощью Godot Engine,Godot Engine で作られました,Godot Engine으로 제작됨,使用 Godot Engine 制作
+credits_fonts,Using text fonts by,Usando fuentes de texto de,Verwendete Schriftarten von,En utilisant des polices de texte de,Usando i font di testo di,Usando fontes de texto de,Используя шрифты от,フォント提供:,폰트 제공:,字体提供：
+credits_fonts1,eishiya (LanaPixel),,,,,,,,,
+credits_fonts2,HipFonts (ByteBounce),,,,,,,,,
+credits_fonts3,John Stracke (Isabella),,,,,,,,,
+credits_sounds,Using sounds by,Usando sonidos de,Verwendung von Sounds von,En utilisant des sons de,Usando suoni di,Usando sons de,Используя звуки от,サウンド提供:,사운드 제공: ,音效提供:
+credits_sfx1,A Sound Effect,,,,,,,,,
+credits_sfx2,AudioHero,,,,,,,,,
+credits_sfx3,Epic Stock Media,,,,,,,,,
+credits_sfx4,FilmCow,,,,,,,,,
+credits_sfx5,GameDevMarket,,,,,,,,,
+credits_sfx6,Imphenzia,,,,,,,,,
+credits_sfx7,Krotos Audio,,,,,,,,,
+credits_sfx8,Ovani Sound,,,,,,,,,
+credits_sfx9,SmartsoundFX,,,,,,,,,
+credits_sfx10,Sonniss,,,,,,,,,
+credits_sfx11,SoundBits,,,,,,,,,
+credits_shaders,Using shaders by,Usando shaders de,Verwendung von Shadern von,En utilisant des shaders de,Usando shader di,Usando shaders de,Используя шейдеры от,シェーダー提供:,셰이더 제공:,着色器提供:
+credits_shaders1,Lord0Sanz (CRT Visual Shader),,,,,,,,,
+,,,,,,,,,,
+setmv_fullscreen,Full screen,Pantalla completa,Vollbild,Plein écran,Schermo intero,Ecrã Completo,Полный Экран,フルスクリーン,전체화면,全屏
+setmv_pixel_perfect,Pixel perfect,Pixel perfect,Pixel perfect,Pixel perfect,Pixel perfect,Pixel perfect,Пиксельная точность,ピクセルパーフェクト,픽셀 완벽,像素完美
+setmv_curvature,Curvature,Curvatura,Krümmung,Courbure,Curvatura,Curvatura,Кривизна,曲率,곡률,曲率
+setmv_scanlines,Scanlines,Scanlines,Scanlines,Scanlines,Scanlines,Scanlines,Сканлайны,スキャンライン,스캔라인,扫描线
+setmv_distortion,Distortion,Distorsión,Verzerrung,Distorsion,Distorsione,Distorção,Искажение,歪み,왜곡,扭曲
+setmv_aberration,Aberration,Aberración,Aberration,Aberration,Aberrazione,Aberração,Аберация,色収差,색수차,色差
+setmv_apply,Apply,Aplicar,Übernehmen,Appliquer,Applica,Aplicar,Применить,適用する ,적용,应用
+,,,,,,,,,,
+setma_master,Master,Master,Master,Master,Master,Master,Мастер,マスター,마스터,主音量
+setma_music,Music,Música,Musik,Musique,Musica,Música,Музыка,音楽,음악,音乐
+setma_sounds,Sounds,Sonidos,Geräusche,Sons,Suoni,Sons,Звуки,音,소리,声音
+,,,,,,,,,,
+setmc_keyboard,Keyboard,Teclado,Tastatur,Clavier,Tastiera,Teclado,Клавиатура,キーボード,키보드,键盘
+setmc_controller,Controller,Mando,Controller,Manette,Controllore,Controlo,Контроллер,コントローラー,컨트롤러,手柄
+setmc_left_chara,Left character,Personaje izquierdo,Linker Charakter,Personnage de gauche,Personaggio di sinistra,Personagem esquerdo,Левый персонаж,左のキャラクター,왼쪽 캐릭터,左侧角色
+setmc_right_chara,Right character,Personaje derecho,Rechter Charakter,Personnage de droite,Personaggio di destra,Personagem direito,Правый персонаж,右のキャラクター,오른쪽 캐릭터,右侧角色
+setmc_general,General,General,Allgemein,Général,Generale,Geral,Общие,一般,일반,常规
+setmc_test,Keys finder,Buscateclas,Tastensucher,Cherche-touches,Cerca-tasti,Procura-teclas,Поиск клавиш,キーファインダー,키 찾기,键找器
+setmc_default,Reset to default,Valores por defecto,Standardwerte,Valeurs par défaut,Valori predefiniti,Valores padrões,настройки по умолчанию,デフォルト値,기본값으로 재설정,恢复默认设置
+setmc_press,Press key,Pulsa tecla,Drücke Taste,Appuyez sur touche,Premi tasto,Pressione tecla,Нажмите клавишу,キーを押す,키 누르기,按键
+setmc_left,Left,Izquierda,Links,Gauche,Sinistra,Esquerda,Влево,左,왼쪽,左
+setmc_right,Right,Derecha,Rechts,Droite,Destra,Direita,Вправо,右,오른쪽,右
+setmc_up,Up,Arriba,Oben,Haut,Su,Cima,Вверх,上,위,上
+setmc_down,Down,Abajo,Unten,Bas,Giù,Baixo,Вниз,下,아래,下一关
+setmc_jump,Jump,Saltar,Springen,Sauter,Saltare,Pular,Прыгать,ジャンプ,점프,跳
+setmc_cross,Cross,Cruz,Kreuz,Croix,Croce,Cruz,Крест,バツ,엑스,叉
+setmc_square,Circle,Círculo,Kreis,Cercle,Cerchio,Círculo,Круг,丸,원,圆
+setmc_circle,Square,Cuadrado,Quadrat,Carré,Quadrato,Quadrado,Квадрат,四角,사각형,方形
+setmc_triangle,Triangle,Triángulo,Dreieck,Triangle,Triangolo,Triângulo,Треугольник,三角,삼각형,三角形
+setmc_reset,Reset,Reiniciar,Zurücksetzen,Réinitialiser,Ripristina,Reiniciar,Сбросить,リセット,초기화,重置
+setmc_pause,Pause,Pausa,Pause,Pause,Pausa,Pausa,Пауза,一時停止,일시정지,暂停
+,,,,,,,,,,
+kf_info1,Find 6 keys that can be pressed at the same time.,Encuentra 6 teclas que se puedan presionar a la vez.,"Finde 6 Tasten, die gleichzeitig gedrückt werden können.",Trouvez 6 touches pouvant être pressées en même temps.,Trova 6 tasti che possono essere premuti contemporaneamente.,Encontra 6 teclas que podes carregar ao mesmo tempo.,"Найдите 6 клавиш, которые можно нажать одновременно.",同時に押せる6つのキーを見つけてください。,동시에 누를 수 있는 6개의 키를 찾아주세요.,请找到可以同时按下六个按键。
+kf_info2,3 for your left hand and 3 for your right hand.,3 para tu mano izquierda y 3 para tu mano derecha.,3 für deine linke Hand und 3 für deine rechte Hand.,3 pour votre main gauche et 3 pour votre main droite.,3 per la tua mano sinistra e 3 per la tua mano destra.,3 para a tua mão esquerda e 3 para a tua mão direita.,3 для левой руки и 3 для правой руки.,左手用3つ、右手用3つです。,"왼손용 3개, 오른손용 3개입니다.",左手用三个，右手用三个。
+kf_info3,Different keyboards allow for different simultaneous key presses.,Diferentes teclados permiten diferentes teclas simultáneas.,Verschiedene Tastaturen ermöglichen verschiedene gleichzeitige Tastendrücke.,Différents claviers permettent différentes pressions de touches simultanées.,Diverse tastiere permettono diverse pressioni in simultaneo dei tasti,Diferentes teclados permitem diferentes pressionamentos simultâneos de teclas.,На разных клавиатурах можно одновременно нажимать разные клавиши.,異なるキーボードでは同時に押せるキーの数が異なります。,다양한 키보드는 동시에 누를 수 있는 키가 다를 수 있습니다.,不同的键盘支持不同数量的同时按键。
+kf_info4,Press them in order and keep them pressed to confirm.,Púlsalas en orden y mantenlas para confirmar.,"Drücke sie in der richtigen Reihenfolge und halte sie gedrückt, um zu bestätigen.",Appuyez sur elles dans l'ordre et maintenez-les enfoncées pour confirmer.,Premi i tasti nell'ordine giusto e tienili premuti per confermare.,Pressiona-as em ordem e mantém-nas pressionadas para confirmar.,"Нажмите их по порядку и удерживайте, чтобы подтвердить.",順番に押して、確認するために押し続けてください。,순서대로 눌러서 계속 누르고 있으면 확인됩니다.,按照顺序按下并保持按住以确认。
+kf_info5,Press [Escape] to exit.,Pulsa [Escape] para salir.,"Drücke [Esc], um zu beenden.",Appuyez sur [Échap] pour quitter.,Premi [Esc] per uscire.,Carrega [Escape] para sair.,"Нажмите [Esc], чтобы выйти.",[Esc]キーを押して終了します。,[Esc] 키를 눌러 종료합니다.,按[Esc]键退出。
+kf_left_hand,Left hand,Mano izquierda,Linke Hand,Main gauche,Mano sinistra,Mão esquerda,Левая рука,左手,왼손,左手
+kf_left_right,Right hand,Mano derecha,Rechte Hand,Main droite,Mano destra,Mão direita,Правая рука,右手,오른손,右手
+kf_updated,Controls updated.,Controles actualizados.,Steuerung aktualisiert.,Contrôles mis à jour.,Comandi aggiornati.,Controles atualizados.,Управление обновлено.,コントロールが更新されました。,컨트롤이 업데이트되었습니다.,控制已更新。
+,,,,,,,,,,
+kt_title,Keyboard test,Test de teclado,Tastaturtest,Test du clavier,Test della tastiera,Teste de teclado,Тест клавиатуры,キーボードテスト,키보드 테스트,键盘测试
+kt_info1,Keep all these keys pressed to continue.,Mantén pulsadas todas estas teclas para continuar.,"Halte alle diese Tasten gedrückt, um fortzufahren.",Maintenez toutes ces touches enfoncées pour continuer.,Tieni premuti tutti questi tasti per continuare.,Mantém todas estas teclas carregadas para continuar.,"Удерживайте все эти клавиши, чтобы продолжить.",これらのキーをすべて押し続けて、続行します。,이 모든 키를 계속 눌러서 진행하십시오.,持续按下所有这些键以继续。
+kt_info2,"If they don't all light up, press [Return].","Si no se iluminan todas, pulsa [Enter].","Wenn nicht alle aufleuchten, drücke [Return].","Si elles ne s'allument pas toutes, appuyez sur [Entrée].","Se non si illuminano tutti, premi [Invio].","Se não se iluminarem todas, carrega [Enter].","Если загорятся не все, нажмите [Return].",もしすべてが点灯しない場合は、[Return]キーを押してください。,모든 불이 켜지지 않으면 [Return] 키를 눌러주세요.,如果不是所有灯都亮着，请按[Return]键。
+kt_finished,Test finished.,Test finalizado.,Test abgeschlossen.,Test terminé.,Test completato.,Teste finalizado.,Тест завершён.,テスト完了。,테스트 완료.,测试完成。
+,,,,,,,,,,
+am_time,Extra time,Tiempo extra,Verlängerung,Temps additionnel,Tempo extra,Tempo extra,Дополнительное время,追加時間,추가 시간,加时
+am_info,Can only be changed from the pause menu.,Solo se puede cambiar desde el menú de pausa.,Kann nur im Pausenmenü geändert werden.,Ne peut être modifié que depuis le menu pause.,Può essere cambiato solo dal menu pausa.,Só pode ser alterado no menu de pausa.,Можно изменить только в меню паузы.,一時停止メニューでのみ変更できます。,일시 정지 메뉴에서만 변경할 수 있습니다.,只能在暂停菜单中更改。
+,,,,,,,,,,
+pm_pause,Pause,Pausa,Pause,Pause,Pausa,Pausa,Пауза,一時停止,일시정지,暂停
+pm_continue,Continue,Continuar,Continuer,Fortsetzen,Continua,Continuar,Продолжить,続ける,계속,继续
+pm_restart_game,Restart game,Reiniciar partida,Spiel neu starten,Redémarrer la partie,Riaprire la partita,Reiniciar partida,Перезапустить игру,ゲームを再開,게임 다시 시작,重新开始游戏
+pm_restart_level,Restart level,Reiniciar nivel,Level neu starten,Redémarrer le niveau,Riaprire il livello,Reiniciar nível,Перезапустить уровень,ステージを再開,레벨 다시 시작,重新开始关卡
+pm_next,Next level,Siguiente nivel,Nächstes Level,Niveau suivant,Livello successivo,Nível seguinte,Следующий уровень,次のステージ,다음 레벨,下一关
+pm_previous,Previous level,Nivel anterior,Vorheriges Level,Niveau précédent,Livello precedente,Nível anterior,Предыдущий уровень,前のステージ,이전 레벨,上一关
+pm_main,Main menu,Menú principal,Hauptmenü,Menu principal,Menu principale,Menu principal,Главное меню,メインメニュー,메인 메뉴,主菜单
+pm_skip,Skip story,Omitir historia,Geschichte überspringen,Passer l'histoire,Salta la storia,Omitir história,Пропустить историю,ストーリーをスキップ,이야기 건너뛰기,跳过故事
+,,,,,,,,,,
+intro1,That witch...,Esa bruja...,Diese Hexe…,Cette sorcière…,Quella strega…,Essa bruxa…,Эта ведьма…,あの魔女...,그 마녀...,那个巫婆...
+intro2,That witch tricked me and took away my children.,Esa bruja me engañó y se llevó a mis hijos.,Diese Hexe hat mich getäuscht und meine Kinder weggenommen.,Cette sorcière m'a trompé et a pris mes enfants.,Quella strega mi ha ingannato e ha preso i miei figli.,Essa bruxa enganou-me e levou os meus filhos.,Эта ведьма обманула меня и украла моих детей.,あの魔女に騙されて、子供たちを奪われた。,그 마녀는 나를 속이고 내 자식들을 데려갔다.,那个女巫骗了我，把我的孩子带走了。
+intro3,The prince she took to the east.,Al príncipe se lo llevó al este.,Den Prinzen hat sie nach Osten gebracht.,"Le prince, elle l'a emmené à l'est.",Il principe lo ha portato a est.,O príncipe levou-a para o leste.,Принца она увела на восток.,王子は東に連れて行かれた。,왕자는 동쪽으로 데려갔고.,王子被带到了东边。
+intro4,The princess she took to the west.,A la princesa se la llevó al oeste.,Die Prinzessin hat sie nach Westen gebracht.,"La princesse, elle l'a emmenée à l'ouest.",La principessa l'ha portata a ovest.,A princesa levou-a para o oeste.,Принцессу она увела на запад.,王女は西に連れて行かれた。,공주는 서쪽으로 데려갔지.,公主被带到了西边。
+intro5,You are the royal wizard.,Tú eres el mago real.,Du bist der königliche Zauberer.,Vous êtes le magicien royal.,Tu sei il mago reale.,Tu és o mago real.,Ты — королевский маг.,あなたは王国の魔法使いだ。,너는 왕국의 마법사다.,你是皇家魔法师。
+intro6,Embark on a quest to bring them back.,Embárcate en una misión para traerlos de vuelta.,"Geh auf eine Quest, um sie zurückzubringen.",Partez en quête pour les ramener.,Parti per una missione per riportarli indietro.,Parte para uma missão para trazê-los de volta.,"Отправься в путешествие, чтобы вернуть их.",彼らを取り戻すために冒険に出てください。,그들을 되찾기 위한 임무를 떠나라.,踏上征程，将他们带回。
+intro7,"Yes, your majesty.","Sí, su majestad.","Ja, Eure Majestät.","Oui, Majesté.","Sì, Vostra Maestà.","Sim, Vossa Majestade.","Да, ваше величество.",はい、陛下。,"네, 전하.",是，陛下。
+intro8,I will first go west to rescue the princess.,Primero iré al oeste a rescatar a la princesa.,"Zuerst werde ich nach Westen gehen, um die Prinzessin zu retten.",Je vais d'abord aller à l'ouest pour sauver la princesse.,Prima andrò a ovest per salvare la principessa.,"Primeiro, irei para o oeste para resgatar a princesa.","Сначала я пойду на запад, чтобы спасти принцессу.",最初に西へ行って王女を救います。,먼저 서쪽으로 가서 공주를 구하겠습니다.,首先，我将前往西方并救出公主。
+intro9,NO!,¡NO!,NEIN!,NON !,NO!,NÃO!,НЕТ!,だめ！,안돼!,不行！
+intro10,You will rescue both at once!,¡Los rescatarás a ambos a la vez!,Du wirst beide gleichzeitig retten!,Vous les sauverez tous les deux en même temps !,Salverai entrambi contemporaneamente!,Salvarás ambos ao mesmo tempo!,Ты разом спасёшь их обоих!,二人を同時に救出しろ！,두 사람을 동시에 구해야 한다!,你将同时救出两人！
+intro11,My halves...,Mis mitades...,Meine Hälften…,Mes moitiés…,Le mie metà...,As minhas metades...,Мои половины…,私の半分…,내 반쪽...,我的两半…
+intro12,I cannot control them both at once...,No puedo controlarlas ambas a la vez...,Ich kann nicht beide gleichzeitig kontrollieren…,Je ne peux pas les contrôler toutes les deux en même temps...,Non posso controllarle entrambe allo stesso tempo…,Não consigo controlar ambas ao mesmo tempo…,Я не могу контролировать их обоих одновременно…,同時に両方をコントロールできません…,두 사람을 동시에 제어할 수 없다...,我无法同时控制两者…
+intro13,Take him to the dungeons.,Lleváoslo a las mazmorras.,Bringt ihn in die Verliese.,Emmenez-le dans les cachots.,Portatelo nelle segrete.,Levem-no para as masmorras.,Отведите его в подземелье.,そいつを地下牢に連れて行け。,그를 지하감옥으로 데려가라.,把他带到地牢。
+intro14,Don't let him out until he learns to control himself.,No lo dejéis salir hasta que aprenda a controlarse.,"Lasset ihn nicht heraus, bis er lernt, sich zu kontrollieren.",Ne le laissez pas sortir avant qu'il apprenne à se contrôler.,Non lasciatelo uscire finché non impari a controllarsi.,Não o deixem sair até que ele aprenda a controlar-se.,"Не выпускайте его, пока он не научится себя контролировать.",自分をコントロールできるようになるまで出してはならん。,그가 자신을 제어할 수 있을 때까지 풀어주지 마라.,直到他学会控制自己之前，不要放他出来。
+,,,,,,,,,,
+end1,You have finally learned to control yourself.,Finalmente has aprendido a controlarte.,"Du hast endlich gelernt, dich zu kontrollieren.",Vous avez enfin appris à vous contrôler.,Hai finalmente imparato a controllarti.,Finalmente aprendeste a controlar-te.,Ты наконец-то научился себя контролировать.,やっと自分をコントロールできるようになったな。,드디어 자신을 제어할 수 있게 되었다.,你终于学会控制自己了。
+end2,Hurry now. My children await.,Date prisa. Mis hijos esperan.,Beeil dich. Meine Kinder warten.,Dépêchez-vous. Mes enfants attendent.,Sbrigati. I miei figli stanno aspettando.,"Dá-te pressa, os meus filhos estão a espera.",Поторопись. Мои дети ждут.,では、急げ。子供たちが待っているぞ！,서둘러라. 내 자식들이 기다리고 있다.,快点，我的孩子们在等待。

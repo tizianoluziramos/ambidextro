@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=4 uid="uid://k64x47tjiqfi"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://w01s74v80mqh" path="res://scenes/moving_spikeball/moving_spikeball.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 7.5
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz/wUAAgAFAAUAAADz/wYAAgAFAAYAAAAMAAUAAgAFAAUAAAAMAAYAAgAFAAYAAADz//r/AgABAAQAAAD0//n/AgABAAQAAAAMAPn/AgABAAQAAAAAAP7/AgABAAQAAAABAP7/AgACAAQAAAAAAP//AgACAAQAAAD1//n/AgACAAQAAAD0//r/AgACAAQAAADz//v/AgACAAQAAAAMAPr/AgAAAAQAAAALAPn/AgAAAAQAAAD+/wYAAgAEAAQAAAD4/wQAAgAEAAQAAAD+//n/AgADAAQAAAD+//r/AgADAAQAAAD+//v/AgADAAQAAAD///n/AgADAAQAAAD///r/AgADAAQAAAAKAP7/AgADAAQAAAAKAP//AgADAAQAAAAKAAAAAgADAAQAAAADAP7/AgADAAQAAAADAP//AgADAAQAAAD3//n/AgADAAQAAAD3//r/AgADAAQAAAD6//r/AgAEAAQAAAAIAPz/AgAEAAQAAAAGAAAAAgAEAAQAAAAJAAMAAgAEAAQAAAAIAAMAAgAHAAQAAAAAAAIAAgAHAAQAAAABAAAAAgAHAAQAAAAHAP//AgAHAAQAAAAHAPv/AgAHAAQAAAD7//v/AgAHAAQAAAD1//7/AgAHAAQAAAD0//7/AgAHAAQAAAD9//7/AgAHAAQAAAD+/wUAAgAHAAQAAAD9/wYAAgAHAAQAAAD5/wUAAgAHAAQAAAD6/wEAAgAHAAQAAADz/wIAAgAHAAQAAADz/wEAAgAHAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD3/wQAAgAEAAAAAAD4/wQAAgAEAAAAAAD7/wIAAgAEAAAAAAD8/wIAAgAEAAAAAAD4/wAAAgAEAAAAAAD3/wAAAgAEAAAAAADz//7/AgAEAAAAAAD0//7/AgAEAAAAAAD//wYAAgAAAAEAAAD//wUAAgAAAAEAAAD//wQAAgAAAAEAAAD//wMAAgAAAAEAAAD//wIAAgAAAAEAAAD//wEAAgAAAAEAAAD//wAAAgAAAAEAAAD/////AgAAAAEAAAD///7/AgAAAAEAAAAKAAYAAgAAAAEAAAAKAAUAAgAAAAEAAAAKAAQAAgABAAAAAAALAAQAAgAFAAAAAAAMAAQAAgAFAAAAAAAJAAQAAgABAAAAAAAIAAQAAgABAAAAAAAHAAQAAgABAAAAAAAMAAIAAgAHAAIAAAALAAIAAgAHAAIAAAAKAAIAAgAHAAIAAAAJAAIAAgAHAAIAAAAJAAEAAgAAAAEAAAAKAAEAAgABAAAAAAALAAEAAgABAAAAAAAMAAEAAgABAAAAAAAGAAQAAgABAAAAAAAFAAQAAgABAAAAAAAEAAQAAgABAAAAAAADAAQAAgABAAAAAAACAAQAAgABAAAAAAAIAAEAAgABAAAAAAAHAAEAAgABAAAAAAAGAAEAAgABAAAAAAAFAAEAAgAAAAEAAAAEAAEAAgABAAAAAAADAAEAAgABAAAAAAACAAEAAgABAAAAAAAIAAIAAgAHAAIAAAAHAAIAAgAHAAIAAAAGAAIAAgAHAAIAAAAFAAIAAgAHAAIAAAAEAAIAAgAHAAIAAAADAAIAAgAHAAIAAAACAAIAAgAHAAIAAAAAAAIAAgAGAAAAAAABAAIAAgAGAAAAAAD///3/AgACAAAAAAAAAP3/AgACAAAAAAABAP3/AgACAAAAAAACAP3/AgACAAAAAAADAP3/AgACAAAAAAAEAP3/AgACAAAAAAAFAP3/AgACAAAAAAAGAP3/AgACAAAAAAAHAP3/AgACAAAAAAAIAP3/AgACAAAAAAAJAP3/AgACAAAAAAAKAP3/AgACAAAAAAALAP3/AgAGAAAAAAAMAP3/AgAGAAAAAAAMAP//AgAFAAAAAAACAAUAAgAAAAEAAAACAAYAAgAAAAEAAAADAAUAAgAAAAEAAAADAAYAAgAAAAEAAAAEAAUAAgAAAAEAAAAEAAYAAgAAAAEAAAAFAAUAAgAAAAEAAAAFAAYAAgAAAAEAAAAGAAUAAgAAAAEAAAAGAAYAAgAAAAEAAAAHAAUAAgAAAAEAAAAHAAYAAgAAAAEAAAAIAAUAAgAAAAEAAAAIAAYAAgAAAAEAAAAJAAUAAgAAAAEAAAAJAAYAAgAAAAEAAAAAAAYAAgAEAAEAAAABAAYAAgAEAAEAAAAFAAAAAgAEAAEAAAAJAAAAAgAEAAEAAAD+//3/AgAGAAAAAAD9//3/AgAGAAAAAAD8//3/AgAGAAAAAAD7//3/AgAGAAAAAAD6//3/AgAGAAAAAAD5//3/AgAGAAAAAAD4//3/AgAGAAAAAAD3//3/AgAGAAAAAAD0//n/AgACAAMAAADz//r/AgACAAMAAAAMAPn/AgABAAMAAADz//n/AgAAAAEAAAAAAP7/AgACAAMAAADy//r/AgAAAAEAAADy//n/AgAAAAEAAADz//j/AgAAAAEAAAD0//j/AgAAAAEAAAAMAPj/AgAAAAEAAAANAPn/AgAAAAEAAAANAAEAAgAAAAEAAAANAAIAAgAAAAEAAADy//j/AgAAAAEAAAANAPj/AgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAAMAPn/AgAJAAIAAAANAPn/AgAJAAMAAAD///3/AgAJAAAAAAD///7/AgAJAAAAAAD/////AgAJAAAAAAD//wAAAgAJAAAAAAD//wEAAgAJAAAAAAD//wIAAgAJAAAAAAD//wMAAgAJAAAAAAD//wQAAgAJAAAAAAD//wUAAgAJAAAAAAD//wYAAgAJAAAAAAACAAEAAgALAAAAAAACAAQAAgALAAAAAAACAAIAAgAKAAMAAAACAAUAAgAJAAAAAAACAAYAAgALAAAAACANAAIAAgAKAAMAACAFAAAAAgALAAAAAAAJAAAAAgALAAAAAAAFAAEAAgALAAAAACAJAAEAAgALAAAAACANAAEAAgALAAAAACD3/wQAAgAJAAQAAAD7/wIAAgAJAAQAAAD3/wAAAgAJAAQAAAAMAP//AgAKAAQAAAD3//3/AgALAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADz//r/AgAJAAIAABD0//n/AgAJAAIAABDz//n/AgAKAAIAABDy//r/AgAJAAMAABAKAP3/AgAJAAAAABD/////AgAJAAAAABD//wAAAgAJAAAAABD//wEAAgAJAAAAABD//wIAAgAJAAAAABD//wMAAgAJAAAAABD//wQAAgAJAAAAABD//wUAAgAJAAAAABD//wYAAgALAAAAADAAAP7/AgAJAAIAABD///7/AgAJAAMAABAFAAAAAgALAAAAABAJAAAAAgALAAAAABAFAAEAAgALAAAAADAJAAEAAgALAAAAADAKAAUAAgAJAAAAABAKAAYAAgAJAAAAABAKAAQAAgALAAAAABD0//7/AgAJAAQAABD4/wAAAgAJAAQAABD8/wIAAgAJAAQAABD4/wQAAgAJAAQAABA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD0//j/AgAJAAMAAGAMAPj/AgAJAAMAAHABAP3/AgAJAAAAAGACAP3/AgAJAAAAAGADAP3/AgAJAAAAAGAEAP3/AgAJAAAAAGAFAP3/AgAJAAAAAGAGAP3/AgAJAAAAAGAHAP3/AgAJAAAAAGAIAP3/AgAJAAAAAGAJAP3/AgAJAAAAAGAKAP3/AgAJAAAAAGACAAIAAgALAAMAAAADAAIAAgALAAMAAAAEAAIAAgALAAMAAAAFAAIAAgALAAMAAAAGAAIAAgALAAMAAAAHAAIAAgALAAMAAAAIAAIAAgALAAMAAAAJAAIAAgALAAMAAAAKAAIAAgALAAMAAAALAAIAAgALAAMAAAAMAAIAAgALAAMAAAAAAP3/AgAJAAMAAGA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 110)
+side = 2
+
+[node name="MovingSpikeball" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-152, 67)
+length = 4
+speed = 4.0
+
+[node name="MovingSpikeball3" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-152, 3)
+length = 4
+speed = 4.0
+dont_play = true
+
+[node name="MovingSpikeball4" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-152, -54)
+length = 4
+speed = 4.0
+dont_play = true
+
+[node name="MovingSpikeball5" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-72, -54)
+length = 4
+speed = 4.0
+
+[node name="CrumblingPlatform" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(24, 73)
+
+[node name="CrumblingPlatform2" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(8, 73)
+
+[node name="MovingSpikeball6" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(40, -54)
+rotation = -1.57079
+length = 4
+speed = 4.0
+dont_play = true
+
+[node name="MovingSpikeball7" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(56, -54)
+rotation = -1.57079
+length = 4
+speed = 4.0
+dont_play = true
+
+[node name="MovingSpikeball8" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(72, -54)
+rotation = -1.57079
+length = 4
+speed = 4.0
+start_left = false
+
+[node name="MovingSpikeball9" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(88, -54)
+rotation = -1.57079
+length = 4
+speed = 4.0
+start_left = false
+dont_play = true
+
+[node name="MovingSpikeball10" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(104, -54)
+rotation = -1.57079
+length = 4
+speed = 4.0
+dont_play = true
+
+[node name="MovingSpikeball11" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(120, -54)
+rotation = -1.57079
+length = 4
+speed = 4.0
+dont_play = true

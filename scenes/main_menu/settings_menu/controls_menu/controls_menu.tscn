@@ -1,0 +1,412 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0ixf388i657g"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/settings_menu/controls_menu/controls_menu.gd" id="1"]
+[ext_resource type="Script" path="res://scenes/main_menu/settings_menu/controls_menu/input_names.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="4"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="5"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="6"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="7"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="8"]
+
+[node name="ControlsMenu" type="Node2D" node_paths=PackedStringArray("options", "device_label", "key_labels", "timer_bar", "input_names", "test_label", "labels", "sublabels")]
+script = ExtResource("1")
+options = NodePath("Options")
+device_label = NodePath("Controls/DeviceLabel")
+key_labels = [NodePath("Controls/Left character controls/Left/Key"), NodePath("Controls/Left character controls/Up/Key"), NodePath("Controls/Left character controls/Right/Key"), NodePath("Controls/Right character controls/Left/Key"), NodePath("Controls/Right character controls/Up/Key"), NodePath("Controls/Right character controls/Right/Key"), NodePath("Controls/General/Reset/Key"), NodePath("Controls/General/Pause/Key")]
+timer_bar = NodePath("Controls/TimerBar")
+input_names = NodePath("InputNames")
+test_label = NodePath("Controls/VBoxContainer/Test")
+labels = [NodePath("Controls/Title"), NodePath("Controls/Left character"), NodePath("Controls/Right character"), NodePath("Controls/GeneralLabel"), NodePath("Controls/VBoxContainer/Test"), NodePath("Controls/VBoxContainer/Default"), NodePath("Controls/VBoxContainer/Back")]
+sublabels = [NodePath("Controls/Left character controls/Left/Label"), NodePath("Controls/Left character controls/Up/Label"), NodePath("Controls/Left character controls/Right/Label"), NodePath("Controls/Right character controls/Left/Label"), NodePath("Controls/Right character controls/Up/Label"), NodePath("Controls/Right character controls/Right/Label"), NodePath("Controls/General/Reset/Label"), NodePath("Controls/General/Pause/Label")]
+custom_white = Color(0.901961, 0.901961, 0.901961, 1)
+
+[node name="InputNames" type="Node" parent="."]
+script = ExtResource("2")
+
+[node name="MainMenuBG" parent="." instance=ExtResource("3")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("4")
+
+[node name="Options" type="Node" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+script = ExtResource("5")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("../Controls/SelectionArrow")
+options = [NodePath("../Controls/DeviceChange/<"), NodePath("../Controls/Left character controls/Left/Label/Marker2D"), NodePath("../Controls/Left character controls/Up/Label/Marker2D"), NodePath("../Controls/Left character controls/Right/Label/Marker2D"), NodePath("../Controls/Right character controls/Left/Label/Marker2D"), NodePath("../Controls/Right character controls/Up/Label/Marker2D"), NodePath("../Controls/Right character controls/Right/Label/Marker2D"), NodePath("../Controls/General/Reset/Label/Marker2D"), NodePath("../Controls/General/Pause/Label/Marker2D"), NodePath("../Controls/VBoxContainer/Test"), NodePath("../Controls/VBoxContainer/Default"), NodePath("../Controls/VBoxContainer/Back")]
+
+[node name="Controls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = 13.0
+
+[node name="TimerBar" type="ColorRect" parent="Controls"]
+visible = false
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 2.0
+pivot_offset = Vector2(50, 0)
+color = Color(1, 0.640625, 0, 1)
+
+[node name="Title" type="Label" parent="Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -107.0
+offset_right = 80.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="DeviceLabel" type="Label" parent="Controls"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -93.0
+offset_right = 80.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7")
+text = "Keyboard"
+horizontal_alignment = 1
+
+[node name="DeviceChange" type="HBoxContainer" parent="Controls"]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -87.0
+offset_right = 100.0
+offset_bottom = -47.0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="<" type="Label" parent="Controls/DeviceChange"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "<"
+horizontal_alignment = 1
+
+[node name=">" type="Label" parent="Controls/DeviceChange"]
+layout_mode = 2
+theme = ExtResource("7")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Separator" type="ColorRect" parent="Controls"]
+layout_mode = 2
+offset_left = -150.0
+offset_top = -54.0
+offset_right = 150.0
+offset_bottom = -52.0
+color = Color(1, 1, 1, 0.235294)
+
+[node name="Left character" type="Label" parent="Controls"]
+layout_mode = 2
+offset_left = -209.0
+offset_top = -36.0
+offset_right = -59.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Left
+character"
+horizontal_alignment = 2
+
+[node name="Left character controls" type="VBoxContainer" parent="Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -68.0
+offset_right = 133.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="HBoxContainer" parent="Controls/Left character controls"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/Left character controls/Left"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Left"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/Left character controls/Left/Label"]
+
+[node name="Key" type="Label" parent="Controls/Left character controls/Left"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Press key"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Up" type="HBoxContainer" parent="Controls/Left character controls"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/Left character controls/Up"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Up"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/Left character controls/Up/Label"]
+
+[node name="Key" type="Label" parent="Controls/Left character controls/Up"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "W"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Right" type="HBoxContainer" parent="Controls/Left character controls"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/Left character controls/Right"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Right"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/Left character controls/Right/Label"]
+
+[node name="Key" type="Label" parent="Controls/Left character controls/Right"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "D"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Separator2" type="ColorRect" parent="Controls"]
+layout_mode = 2
+offset_left = -150.0
+offset_top = -1.0
+offset_right = 150.0
+offset_bottom = 1.0
+color = Color(1, 1, 1, 0.235294)
+
+[node name="Right character" type="Label" parent="Controls"]
+layout_mode = 2
+offset_left = -209.0
+offset_top = 17.0
+offset_right = -59.0
+offset_bottom = 36.0
+theme = ExtResource("6")
+text = "Right
+character"
+horizontal_alignment = 2
+
+[node name="Right character controls" type="VBoxContainer" parent="Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -15.0
+offset_right = 133.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="HBoxContainer" parent="Controls/Right character controls"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/Right character controls/Left"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Left"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/Right character controls/Left/Label"]
+
+[node name="Key" type="Label" parent="Controls/Right character controls/Left"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Left arrow"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Up" type="HBoxContainer" parent="Controls/Right character controls"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/Right character controls/Up"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Up"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/Right character controls/Up/Label"]
+
+[node name="Key" type="Label" parent="Controls/Right character controls/Up"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Up arrow"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Right" type="HBoxContainer" parent="Controls/Right character controls"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/Right character controls/Right"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Right"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/Right character controls/Right/Label"]
+
+[node name="Key" type="Label" parent="Controls/Right character controls/Right"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Right arrow"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Separator3" type="ColorRect" parent="Controls"]
+layout_mode = 2
+offset_left = -150.0
+offset_top = 52.0
+offset_right = 150.0
+offset_bottom = 54.0
+color = Color(1, 1, 1, 0.235294)
+
+[node name="GeneralLabel" type="Label" parent="Controls"]
+layout_mode = 2
+offset_left = -209.0
+offset_top = 65.0
+offset_right = -59.0
+offset_bottom = 81.0
+theme = ExtResource("6")
+text = "General"
+horizontal_alignment = 2
+
+[node name="General" type="VBoxContainer" parent="Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = 38.0
+offset_right = 133.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reset" type="HBoxContainer" parent="Controls/General"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/General/Reset"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Reset"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/General/Reset/Label"]
+
+[node name="Key" type="Label" parent="Controls/General/Reset"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Space"
+horizontal_alignment = 2
+
+[node name="Pause" type="HBoxContainer" parent="Controls/General"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/General/Pause"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Pause"
+
+[node name="Marker2D" type="Marker2D" parent="Controls/General/Pause/Label"]
+
+[node name="Key" type="Label" parent="Controls/General/Pause"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("7")
+text = "Esc"
+horizontal_alignment = 2
+
+[node name="Separator4" type="ColorRect" parent="Controls"]
+layout_mode = 2
+offset_left = -150.0
+offset_top = 89.0
+offset_right = 150.0
+offset_bottom = 91.0
+color = Color(1, 1, 1, 0.235294)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = 105.0
+offset_right = 200.0
+offset_bottom = 161.0
+theme_override_constants/separation = 0
+
+[node name="Test" type="Label" parent="Controls/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "keys finder"
+horizontal_alignment = 1
+
+[node name="Default" type="Label" parent="Controls/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "Reset to default"
+horizontal_alignment = 1
+
+[node name="Back" type="Label" parent="Controls/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="SelectionArrow" type="Node2D" parent="Controls"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Controls/SelectionArrow"]
+texture = ExtResource("8")
+centered = false

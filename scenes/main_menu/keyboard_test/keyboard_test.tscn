@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk3mobbglblux"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/keyboard_test/keyboard_test.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://bi25slua7huqa" path="res://assets/fonts/lanapixel_everything/LanaPixel.ttf" id="5"]
+[ext_resource type="PackedScene" uid="uid://sf0huwp1acd3" path="res://scenes/main_menu/keyboard_test/key_visualizer_proper.tscn" id="6"]
+
+[sub_resource type="Theme" id="Theme_acr8n"]
+Label/constants/line_spacing = 0
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("5")
+
+[node name="KeyboardTest" type="Node2D" node_paths=PackedStringArray("key_visualizers", "done", "labels")]
+script = ExtResource("1")
+key_visualizers = [NodePath("Test/KeysL/KeyVisualizerProper"), NodePath("Test/KeysL/KeyVisualizerProper2"), NodePath("Test/KeysL/KeyVisualizerProper3"), NodePath("Test/KeysR/KeyVisualizerProper"), NodePath("Test/KeysR/KeyVisualizerProper2"), NodePath("Test/KeysR/KeyVisualizerProper3")]
+done = NodePath("Done")
+labels = [NodePath("Test/Title"), NodePath("Test/Info1"), NodePath("Test/Info2"), NodePath("Done/Title"), NodePath("Done/Info1")]
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Test" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Test"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -118.0
+offset_right = 230.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4")
+text = "Keyboard test"
+horizontal_alignment = 1
+
+[node name="Info1" type="Label" parent="Test"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -80.0
+offset_right = 380.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Keep all these keys pressed to continue.
+"
+horizontal_alignment = 1
+
+[node name="Info2" type="Label" parent="Test"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = 33.0
+offset_right = 380.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "If they don't all light up, press RETURN	."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="KeysL" type="Control" parent="Test"]
+anchors_preset = 0
+offset_left = -42.0
+offset_right = -42.0
+
+[node name="KeyVisualizerProper" parent="Test/KeysL" instance=ExtResource("6")]
+offset_left = -22.0
+offset_top = 10.0
+offset_right = -22.0
+offset_bottom = 10.0
+
+[node name="KeyVisualizerProper2" parent="Test/KeysL" instance=ExtResource("6")]
+offset_left = -1.0
+offset_top = -10.0
+offset_right = -1.0
+offset_bottom = -10.0
+key = 1
+
+[node name="KeyVisualizerProper3" parent="Test/KeysL" instance=ExtResource("6")]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 10.0
+key = 2
+
+[node name="KeysR" type="Control" parent="Test"]
+anchors_preset = 0
+offset_left = 43.0
+offset_right = 43.0
+
+[node name="KeyVisualizerProper" parent="Test/KeysR" instance=ExtResource("6")]
+offset_left = -22.0
+offset_top = 10.0
+offset_right = -22.0
+offset_bottom = 10.0
+key = 3
+
+[node name="KeyVisualizerProper2" parent="Test/KeysR" instance=ExtResource("6")]
+offset_left = -1.0
+offset_top = -10.0
+offset_right = -1.0
+offset_bottom = -10.0
+key = 4
+
+[node name="KeyVisualizerProper3" parent="Test/KeysR" instance=ExtResource("6")]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 10.0
+key = 5
+
+[node name="Done" type="Control" parent="."]
+visible = false
+z_index = 31
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuBG2" parent="Done" instance=ExtResource("2")]
+z_index = 0
+layout_mode = 1
+offset_left = -1020.0
+offset_top = -1020.0
+offset_right = 980.0
+offset_bottom = 980.0
+
+[node name="Title" type="Label" parent="Done"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -118.0
+offset_right = 230.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4")
+text = "Keyboard test"
+horizontal_alignment = 1
+
+[node name="Info1" type="Label" parent="Done"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -28.0
+offset_right = 380.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+text = "Test finished."
+horizontal_alignment = 1

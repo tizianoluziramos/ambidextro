@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://sf0huwp1acd3"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/keyboard_test/key_visualizer_proper.gd" id="1"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://g3p5kj667vm6" path="res://assets/sprites/key_arrow.png" id="3"]
+
+[node name="KeyVisualizerProper" type="Control" node_paths=PackedStringArray("key_label", "arrow", "color_rect")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1")
+key_label = NodePath("ColorRect/Key")
+arrow = NodePath("ColorRect/Arrow")
+color_rect = NodePath("ColorRect/ColorRect2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.320313, 0.320313, 0.320313, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -9.0
+offset_right = 9.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Key" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 20.0
+offset_bottom = 23.0
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Arrow" type="Sprite2D" parent="ColorRect"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(7, 6)
+texture = ExtResource("3")
+centered = false

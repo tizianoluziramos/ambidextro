@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddml6pakpwqet"]
+
+[ext_resource type="Script" path="res://scenes/mobile/touch_button/touch_button.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cswry7icael2x" path="res://assets/sprites/mobile/restart_button.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://h7qydj24ilcx" path="res://assets/sprites/mobile/restart_button_pressed.png" id="3"]
+
+[node name="TouchButton" type="Control" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+button = NodePath("Button")
+
+[node name="Button" type="TextureButton" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 300.0
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("3")
+
+[node name="ColorRect" type="ColorRect" parent="Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.0941176)
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -1,0 +1,329 @@
+[gd_scene load_steps=13 format=3 uid="uid://dcjonyvavvxv1"]
+
+[ext_resource type="Script" path="res://scenes/mace/mace.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://mrjd5gx8q60e" path="res://assets/sprites/props_forest_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="4"]
+[ext_resource type="AudioStream" uid="uid://dk834jre0ujl" path="res://assets/sfx/WHOOSH_Deep_Smooth_01_mono.wav" id="5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jlcv"]
+atlas = ExtResource("2")
+region = Rect2(72, 36, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56qc4"]
+atlas = ExtResource("2")
+region = Rect2(54, 54, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n7un"]
+atlas = ExtResource("2")
+region = Rect2(54, 36, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ameb8"]
+atlas = ExtResource("4")
+region = Rect2(72, 36, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfeyl"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8142"]
+atlas = ExtResource("4")
+region = Rect2(54, 36, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88sce"]
+atlas = ExtResource("4")
+region = Rect2(54, 54, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[node name="Mace" type="Node2D" node_paths=PackedStringArray("mace_sprite", "top", "chain_sprite", "rotation_container", "audio")]
+z_index = 3
+script = ExtResource("1")
+mace_sprite = NodePath("RotationContainer/MaceSprite")
+top = NodePath("Top")
+chain_sprite = NodePath("RotationContainer/ChainSprite")
+rotation_container = NodePath("RotationContainer")
+audio = NodePath("AudioStreamPlayer2D")
+sprites_forest = [SubResource("AtlasTexture_8jlcv"), SubResource("AtlasTexture_56qc4"), SubResource("AtlasTexture_0n7un")]
+
+[node name="RotationContainer" type="Node2D" parent="."]
+
+[node name="ColorRects2" type="Node2D" parent="RotationContainer"]
+position = Vector2(0, 8)
+
+[node name="ColorRect" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("3")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -8.0
+offset_right = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect3" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -8.0
+offset_right = -24.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("3")
+
+[node name="ColorRect4" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -8.0
+offset_right = -40.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect5" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -8.0
+offset_right = -56.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("3")
+
+[node name="ColorRect6" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -8.0
+offset_right = -72.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect7" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect8" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -8.0
+offset_right = 72.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("3")
+
+[node name="ColorRect9" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect10" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("3")
+
+[node name="ColorRect11" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect12" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect13" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 24.0
+offset_right = 8.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("3")
+
+[node name="ColorRect14" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 40.0
+offset_right = 8.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="ColorRect15" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 56.0
+offset_right = 8.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("3")
+
+[node name="ColorRect16" type="ColorRect" parent="RotationContainer/ColorRects2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 72.0
+offset_right = 8.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.333333)
+script = ExtResource("3")
+
+[node name="MaceSprite" type="Sprite2D" parent="RotationContainer"]
+z_index = 2
+position = Vector2(-16, 8)
+texture = SubResource("AtlasTexture_ameb8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RotationContainer/MaceSprite"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationContainer/MaceSprite/StaticBody2D"]
+shape = SubResource("CircleShape2D_rfeyl")
+
+[node name="ChainSprite" type="Sprite2D" parent="RotationContainer"]
+z_index = -4
+position = Vector2(0, 8)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_h8142")
+
+[node name="Top" type="Sprite2D" parent="."]
+z_index = -4
+texture = SubResource("AtlasTexture_88sce")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5")
+volume_db = 5.0
+max_distance = 200.0
+attenuation = 0.15
+panning_strength = 2.5
+bus = &"Mace"

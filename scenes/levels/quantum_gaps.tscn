@@ -1,0 +1,172 @@
+[gd_scene load_steps=13 format=4 uid="uid://cdcot58a6mls"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://w01s74v80mqh" path="res://scenes/moving_spikeball/moving_spikeball.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cbdveht8gtgwk" path="res://scenes/quantum_cube/quantum_manager.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cycvwhto27b2h" path="res://scenes/quantum_cube/quantum_cube_double.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://dkujj037vmli3" path="res://scenes/quantum_cube/quantum_cube.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://bk5wkvb2swvfv" path="res://scenes/directional_block/directional_block.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://plorlk2r38r" path="res://scenes/bars/bars_container.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://lnej0x7u6a48" path="res://scenes/bars/bars.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://naknfr18rbr6" path="res://scenes/switch/switch.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://hfj4fk1p11c2" path="res://scenes/moving_platform/moving_platform.tscn" id="12"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." node_paths=PackedStringArray("quantum_managers") instance=ExtResource("1")]
+time = 11.0
+quantum_managers = [NodePath("QuantumManager"), NodePath("QuantumManager2"), NodePath("QuantumManager3"), NodePath("QuantumManager4"), NodePath("QuantumManager5")]
+charas_souldnt_swap_on_mirror = true
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AAAMAAUAAgAFAAUAAAAMAAYAAgAFAAYAAAAMAP3/AgAGAAUAAAAMAPr/AgABAAQAAAALAPn/AgABAAQAAAAHAPn/AgABAAQAAAD0//n/AgABAAQAAADz//r/AgABAAQAAAD7/wAAAgABAAQAAAD9/wEAAgABAAQAAAAHAAEAAgABAAQAAAAJAAAAAgABAAQAAAAMAAAAAgABAAQAAAD+/wEAAgACAAQAAAAKAAAAAgACAAQAAAD1//n/AgACAAQAAAD0//r/AgACAAQAAADz//v/AgACAAQAAADz/wEAAgACAAQAAADz/wAAAgABAAQAAAD6/wAAAgAAAAQAAAD7/wEAAgAAAAQAAAAGAAEAAgAAAAQAAAALAAAAAgAAAAQAAAAMAAEAAgAAAAQAAAAKAPn/AgAAAAQAAAALAPr/AgAAAAQAAAAMAPv/AgAAAAQAAAAGAPn/AgAAAAQAAAAHAPr/AgAAAAQAAAD4/wAAAgADAAQAAAD4/wEAAgADAAQAAAD4/wIAAgADAAQAAAD4/wMAAgADAAQAAAD4/wQAAgADAAQAAAD3/wAAAgADAAQAAAD3/wEAAgADAAQAAAD3/wIAAgADAAQAAAD3/wMAAgADAAQAAAD2/wAAAgADAAQAAAD2/wEAAgADAAQAAAD2/wIAAgADAAQAAAD3//r/AgAGAAQAAAD8//r/AgAGAAQAAAAAAPr/AgAGAAQAAAAGAAYAAgAEAAQAAAABAAIAAgAEAAQAAAAJAAMAAgAEAAQAAAD7/wUAAgAEAAQAAAD0/wMAAgAEAAQAAAD1//3/AgAEAAQAAAD6//z/AgAEAAQAAAACAP3/AgAEAAQAAAAIAP3/AgAEAAQAAAAJAP3/AgAHAAQAAAACAPz/AgAHAAQAAAD7//3/AgAHAAQAAAD1//7/AgAHAAQAAAD0/wQAAgAHAAQAAAD6/wQAAgAHAAQAAAACAAMAAgAHAAQAAAAFAAYAAgAHAAQAAAAKAAMAAgAHAAQAAAD//wUAAgACAAQAAAD//wQAAgABAAQAAAAAAAQAAgACAAQAAAAMAAQAAgABAAQAAAALAAQAAgAAAAQAAAAEAPv/AgACAAQAAAAMAP7/AgAGAAYAAAAJAPv/AgAEAAQAAAADAPn/AgABAAQAAAAFAPr/AgACAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAADAP7/AgAAAAEAAAAEAPr/AgABAAAAAAAFAPr/AgABAAAAAAAIAPz/AgAAAAEAAAADAPr/AgABAAAAAAADAPv/AgAAAAEAAAADAPz/AgAAAAEAAAADAP3/AgAAAAEAAAAIAPn/AgAAAAEAAAAIAPr/AgAAAAEAAAAIAPv/AgAAAAEAAAAKAP//AgAEAAEAAAAJAP//AgAAAAEAAAALAP//AgAAAAEAAAD3////AgAEAAEAAAD4////AgAEAAEAAAD5////AgAEAAEAAAD6////AgAEAAEAAAD7////AgAEAAEAAAD8////AgAEAAEAAAD9////AgAEAAEAAAD+////AgAEAAEAAAD/////AgAEAAEAAAAAAP//AgAEAAEAAAABAP//AgAEAAEAAAACAP//AgAEAAEAAAADAP//AgAAAAEAAADz/wYAAgAEAAEAAAD0/wYAAgAEAAEAAAD1/wYAAgAEAAEAAAD2/wYAAgAEAAEAAAD3/wYAAgAEAAEAAAD4/wYAAgAEAAEAAAD5/wYAAgAEAAEAAAD6/wYAAgAEAAEAAAAIAP//AgAAAAEAAAAMAP//AgAAAAEAAAAEAP//AgAAAAEAAAAFAP//AgAAAAEAAAAGAP//AgAAAAEAAAAHAP//AgAAAAEAAAD+/wUAAgAAAAEAAAAIAAAAAgAAAAEAAAD+/wAAAgAAAAEAAAD+/wYAAgAAAAEAAAD9/wAAAgAAAAEAAAD8/wAAAgAAAAEAAAD8/wEAAgAAAAEAAAD9/wUAAgAAAAEAAAD8/wUAAgAAAAEAAAD8/wYAAgAAAAEAAAD9/wYAAgAAAAEAAAAMAAAAAgAGAAEAAAAMAAEAAgAGAAEAAAAMAAIAAgAGAAEAAAAMAAMAAgAGAAEAAAAMAAQAAgABAAAAAAD//wAAAgAAAAEAAAAAAAAAAgAAAAEAAAABAAAAAgAAAAEAAAACAAAAAgAAAAEAAAADAAAAAgAAAAEAAAAEAAAAAgAAAAEAAAAFAAAAAgAAAAEAAAAGAAAAAgAAAAEAAAAHAAAAAgAAAAEAAAD7/wYAAgAEAAEAAAD//wQAAgABAAAAAAAHAAQAAgABAAAAAAAJAAQAAgABAAAAAAAKAAQAAgABAAAAAAALAAQAAgABAAAAAAAIAAQAAgABAAAAAAD+/wQAAgABAAAAAAD9/wQAAgABAAAAAAD8/wQAAgABAAAAAAD2////AgABAAAAAAD1////AgABAAAAAADz////AgABAAAAAADz//n/AgAAAAEAAAAMAPn/AgAAAAEAAAALAPn/AgABAAMAAAAMAPr/AgABAAMAAAD0//n/AgACAAMAAADz//r/AgACAAMAAAAGAAQAAgABAAAAAAAIAAIAAgAAAAEAAAAJAAIAAgABAAAAAAAKAAIAAgABAAAAAAAIAAEAAgAAAAEAAADy//r/AgAAAAEAAADy//n/AgAAAAEAAADy//j/AgAAAAEAAADz//j/AgAAAAEAAAD0//j/AgAAAAEAAAALAPj/AgAAAAEAAAAMAPj/AgAAAAEAAAANAPj/AgAAAAEAAAANAPn/AgAAAAEAAAANAPr/AgAAAAEAAADy////AgAAAAEAAAAIAPj/AgAAAAEAAAANAP7/AgAAAAEAAAANAP//AgAAAAEAAAANAAQAAgAAAAEAAADy/wYAAgAAAAEAAAAGAPz/AgABAAAAAAAHAPz/AgABAAAAAAAEAP7/AgABAAAAAAAFAP7/AgABAAAAAAAGAP7/AgABAAAAAAAHAP7/AgABAAAAAAAIAP7/AgABAAAAAAAJAP7/AgABAAAAAAALAP7/AgABAAAAAAAMAP7/AgABAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD8/wAAAgAJAAAAAAD8/wEAAgAJAAAAAAD8////AgANAAMAAAD8/wUAAgAJAAAAAAD8/wQAAgALAAAAAAD8/wYAAgALAAAAACAGAAQAAgALAAAAAAANAAQAAgALAAAAACANAP//AgANAAMAAAAIAAEAAgAJAAAAAAAIAAIAAgAJAAAAAAAIAAAAAgANAAMAAAD1////AgALAAAAAAADAP//AgALAAAAACADAP7/AgAJAAAAAAADAP3/AgAJAAAAAAADAPz/AgAJAAAAAAADAPv/AgAJAAAAAAADAPr/AgALAAAAAAAIAPn/AgAJAAAAAAAIAPr/AgAJAAAAAAAIAPv/AgAJAAAAAAAIAPj/AgANAAMAAAAGAPz/AgALAAAAAAAIAPz/AgAKAAAAACALAP7/AgALAAAAAAALAP//AgALAAAAACANAP7/AgALAAAAACANAPr/AgAJAAMAAAAMAPr/AgAJAAIAAAALAPn/AgAJAAIAAAAMAPn/AgAKAAIAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADy/wYAAgALAAAAADDy////AgALAAAAADD8/wEAAgAJAAAAABD8/wAAAgANAAMAABD//wQAAgALAAAAABD+/wUAAgAJAAAAABD+/wYAAgAJAAAAABD+/wQAAgANAAMAABAKAAIAAgALAAAAABAIAAEAAgAJAAAAABAIAAAAAgAJAAAAABAIAAIAAgALAAAAADAIAP//AgANAAMAABDz////AgALAAAAABAFAPr/AgALAAAAABADAPr/AgANAAMAABADAPv/AgAJAAAAABADAPz/AgAJAAAAABADAP3/AgAJAAAAABADAP7/AgALAAAAADAIAPn/AgAJAAAAABAIAPr/AgAJAAAAABAIAPv/AgAJAAAAABAIAPj/AgANAAMAABAIAPz/AgAJAAAAABAJAP7/AgALAAAAABAJAP//AgALAAAAADDy//r/AgAJAAMAABDz//r/AgAJAAIAABD0//n/AgAJAAIAABDz//n/AgAKAAIAABA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADy////AgANAAMAABDz////AgAJAAAAAGD1////AgAJAAAAAGD2////AgAJAAAAAGD3////AgAJAAAAAGD4////AgAJAAAAAGD5////AgAJAAAAAGD6////AgAJAAAAAGD7////AgAJAAAAAGD8/wEAAgAJAAAAAGD9/wAAAgAJAAAAAGD+/wAAAgAJAAAAAGD//wAAAgAJAAAAAGAAAAAAAgAJAAAAAGABAAAAAgAJAAAAAGACAAAAAgAJAAAAAGADAAAAAgAJAAAAAGAEAAAAAgAJAAAAAGAFAAAAAgAJAAAAAGAGAAAAAgAJAAAAAGAHAAAAAgAJAAAAAGAIAAIAAgAJAAAAAGAJAAIAAgAJAAAAAGAKAAIAAgAJAAAAAGAJAP//AgAJAAAAAGAKAP//AgAJAAAAAGALAP//AgAJAAAAAGAMAP//AgAJAAAAAGD//wQAAgAJAAAAAGAGAAQAAgAJAAAAAGAHAAQAAgAJAAAAAGAIAAQAAgAJAAAAAGAJAAQAAgAJAAAAAGAKAAQAAgAJAAAAAGALAAQAAgAJAAAAAGAMAAQAAgAJAAAAAGAGAPz/AgAJAAAAAGAHAPz/AgAJAAAAAGAIAPz/AgAJAAAAAGAFAPr/AgAJAAAAAGAEAPr/AgAJAAAAAGANAAQAAgANAAMAAAD0//j/AgAJAAMAAGALAPj/AgAJAAMAAHA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, -24)
+side = 2
+
+[node name="MovingSpikeball" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-136, -40)
+length = 6
+speed = 6.0
+
+[node name="MovingSpikeball2" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-40, -40)
+length = 6
+speed = 6.0
+start_left = false
+
+[node name="QuantumManager" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(0, 6)
+
+[node name="QuantumCubeDouble" parent="LevelLayout/QuantumManager" instance=ExtResource("6")]
+position = Vector2(8, 72)
+start_active = false
+
+[node name="QuantumCubeDouble2" parent="LevelLayout/QuantumManager" instance=ExtResource("6")]
+position = Vector2(40, 72)
+
+[node name="QuantumCubeDouble3" parent="LevelLayout/QuantumManager" instance=ExtResource("6")]
+position = Vector2(72, 72)
+
+[node name="QuantumManager2" parent="LevelLayout" instance=ExtResource("5")]
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager2" instance=ExtResource("7")]
+position = Vector2(40, -24)
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager2" instance=ExtResource("7")]
+position = Vector2(24, -24)
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager2" instance=ExtResource("7")]
+position = Vector2(8, -24)
+
+[node name="QuantumCube4" parent="LevelLayout/QuantumManager2" instance=ExtResource("7")]
+position = Vector2(-8, -24)
+
+[node name="QuantumManager3" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-64, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager3" instance=ExtResource("7")]
+position = Vector2(40, -24)
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager3" instance=ExtResource("7")]
+position = Vector2(24, -24)
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager3" instance=ExtResource("7")]
+position = Vector2(8, -24)
+
+[node name="QuantumCube4" parent="LevelLayout/QuantumManager3" instance=ExtResource("7")]
+position = Vector2(-8, -24)
+
+[node name="QuantumManager4" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-128, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager4" instance=ExtResource("7")]
+position = Vector2(40, -24)
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager4" instance=ExtResource("7")]
+position = Vector2(24, -24)
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager4" instance=ExtResource("7")]
+position = Vector2(8, -24)
+
+[node name="QuantumCube4" parent="LevelLayout/QuantumManager4" instance=ExtResource("7")]
+position = Vector2(-8, -24)
+
+[node name="QuantumManager5" parent="LevelLayout" instance=ExtResource("5")]
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager5" instance=ExtResource("7")]
+position = Vector2(168, -18)
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager5" instance=ExtResource("7")]
+position = Vector2(88, -50)
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager5" instance=ExtResource("7")]
+position = Vector2(104, -82)
+start_active = false
+
+[node name="DirectionalBlock" parent="LevelLayout" instance=ExtResource("8")]
+position = Vector2(-184, -2)
+direction = 0
+
+[node name="BarsContainer" parent="LevelLayout" instance=ExtResource("9")]
+position = Vector2(136, 48)
+
+[node name="Bars" parent="LevelLayout/BarsContainer" instance=ExtResource("10")]
+
+[node name="Bars2" parent="LevelLayout/BarsContainer" instance=ExtResource("10")]
+position = Vector2(0, 8)
+
+[node name="BarsContainer2" parent="LevelLayout" instance=ExtResource("9")]
+position = Vector2(-56, 32)
+emblem = 2
+
+[node name="Bars" parent="LevelLayout/BarsContainer2" instance=ExtResource("10")]
+
+[node name="Bars2" parent="LevelLayout/BarsContainer2" instance=ExtResource("10")]
+position = Vector2(0, 16)
+
+[node name="Bars3" parent="LevelLayout/BarsContainer2" instance=ExtResource("10")]
+position = Vector2(0, 24)
+
+[node name="Switch" parent="LevelLayout" instance=ExtResource("11")]
+position = Vector2(-40, 40)
+
+[node name="Switch2" parent="LevelLayout" instance=ExtResource("11")]
+position = Vector2(152, 8)
+emblem = 2
+
+[node name="MovingPlatform2" parent="LevelLayout" instance=ExtResource("12")]
+position = Vector2(-184, 83)
+length = 7
+speed = 4.0
+start_left = false
+long = true

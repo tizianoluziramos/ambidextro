@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq3hbcmjp5sg2"]
+
+[ext_resource type="Script" path="res://scenes/target/target.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kps2"]
+atlas = ExtResource("2")
+region = Rect2(90, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[node name="Target" type="Node2D" node_paths=PackedStringArray("sprite", "marker")]
+z_index = 4
+script = ExtResource("1")
+sprite = NodePath("Sprite2D")
+marker = NodePath("Marker2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_1kps2")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.145098)
+script = ExtResource("3")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-8, 0)

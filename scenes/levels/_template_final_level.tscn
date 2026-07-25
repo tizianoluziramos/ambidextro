@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=4 uid="uid://b568u885npror"]
+
+[ext_resource type="Script" path="res://scenes/levels/scrolling_level/level_layout_proxy.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="2"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="4"]
+[ext_resource type="Script" path="res://scenes/levels/scrolling_level/scrolling_camera.gd" id="5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayoutProxy" type="Node" parent="." node_paths=PackedStringArray("level_layout")]
+script = ExtResource("1")
+level_layout = NodePath("../LevelLayout")
+
+[node name="LevelLayout" parent="." instance=ExtResource("2")]
+time = 10.0
+hide_tiles = true
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AADz/wYAAAACAAAAAAD0/wYAAAACAAAAAAD1/wYAAAACAAAAAAD2/wYAAAACAAAAAAD3/wYAAAACAAAAAAD4/wYAAAACAAAAAAD5/wYAAAACAAAAAAD6/wYAAAACAAAAAAD7/wYAAAACAAAAAAD8/wYAAAACAAAAAAD9/wYAAAACAAAAAAD+/wYAAAACAAAAAAD//wYAAAACAAAAAAAAAAYAAAACAAAAAAABAAYAAAACAAAAAAACAAYAAAACAAAAAAADAAYAAAACAAAAAAAEAAYAAAACAAAAAAAFAAYAAAACAAAAAAAGAAYAAAACAAAAAAAHAAYAAAACAAAAAAAIAAYAAAACAAAAAAAJAAYAAAACAAAAAAAKAAYAAAACAAAAAAALAAYAAAACAAAAAAAMAAYAAAACAAAAAAA=")
+tile_set = ExtResource("3")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-200, 110)
+
+[node name="ScrollingCamera" type="Camera2D" parent="LevelLayout" node_paths=PackedStringArray("player_spawn_point")]
+scale = Vector2(0.9, 0.9)
+script = ExtResource("5")
+player_spawn_point = NodePath("../PlayerSpawnPoint")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+process_mode = 3
+visible = false
+offset_left = -400.0
+offset_top = -360.0
+offset_bottom = 360.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+process_mode = 1
+disable_3d = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(400, 720)
+render_target_update_mode = 0
+
+[node name="LevelLayout2" parent="." instance=ExtResource("2")]
+visible = false
+time = 10.0
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout2"]
+use_parent_material = true
+tile_set = ExtResource("3")
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout2" instance=ExtResource("4")]
+position = Vector2(200, 110)
+side = 2
+
+[node name="ScrollingCamera" type="Camera2D" parent="LevelLayout2" node_paths=PackedStringArray("player_spawn_point")]
+scale = Vector2(0.9, 0.9)
+script = ExtResource("5")
+player_spawn_point = NodePath("../PlayerSpawnPoint2")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+process_mode = 3
+visible = false
+offset_top = -360.0
+offset_right = 400.0
+offset_bottom = 360.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+process_mode = 1
+disable_3d = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(400, 720)
+render_target_update_mode = 0

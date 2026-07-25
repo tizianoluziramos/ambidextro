@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3lqtqfywgv3v"]
+
+[ext_resource type="Texture2D" uid="uid://jncp0flwbj0b" path="res://assets/sprites/princess.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6qmm"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hurse"]
+atlas = ExtResource("1")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swgvh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6qmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hurse")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Princess" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_swgvh")
+autoplay = "default"
+frame_progress = 0.946375

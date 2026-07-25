@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=4 uid="uid://d4mwrrr52wqdq"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ciw32ubax06oe" path="res://scenes/glass/glass.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 8.0
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAZAAQAAgAAAAEAAADz/wMAAgACAAAAAAD0/wMAAgACAAAAAAD1/wMAAgACAAAAAAD2/wMAAgACAAAAAAD3/wMAAgACAAAAAAD4/wMAAgACAAAAAAD5/wMAAgACAAAAAAD6/wMAAgACAAAAAAAMAPz/AgACAAAAAAALAPz/AgACAAAAAAAKAPz/AgACAAAAAAAJAPz/AgACAAAAAAAIAPz/AgACAAAAAAAHAPz/AgACAAAAAAAGAPz/AgACAAAAAAAFAPz/AgACAAAAAAD+/wYAAgAAAAEAAAD+/wUAAgAAAAEAAAD+/wQAAgAAAAEAAAD+/wMAAgAAAAEAAAD+/wIAAgAAAAEAAAD+/wEAAgAAAAEAAAD+/wAAAgAAAAEAAAD+////AgAAAAEAAAD+//7/AgAAAAEAAAD+//3/AgAAAAEAAAD+//z/AgACAAAAAAABAPn/AgAAAAEAAAABAPr/AgAAAAEAAAABAPv/AgAAAAEAAAABAPz/AgAAAAEAAAABAP3/AgAAAAEAAAABAP7/AgAAAAEAAAABAP//AgAAAAEAAAABAAAAAgAAAAEAAAABAAEAAgAAAAEAAAABAAIAAgAAAAEAAAABAAMAAgAAAAEAAAABAAQAAgAAAAEAAAD7/wMAAgACAAAAAAD9/wUAAgABAAAAAAD9/wYAAgAAAAEAAAAEAPz/AgACAAAAAAD9//z/AgADAAAAAAD8//z/AgADAAAAAAD7//z/AgADAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-400, 220)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(400, -124)
+side = 2
+
+[node name="Glass" parent="." instance=ExtResource("4")]
+position = Vector2(-96, 112)
+
+[node name="crumbling" type="Node2D" parent="."]
+
+[node name="CrumblingPlatform" parent="crumbling" instance=ExtResource("5")]
+position = Vector2(-240, 48)
+
+[node name="CrumblingPlatform2" parent="crumbling" instance=ExtResource("5")]
+position = Vector2(-208, 48)
+
+[node name="crumbling2" type="Node2D" parent="."]
+position = Vector2(-96, -64)
+
+[node name="CrumblingPlatform" parent="crumbling2" instance=ExtResource("5")]
+position = Vector2(-240, 48)
+
+[node name="CrumblingPlatform2" parent="crumbling2" instance=ExtResource("5")]
+position = Vector2(-208, 48)
+
+[node name="crumbling3" type="Node2D" parent="."]
+position = Vector2(-161, -128)
+
+[node name="CrumblingPlatform" parent="crumbling3" instance=ExtResource("5")]
+position = Vector2(-240, 48)
+
+[node name="crumbling4" type="Node2D" parent="."]
+position = Vector2(-32, -172)
+
+[node name="CrumblingPlatform" parent="crumbling4" instance=ExtResource("5")]
+position = Vector2(-240, 48)
+
+[node name="CrumblingPlatform2" parent="crumbling4" instance=ExtResource("5")]
+position = Vector2(-208, 48)

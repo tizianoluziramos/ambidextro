@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://fv6kt5dwdwlx"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/credits_menu/credits_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="4"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="6"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="7"]
+
+[node name="CreditsMenu" type="Node2D" node_paths=PackedStringArray("options", "credits_label", "labels")]
+script = ExtResource("1")
+options = NodePath("Options")
+credits_label = NodePath("Credits/Credits")
+labels = [NodePath("Credits/Title"), NodePath("Credits/Credits"), NodePath("Credits/VBoxContainer/Back")]
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Credits" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -120.0
+offset_right = 230.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4")
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="SaveFileChange" type="HBoxContainer" parent="Credits"]
+layout_mode = 0
+offset_left = -500.0
+offset_top = -19.0
+offset_right = 500.0
+offset_bottom = 21.0
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="<" type="Label" parent="Credits/SaveFileChange"]
+modulate = Color(0.901961, 0.901961, 0.901961, 1)
+layout_mode = 2
+theme = ExtResource("4")
+text = "<"
+horizontal_alignment = 1
+
+[node name=">" type="Label" parent="Credits/SaveFileChange"]
+modulate = Color(0.901961, 0.901961, 0.901961, 1)
+layout_mode = 2
+theme = ExtResource("4")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -102.0
+offset_right = 105.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Ambidextro v1.0
+Created by Alva Majo
+Music by Alejandro Maciá
+Special thanks to Lariat the Witch, NicoCore (not Guinxu)
+
+Majorariatto 2024"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 0
+offset_left = -250.0
+offset_top = 94.0
+offset_right = 250.0
+offset_bottom = 134.0
+
+[node name="Back" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="SelectionArrow" type="Node2D" parent="Credits"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Credits/SelectionArrow"]
+texture = ExtResource("6")
+centered = false
+
+[node name="Options" type="Node" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+script = ExtResource("7")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("../Credits/SelectionArrow")
+options = [NodePath("../Credits/SaveFileChange/<"), NodePath("../Credits/VBoxContainer/Back")]

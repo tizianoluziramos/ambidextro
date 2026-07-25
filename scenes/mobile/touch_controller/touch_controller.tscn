@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c13e4sdfqk8vn"]
+
+[ext_resource type="Script" path="res://scenes/mobile/touch_controller/touch_controller.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dq47koj2quw7y" path="res://assets/sprites/mobile/joystick.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bry0ehw5i3fle" path="res://assets/sprites/mobile/joystick_arrow.png" id="3"]
+
+[node name="TouchController" type="Node" node_paths=PackedStringArray("joystick", "joystick_arrow")]
+script = ExtResource("1")
+action_left = "left_r"
+action_right = "right_r"
+action_up = "up_r"
+joystick = NodePath("Joystick")
+joystick_arrow = NodePath("Joystick/Arrow")
+
+[node name="Joystick" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.588235)
+texture = ExtResource("2")
+
+[node name="Arrow" type="Sprite2D" parent="Joystick"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("3")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cr7bcnmrf8vs4"
+path="res://.godot/imported/swipes and whooshes broom long stick slow and long swings stereo ORTF 8040.wav-e304b6e546aa37a3860d89194ad281e2.sample"
+
+[deps]
+
+source_file="res://assets/sfx/swipes and whooshes broom long stick slow and long swings stereo ORTF 8040.wav"
+dest_files=["res://.godot/imported/swipes and whooshes broom long stick slow and long swings stereo ORTF 8040.wav-e304b6e546aa37a3860d89194ad281e2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=96000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

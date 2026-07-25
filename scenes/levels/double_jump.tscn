@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=4 uid="uid://efprs8u4duxe"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c5fs87a6onot8" path="res://scenes/swapper/swapper_container.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://baxaglhdovda4" path="res://scenes/swapper/swapper.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dlqlerqrcktyn" path="res://scenes/trampoline/trampoline.tscn" id="6"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 7.0
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AAALAPn/AgABAAQAAAAMAPr/AgABAAQAAAD0//n/AgABAAQAAADz//r/AgABAAQAAAD1//n/AgACAAQAAAD0//r/AgACAAQAAADz//v/AgACAAQAAAAKAPn/AgAAAAQAAAALAPr/AgAAAAQAAAAMAPv/AgAAAAQAAADz////AgABAAQAAAD0////AgACAAQAAADz/wAAAgACAAQAAAAIAPz/AgAGAAQAAAAEAPz/AgAGAAQAAAD3//v/AgAGAAQAAAD7//v/AgAGAAQAAAAMAAQAAgAEAAQAAAADAAIAAgAEAAQAAAAMAP7/AgAEAAQAAAAAAPv/AgAEAAQAAAD8/wAAAgAEAAQAAADz/wMAAgAEAAQAAAD2/wYAAgAEAAQAAAD1/wYAAgAHAAQAAAD2/wUAAgAHAAQAAAD0/wIAAgAHAAQAAAD7/wEAAgAHAAQAAAD1//3/AgAHAAQAAAAAAPz/AgAHAAQAAAAEAAEAAgAHAAQAAAAMAP//AgAHAAQAAAALAAQAAgAHAAQAAADz/wUAAgAFAAUAAADz/wYAAgAFAAYAAAAMAAUAAgAFAAUAAAAMAAYAAgAFAAYAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD3/wMAAgACAAAAAAD4/wMAAgACAAAAAAD3/wQAAgAAAAEAAAD3/wUAAgAAAAEAAAD3/wYAAgAAAAEAAAD4/wYAAgAAAAEAAAD4/wUAAgAAAAEAAAD4/wQAAgAAAAEAAAAMAAUAAgACAAAAAAALAAUAAgACAAAAAAAKAAUAAgACAAAAAAAJAAUAAgACAAAAAAAGAAYAAgAAAAEAAAAGAAUAAgAAAAEAAAAGAAQAAgAAAAEAAAAGAAMAAgACAAAAAAD5/wMAAgACAAAAAAD6/wMAAgACAAAAAAD7/wMAAgACAAAAAAD8/wMAAgACAAAAAAD9/wMAAgACAAAAAAD+/wMAAgACAAAAAAD//wMAAgAAAAEAAAAAAAMAAgACAAAAAAABAAMAAgACAAAAAAACAAMAAgACAAAAAAADAAMAAgACAAAAAAAEAAMAAgACAAAAAAAFAAMAAgACAAAAAAD5/wQAAgAAAAEAAAD6/wQAAgAAAAEAAAD7/wUAAgAAAAEAAAD8/wUAAgAAAAEAAAD9/wUAAgAAAAEAAAD+/wUAAgAAAAEAAAD//wUAAgAAAAEAAAAAAAUAAgAAAAEAAAABAAUAAgAAAAEAAAABAAYAAgAAAAEAAAACAAYAAgAAAAEAAAADAAYAAgAAAAEAAAAEAAYAAgAAAAEAAAAFAAYAAgAAAAEAAAD5/wUAAgAAAAEAAAD5/wYAAgAAAAEAAAD6/wUAAgAAAAEAAAD6/wYAAgAAAAEAAAD7/wQAAgAAAAEAAAD7/wYAAgAAAAEAAAD8/wQAAgAAAAEAAAD8/wYAAgAAAAEAAAD9/wQAAgAAAAEAAAD9/wYAAgAAAAEAAAD+/wQAAgAAAAEAAAD+/wYAAgAAAAEAAAD//wQAAgAAAAEAAAD//wYAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAYAAgAAAAEAAAABAAQAAgAAAAEAAAACAAQAAgAAAAEAAAACAAUAAgAAAAEAAAADAAQAAgAAAAEAAAADAAUAAgAAAAEAAAAEAAQAAgAAAAEAAAAEAAUAAgAAAAEAAAAFAAQAAgAAAAEAAAAFAAUAAgAAAAEAAADz//7/AgACAAAAAAD0//7/AgACAAAAAAD1//7/AgACAAAAAAD2//7/AgACAAAAAAD///v/AgACAAAAAAD///z/AgAAAAEAAAD///3/AgAAAAEAAAD///7/AgAAAAEAAAD/////AgAAAAEAAAD//wAAAgAAAAEAAAD//wEAAgAAAAEAAAD//wIAAgAAAAEAAAD0//n/AgACAAMAAADz//r/AgACAAMAAADz//n/AgAAAAEAAAAMAPn/AgAAAAEAAAALAPn/AgABAAMAAAAMAPr/AgABAAMAAADy//7/AgAAAAEAAADy//r/AgAAAAEAAADy//n/AgAAAAEAAADy//j/AgAAAAEAAADz//j/AgAAAAEAAAD0//j/AgAAAAEAAAALAPj/AgAAAAEAAAAMAPj/AgAAAAEAAAANAPj/AgAAAAEAAAANAPn/AgAAAAEAAAANAPr/AgAAAAEAAAANAAUAAgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD3/wYAAgAJAAAAAAD3/wUAAgAJAAAAAAD3/wQAAgAJAAAAAAD3/wMAAgAJAAAAAAD//wIAAgAJAAAAAAD//wEAAgAJAAAAAAD//wAAAgAJAAAAAAD/////AgAJAAAAAAD///7/AgAJAAAAAAD///3/AgAJAAAAAAD///z/AgAJAAAAAAD///v/AgAJAAAAAAAJAAUAAgAJAAAAAAD//wMAAgAKAAAAACANAPr/AgAJAAMAAAAMAPn/AgAKAAIAAAALAPn/AgAJAAIAAAAMAPr/AgAJAAIAAAANAAUAAgAKAAAAACA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD2//7/AgAJAAAAABDy//7/AgAKAAAAADD//wIAAgAJAAAAABD//wEAAgAJAAAAABD//wAAAgAJAAAAABD/////AgAJAAAAABD///7/AgAJAAAAABD///3/AgAJAAAAABD///z/AgAJAAAAABD///v/AgAJAAAAABAGAAYAAgAJAAAAABAGAAUAAgAJAAAAABAGAAQAAgAJAAAAABAGAAMAAgAJAAAAABD//wMAAgAKAAAAADDy//r/AgAJAAMAABDz//r/AgAJAAIAABD0//n/AgAJAAIAABDz//n/AgAKAAIAABA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADz//7/AgAJAAAAAGD0//7/AgAJAAAAAGD1//7/AgAJAAAAAGD2//7/AgAJAAAAAGAMAAUAAgAJAAAAAGALAAUAAgAJAAAAAGAKAAUAAgAJAAAAAGAJAAUAAgAJAAAAAGDy//7/AgANAAMAABD0//j/AgAJAAMAAGALAPj/AgAJAAMAAHANAAUAAgANAAMAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 110)
+side = 2
+
+[node name="SwapperContainer2" parent="." instance=ExtResource("4")]
+position = Vector2(112, 88)
+rotation = -1.57079
+
+[node name="SwapperFull" parent="SwapperContainer2" instance=ExtResource("5")]
+
+[node name="SwapperFull2" parent="SwapperContainer2" instance=ExtResource("5")]
+position = Vector2(0, 16)
+
+[node name="SwapperContainer" parent="." instance=ExtResource("4")]
+position = Vector2(-144, -24)
+rotation = -1.57079
+
+[node name="SwapperFull" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(-3.41733e-06, 0)
+
+[node name="SwapperFull2" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(4.21207e-06, 16)
+
+[node name="SwapperFull3" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(0.00019997, 32)
+
+[node name="SwapperFull4" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(0.00030036, 48)
+
+[node name="SwapperFull5" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(0.00040075, 64)
+
+[node name="SwapperFull6" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(0.00050114, 80)
+
+[node name="SwapperFull7" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(0.00060153, 96)
+
+[node name="SwapperFull8" parent="SwapperContainer" instance=ExtResource("5")]
+position = Vector2(0.00070192, 112)
+
+[node name="Trampoline" parent="." instance=ExtResource("6")]
+position = Vector2(8, 52)
+
+[node name="Trampoline2" parent="." instance=ExtResource("6")]
+position = Vector2(-24, 52)

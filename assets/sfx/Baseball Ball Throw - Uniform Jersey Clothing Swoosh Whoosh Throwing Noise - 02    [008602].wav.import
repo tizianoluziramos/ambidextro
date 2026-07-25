@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ia7vt3xjbj7f"
+path="res://.godot/imported/Baseball Ball Throw - Uniform Jersey Clothing Swoosh Whoosh Throwing Noise - 02    [008602].wav-ada2b1aec0228814c9077ee4f582796e.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Baseball Ball Throw - Uniform Jersey Clothing Swoosh Whoosh Throwing Noise - 02    [008602].wav"
+dest_files=["res://.godot/imported/Baseball Ball Throw - Uniform Jersey Clothing Swoosh Whoosh Throwing Noise - 02    [008602].wav-ada2b1aec0228814c9077ee4f582796e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=48000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

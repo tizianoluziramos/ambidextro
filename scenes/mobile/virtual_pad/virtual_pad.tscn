@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ofgvf6s6njw"]
+
+[ext_resource type="Script" path="res://scenes/mobile/virtual_pad/virtual_pad.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bmero51plnhb0" path="res://scenes/mobile/virtual_pad_button/virtual_pad_button.tscn" id="2"]
+
+[node name="VirtualPad" type="Control" node_paths=PackedStringArray("buttons", "grid")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1")
+buttons = [NodePath("GridContainer/UpLeft"), NodePath("GridContainer/Up"), NodePath("GridContainer/UpRight"), NodePath("GridContainer/Left"), NodePath("GridContainer/Center"), NodePath("GridContainer/Right")]
+grid = NodePath("GridContainer")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+offset_left = -47.0
+offset_top = -62.0
+offset_right = 47.0
+localize_numeral_system = false
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 3
+
+[node name="UpLeft" parent="GridContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="Up" parent="GridContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="UpRight" parent="GridContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="Left" parent="GridContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="Center" parent="GridContainer" instance=ExtResource("2")]
+layout_mode = 2
+
+[node name="Right" parent="GridContainer" instance=ExtResource("2")]
+layout_mode = 2

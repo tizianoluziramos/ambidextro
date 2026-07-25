@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cycvwhto27b2h"]
+
+[ext_resource type="Script" path="res://scenes/quantum_cube/quantum_cube_double.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dkujj037vmli3" path="res://scenes/quantum_cube/quantum_cube.tscn" id="2"]
+
+[node name="QuantumCubeDouble" type="Node2D" node_paths=PackedStringArray("quantum_cubes")]
+script = ExtResource("1")
+quantum_cubes = [NodePath("QuantumCube"), NodePath("QuantumCube2")]
+
+[node name="QuantumCube" parent="." instance=ExtResource("2")]
+
+[node name="QuantumCube2" parent="." instance=ExtResource("2")]
+position = Vector2(16, 0)

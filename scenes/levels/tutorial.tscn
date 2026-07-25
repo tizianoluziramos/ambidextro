@@ -1,0 +1,170 @@
+[gd_scene load_steps=11 format=4 uid="uid://cm8sfwyfagkxs"]
+
+[ext_resource type="Script" path="res://scenes/levels/tutorial.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="2"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://b5savuletq1hs" path="res://scenes/tutorial_key/tutorial_key.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://du8juran50gw4" path="res://assets/sprites/controllers.png" id="6"]
+[ext_resource type="Script" path="res://scenes/main_menu/settings_menu/controls_menu/input_names.gd" id="7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnwpg"]
+atlas = ExtResource("6")
+region = Rect2(0, 0, 30, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra1be"]
+atlas = ExtResource("6")
+region = Rect2(0, 17, 30, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ige0e"]
+atlas = ExtResource("6")
+region = Rect2(0, 34, 30, 17)
+
+[node name="Tutorial" type="Node2D" node_paths=PackedStringArray("tutorial_keys", "input_lrm", "controller_lrm", "keys", "tile_map_blocking_reset", "input_names")]
+script = ExtResource("1")
+tutorial_keys = [NodePath("LevelLayout/Keys/Input_L/TutorialKey1"), NodePath("LevelLayout/Keys/Input_L/TutorialKey2"), NodePath("LevelLayout/Keys/Input_L/TutorialKey3"), NodePath("LevelLayout/Keys/Input_R/TutorialKey1"), NodePath("LevelLayout/Keys/Input_R/TutorialKey2"), NodePath("LevelLayout/Keys/Input_R/TutorialKey3"), NodePath("LevelLayout/Keys/TutorialKeyReset")]
+input_lrm = [NodePath("LevelLayout/Keys/Input_L"), NodePath("LevelLayout/Keys/Input_R"), NodePath("LevelLayout/Keys/TutorialKeyReset")]
+controller_lrm = [NodePath("LevelLayout/Keys/Controller_L"), NodePath("LevelLayout/Keys/Controller_R"), NodePath("LevelLayout/Keys/Controller_M")]
+keys = NodePath("LevelLayout/Keys")
+tile_map_blocking_reset = NodePath("LevelLayout/TileMap/TileMapBlockingReset")
+input_names = NodePath("InputNames")
+
+[node name="LevelLayout" parent="." instance=ExtResource("2")]
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz//n/AgABAAQAAAAMAPn/AgABAAQAAADz//r/AgACAAQAAAD0//n/AgACAAQAAAALAPn/AgAAAAQAAAAMAPr/AgAAAAQAAAADAPn/AgABAAQAAAD8//n/AgABAAQAAAAMAAAAAgABAAQAAADz/wAAAgABAAQAAAALAAAAAgAAAAQAAAAMAAEAAgAAAAQAAAD7//n/AgAAAAQAAAD8//r/AgAAAAQAAAAEAPn/AgACAAQAAAADAPr/AgACAAQAAAD0/wAAAgACAAQAAADz/wEAAgACAAQAAAD+//z/AgABAAQAAAABAPz/AgABAAQAAAABAP3/AgACAAQAAAACAPz/AgACAAQAAAD9//z/AgAAAAQAAAD+//3/AgAAAAQAAADz//7/AgAFAAYAAADz////AgAFAAYAAADz//3/AgAFAAUAAAAMAP3/AgAFAAUAAAAMAP7/AgAFAAYAAAD2//v/AgAGAAQAAAAIAPv/AgAGAAQAAAD9/wYAAgAEAAQAAAD7/wYAAgAEAAQAAAAHAAYAAgAEAAQAAAAJAAYAAgAEAAQAAAD+/wMAAgAEAAQAAAAGAAQAAgAEAAQAAAACAAAAAgAEAAQAAAD8/wAAAgAEAAQAAAD1/wUAAgAEAAQAAAD2/wQAAgAHAAQAAAD//wMAAgAHAAQAAAADAAEAAgAHAAQAAAALAAUAAgAHAAQAAAAMAAQAAgAHAAQAAAD+//n/AgABAAQAAAABAPn/AgABAAQAAAAAAPn/AgAAAAQAAAABAPr/AgAAAAQAAAD///n/AgACAAQAAAD+//r/AgACAAQAAAA=")
+tile_set = ExtResource("3")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAPz/AgAAAAEAAAAAAPv/AgACAAAAAAD///v/AgACAAAAAAD///z/AgAAAAEAAADz////AgAAAAEAAAD0////AgAAAAEAAAD1////AgAAAAEAAAD2////AgAAAAEAAAD3////AgAAAAEAAAD4////AgAAAAEAAAD5////AgAAAAEAAAD6////AgAAAAEAAAD7////AgAAAAEAAAD///3/AgAAAAEAAAD///7/AgAAAAEAAAD/////AgAAAAEAAAD//wAAAgAAAAEAAAAAAP3/AgAAAAEAAAAAAP7/AgAAAAEAAAAAAP//AgAAAAEAAAAAAAAAAgAAAAEAAAAEAP//AgAAAAEAAAAFAP//AgAAAAEAAAAGAP//AgAAAAEAAAAHAP//AgAAAAEAAAAIAP//AgAAAAEAAAAJAP//AgAAAAEAAAAKAP//AgAAAAEAAAALAP//AgAAAAEAAAAMAP//AgAAAAEAAADz//7/AgAAAAAAAAD0//7/AgAAAAAAAAD1//7/AgAAAAAAAAD2//7/AgAAAAAAAAD3//7/AgAAAAAAAAD4//7/AgAAAAAAAAD5//7/AgAAAAAAAAD6//7/AgAAAAAAAAD7//7/AgAAAAEAAAD6/wIAAgACAAAAAAD//wIAAgAAAAEAAAAAAAIAAgAAAAEAAAAFAAIAAgACAAAAAAD1/wIAAgACAAAAAAD2/wIAAgACAAAAAAD3/wIAAgACAAAAAAD4/wIAAgACAAAAAAD5/wIAAgAAAAEAAAD7/wIAAgACAAAAAAD8/wIAAgACAAAAAAD9/wIAAgACAAAAAAD+/wIAAgACAAAAAAD//wEAAgAAAAEAAAAAAAEAAgAAAAEAAAABAAIAAgACAAAAAAACAAIAAgACAAAAAAADAAIAAgACAAAAAAAEAAIAAgACAAAAAAAGAAIAAgAAAAEAAAAHAAIAAgACAAAAAAAIAAIAAgACAAAAAAAJAAIAAgACAAAAAAAKAAIAAgACAAAAAAD3/wUAAgABAAAAAAD8/wUAAgABAAAAAAADAAUAAgABAAAAAAAIAAUAAgABAAAAAAD3/wYAAgAAAAEAAAD8/wYAAgAAAAEAAAADAAYAAgAAAAEAAAAIAAYAAgAAAAEAAAAEAP7/AgAAAAEAAAAFAP7/AgAAAAAAAAAGAP7/AgAAAAAAAAAHAP7/AgAAAAAAAAAIAP7/AgAAAAAAAAAJAP7/AgAAAAAAAAAKAP7/AgAAAAAAAAALAP7/AgAAAAAAAAAMAP7/AgAAAAAAAAD9//v/AgAAAAEAAAD+//v/AgACAAAAAAABAPv/AgACAAAAAAACAPv/AgAAAAEAAAACAPr/AgAAAAEAAAACAPn/AgAAAAEAAAD9//r/AgAAAAEAAAD9//n/AgAAAAEAAAD7//z/AgAAAAAAAAD7//3/AgAAAAEAAAAEAPz/AgAAAAAAAAAEAP3/AgAAAAEAAAD5/wEAAgABAAAAAAAGAAEAAgABAAAAAADy////AgAAAAEAAAD9//j/AgAAAAEAAAACAPj/AgAAAAEAAAANAP//AgAAAAEAAAA=")
+tile_set = ExtResource("3")
+
+[node name="TileMapBlockingReset" type="TileMapLayer" parent="LevelLayout/TileMap"]
+visible = false
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD+//n/AgAAAAEAAAD///n/AgAAAAEAAAAAAPn/AgAAAAEAAAABAPn/AgAAAAEAAAABAPr/AgAAAAEAAAAAAPr/AgAAAAEAAAD///r/AgAAAAEAAAD+//r/AgAAAAEAAAD+//v/AgAAAAEAAAD///v/AgAAAAEAAAAAAPv/AgAAAAEAAAABAPv/AgAAAAEAAAA=")
+tile_set = ExtResource("3")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD7//3/AgAJAAAAAAD7//7/AgAJAAAAAAD7//z/AgAKAAAAAAD9//n/AgAJAAAAAAD9//r/AgAJAAAAAAD9//v/AgAJAAAAAAD///z/AgAJAAAAAAD///3/AgAJAAAAAAD///7/AgAJAAAAAAD/////AgAJAAAAAAD//wAAAgAJAAAAAAD//wEAAgAJAAAAAAD1/wIAAgAJAAAAAAD3/wUAAgALAAAAAAD3/wYAAgAJAAAAAAD8/wUAAgALAAAAAAD8/wYAAgAJAAAAAAADAAUAAgALAAAAAAADAAYAAgAJAAAAAAAIAAYAAgAJAAAAAAAIAAUAAgALAAAAAAAEAP//AgAJAAAAAAAEAP7/AgAJAAAAAAAEAP3/AgAJAAAAAAAEAPz/AgAKAAAAAAD5/wEAAgALAAAAAAAGAAEAAgALAAAAAAACAPn/AgAJAAAAAAACAPr/AgAJAAAAAAACAPv/AgAKAAAAACD5/wIAAgAKAAAAACAGAAIAAgAKAAAAACD//wIAAgAKAAAAACANAAYAAgAJAAAAAAD9//j/AgANAAMAAAACAPj/AgANAAMAAAA=")
+tile_set = ExtResource("3")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD7////AgAJAAAAABD7//7/AgAJAAAAABD7//3/AgAJAAAAABD7//z/AgAKAAAAABAEAP7/AgAJAAAAABAEAP3/AgAJAAAAABAEAPz/AgAKAAAAABAGAAEAAgALAAAAABD5/wEAAgALAAAAABD3/wYAAgAJAAAAABD8/wYAAgAJAAAAABADAAYAAgAJAAAAABAIAAYAAgAJAAAAABAIAAUAAgALAAAAABADAAUAAgALAAAAABD8/wUAAgALAAAAABD3/wUAAgALAAAAABAKAAIAAgAJAAAAABAAAPz/AgAJAAAAABAAAP3/AgAJAAAAABAAAP7/AgAJAAAAABAAAP//AgAJAAAAABAAAAAAAgAJAAAAABAAAAEAAgAJAAAAABD9//n/AgAJAAAAABD9//r/AgAJAAAAABACAPn/AgAJAAAAABACAPr/AgAJAAAAABACAPv/AgAJAAAAABD9//v/AgAKAAAAADD5/wIAAgAKAAAAADAGAAIAAgAKAAAAADAAAAIAAgAKAAAAADD9//j/AgANAAMAABACAPj/AgANAAMAABA=")
+tile_set = ExtResource("3")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADz////AgAJAAAAAGD0////AgAJAAAAAGD1////AgAJAAAAAGD2////AgAJAAAAAGD3////AgAJAAAAAGD4////AgAJAAAAAGD5////AgAJAAAAAGD6////AgAJAAAAAGD7////AgAJAAAAAGD1/wIAAgAJAAAAAGD2/wIAAgAJAAAAAGD3/wIAAgAJAAAAAGD4/wIAAgAJAAAAAGD5/wIAAgAJAAAAAGD6/wIAAgAJAAAAAGD7/wIAAgAJAAAAAGD8/wIAAgAJAAAAAGD9/wIAAgAJAAAAAGD+/wIAAgAJAAAAAGD//wIAAgAJAAAAAGAAAAIAAgAJAAAAAGABAAIAAgAJAAAAAGACAAIAAgAJAAAAAGADAAIAAgAJAAAAAGAEAAIAAgAJAAAAAGAFAAIAAgAJAAAAAGAGAAIAAgAJAAAAAGAHAAIAAgAJAAAAAGAIAAIAAgAJAAAAAGAJAAIAAgAJAAAAAGAKAAIAAgAJAAAAAGAMAP//AgAJAAAAAGALAP//AgAJAAAAAGAKAP//AgAJAAAAAGAJAP//AgAJAAAAAGAIAP//AgAJAAAAAGAHAP//AgAJAAAAAGAGAP//AgAJAAAAAGAFAP//AgAJAAAAAGAEAP//AgAJAAAAAGD9//v/AgAJAAAAAGD+//v/AgAJAAAAAGABAPv/AgAJAAAAAGACAPv/AgAJAAAAAGA=")
+tile_set = ExtResource("3")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-200, -18)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(200, -18)
+side = 2
+
+[node name="Keys" type="Node2D" parent="LevelLayout"]
+
+[node name="Input_L" type="Node2D" parent="LevelLayout/Keys"]
+visible = false
+z_index = -1
+position = Vector2(-140, -80)
+
+[node name="TutorialKey1" parent="LevelLayout/Keys/Input_L" instance=ExtResource("5")]
+position = Vector2(-22, 12)
+
+[node name="TutorialKey2" parent="LevelLayout/Keys/Input_L" instance=ExtResource("5")]
+position = Vector2(0, -10)
+
+[node name="TutorialKey3" parent="LevelLayout/Keys/Input_L" instance=ExtResource("5")]
+position = Vector2(22, 12)
+
+[node name="Input_R" type="Node2D" parent="LevelLayout/Keys"]
+visible = false
+z_index = -1
+position = Vector2(140, -80)
+
+[node name="TutorialKey1" parent="LevelLayout/Keys/Input_R" instance=ExtResource("5")]
+position = Vector2(-22, 12)
+
+[node name="TutorialKey2" parent="LevelLayout/Keys/Input_R" instance=ExtResource("5")]
+position = Vector2(0, -10)
+
+[node name="TutorialKey3" parent="LevelLayout/Keys/Input_R" instance=ExtResource("5")]
+position = Vector2(22, 12)
+
+[node name="TutorialKeyReset" parent="LevelLayout/Keys" instance=ExtResource("5")]
+visible = false
+position = Vector2(0, -96)
+
+[node name="Controller_L" type="Node2D" parent="LevelLayout/Keys"]
+visible = false
+position = Vector2(0, -2)
+
+[node name="ColorRect2" type="ColorRect" parent="LevelLayout/Keys/Controller_L"]
+offset_left = -170.0
+offset_top = -94.0
+offset_right = -110.0
+offset_bottom = -60.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="ColorRect" type="ColorRect" parent="LevelLayout/Keys/Controller_L"]
+offset_left = -169.0
+offset_top = -93.0
+offset_right = -111.0
+offset_bottom = -61.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelLayout/Keys/Controller_L"]
+position = Vector2(-140, -77)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_bnwpg")
+
+[node name="Controller_R" type="Node2D" parent="LevelLayout/Keys"]
+visible = false
+position = Vector2(280, -2)
+
+[node name="ColorRect2" type="ColorRect" parent="LevelLayout/Keys/Controller_R"]
+offset_left = -170.0
+offset_top = -94.0
+offset_right = -110.0
+offset_bottom = -60.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="ColorRect" type="ColorRect" parent="LevelLayout/Keys/Controller_R"]
+offset_left = -169.0
+offset_top = -93.0
+offset_right = -111.0
+offset_bottom = -61.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelLayout/Keys/Controller_R"]
+position = Vector2(-140, -77)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ra1be")
+
+[node name="Controller_M" type="Node2D" parent="LevelLayout/Keys"]
+visible = false
+position = Vector2(140, -18)
+
+[node name="ColorRect2" type="ColorRect" parent="LevelLayout/Keys/Controller_M"]
+offset_left = -172.0
+offset_top = -94.0
+offset_right = -108.0
+offset_bottom = -60.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="ColorRect" type="ColorRect" parent="LevelLayout/Keys/Controller_M"]
+offset_left = -171.0
+offset_top = -93.0
+offset_right = -109.0
+offset_bottom = -61.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelLayout/Keys/Controller_M"]
+position = Vector2(-140, -77)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ige0e")
+
+[node name="InputNames" type="Node" parent="."]
+script = ExtResource("7")

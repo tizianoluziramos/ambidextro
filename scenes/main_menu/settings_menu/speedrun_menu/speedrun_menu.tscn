@@ -1,0 +1,202 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj4t8nsatfi0t"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/settings_menu/speedrun_menu/speedrun_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="4"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="5"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="6"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="7"]
+
+[node name="SpeedrunMenu" type="Node2D" node_paths=PackedStringArray("options", "label_values", "labels")]
+script = ExtResource("1")
+options = NodePath("Options")
+label_values = [NodePath("Menu/VBoxContainer2/Time/Value"), NodePath("Menu/VBoxContainer2/Pausable/Value")]
+labels = [NodePath("Menu/Title"), NodePath("Menu/VBoxContainer2/Time/Label"), NodePath("Menu/VBoxContainer2/Pausable/Label"), NodePath("Menu/Info1"), NodePath("Menu/VBoxContainer/Back")]
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Options" type="Node" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+script = ExtResource("4")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("../Menu/SelectionArrow")
+options = [NodePath("../Menu/VBoxContainer2/Time/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer2/Pausable/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer/Back")]
+combo_to_fast_cooldown = Vector2(3, -1)
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = 13.0
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -69.0
+offset_right = 80.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Speedrun"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 40.0
+offset_bottom = 91.0
+theme_override_constants/separation = 20
+
+[node name="Time" type="Control" parent="Menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer2/Time"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Speedrun mode"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer2/Time"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer2/Time/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer2/Time/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer2/Time/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer2/Time"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="Pausable" type="Control" parent="Menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer2/Pausable"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Pausable"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer2/Pausable"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer2/Pausable/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer2/Pausable/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer2/Pausable/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer2/Pausable"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = 102.0
+offset_right = 200.0
+offset_bottom = 158.0
+theme_override_constants/separation = 4
+
+[node name="Back" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="SelectionArrow" type="Node2D" parent="Menu"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Menu/SelectionArrow"]
+texture = ExtResource("7")
+centered = false
+
+[node name="Info1" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = 23.0
+offset_right = 130.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "- Shows a precision timer.
+- Adds a \"Restart game\" option on the pause menu.
+- Skips the story cutscenes."

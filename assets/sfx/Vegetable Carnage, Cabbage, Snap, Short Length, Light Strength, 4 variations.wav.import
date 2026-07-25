@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8b6ufop3hxik"
+path="res://.godot/imported/Vegetable Carnage, Cabbage, Snap, Short Length, Light Strength, 4 variations.wav-ac972cd693ac81920e8d64a078dcd67e.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Vegetable Carnage, Cabbage, Snap, Short Length, Light Strength, 4 variations.wav"
+dest_files=["res://.godot/imported/Vegetable Carnage, Cabbage, Snap, Short Length, Light Strength, 4 variations.wav-ac972cd693ac81920e8d64a078dcd67e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

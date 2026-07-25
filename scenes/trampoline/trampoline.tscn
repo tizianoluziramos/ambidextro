@@ -1,0 +1,94 @@
+[gd_scene load_steps=15 format=3 uid="uid://dlqlerqrcktyn"]
+
+[ext_resource type="Script" path="res://scenes/trampoline/trampoline.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://mrjd5gx8q60e" path="res://assets/sprites/props_forest_16_margin.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://b8b6ufop3hxik" path="res://assets/sfx/Vegetable Carnage, Cabbage, Snap, Short Length, Light Strength, 4 variations.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://bni1imshadyn5" path="res://assets/sfx/FOOTSTEP - Metal Board Jump Barefoot Male - 11.wav" id="4"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="5"]
+[ext_resource type="AudioStream" uid="uid://di3poe4un2w8h" path="res://assets/sfx/Puzzle_Game_Accent_Boing_03.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://dohyctaql444a" path="res://assets/sfx/Spring.wav" id="7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqn1c"]
+atlas = ExtResource("2")
+region = Rect2(18, 72, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7og3"]
+atlas = ExtResource("2")
+region = Rect2(0, 72, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wj8s"]
+atlas = ExtResource("5")
+region = Rect2(0, 72, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak5q7"]
+size = Vector2(16, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxta"]
+atlas = ExtResource("5")
+region = Rect2(18, 72, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jx5c4"]
+size = Vector2(16, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxmg3"]
+size = Vector2(16, 2)
+
+[node name="Trampoline" type="Node2D" node_paths=PackedStringArray("top", "audio_tick", "audio_boing", "base_sprite", "top_sprite")]
+z_index = 4
+script = ExtResource("1")
+top = NodePath("Top")
+audio_tick = NodePath("AudioStreamPlayer2DTick")
+audio_boing = NodePath("AudioStreamPlayer2DBoing")
+base_sprite = NodePath("Base/Base")
+top_sprite = NodePath("Top/Top")
+sprites_forest = [SubResource("AtlasTexture_kqn1c"), SubResource("AtlasTexture_c7og3")]
+tick_forest_sound = ExtResource("3")
+boing_forest_sound = ExtResource("4")
+
+[node name="Base" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 256
+
+[node name="Base" type="Sprite2D" parent="Base"]
+texture = SubResource("AtlasTexture_3wj8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_ak5q7")
+
+[node name="Top" type="AnimatableBody2D" parent="."]
+position = Vector2(0, -8)
+collision_mask = 4
+
+[node name="Top" type="Sprite2D" parent="Top"]
+texture = SubResource("AtlasTexture_smxta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_jx5c4")
+
+[node name="Area2D" type="Area2D" parent="Top"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/Area2D"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_uxmg3")
+
+[node name="AudioStreamPlayer2DTick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6")
+volume_db = -7.0
+panning_strength = 2.5
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2DBoing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7")
+volume_db = -3.0
+panning_strength = 2.5
+bus = &"SFX"
+
+[connection signal="body_entered" from="Top/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Top/Area2D" to="." method="_on_area_2d_body_exited"]

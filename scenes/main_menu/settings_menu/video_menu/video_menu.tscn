@@ -1,0 +1,410 @@
+[gd_scene load_steps=8 format=3 uid="uid://hrejv58gsgah"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/settings_menu/video_menu/video_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="4"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="5"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="6"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="7"]
+
+[node name="VideoMenu" type="Node2D" node_paths=PackedStringArray("options", "label_values", "labels")]
+script = ExtResource("1")
+options = NodePath("Options")
+label_values = [NodePath("Menu/VBoxContainer2/Fullscreen/Value"), NodePath("Menu/VBoxContainer2/PixelPerfect/Value"), NodePath("Menu/VBoxContainer3/Filter/Value"), NodePath("Menu/VBoxContainer3/Filter2/Value"), NodePath("Menu/VBoxContainer3/Filter3/Value"), NodePath("Menu/VBoxContainer3/Filter4/Value")]
+labels = [NodePath("Menu/Title"), NodePath("Menu/VBoxContainer2/Fullscreen/Label"), NodePath("Menu/VBoxContainer2/PixelPerfect/Label"), NodePath("Menu/VBoxContainer3/Filter/Label"), NodePath("Menu/VBoxContainer3/Filter2/Label"), NodePath("Menu/VBoxContainer3/Filter3/Label"), NodePath("Menu/VBoxContainer3/Filter4/Label"), NodePath("Menu/VBoxContainer/Apply"), NodePath("Menu/VBoxContainer4/Back")]
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Options" type="Node" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+script = ExtResource("4")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("../Menu/SelectionArrow")
+options = [NodePath("../Menu/VBoxContainer2/Fullscreen/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer2/PixelPerfect/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer/Apply"), NodePath("../Menu/VBoxContainer3/Filter/Arrows/</Marker2D2"), NodePath("../Menu/VBoxContainer3/Filter2/Arrows/</Marker2D2"), NodePath("../Menu/VBoxContainer3/Filter3/Arrows/</Marker2D2"), NodePath("../Menu/VBoxContainer3/Filter4/Arrows/</Marker2D2"), NodePath("../Menu/VBoxContainer4/Back")]
+combo_to_fast_cooldown = Vector2(3, -1)
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = 13.0
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -99.0
+offset_right = 80.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Video"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 40.0
+offset_bottom = 56.0
+theme_override_constants/separation = 20
+
+[node name="Fullscreen" type="Control" parent="Menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer2/Fullscreen"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Full screen"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer2/Fullscreen"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer2/Fullscreen/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer2/Fullscreen/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer2/Fullscreen/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer2/Fullscreen"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Yes
+"
+horizontal_alignment = 1
+
+[node name="PixelPerfect" type="Control" parent="Menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer2/PixelPerfect"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "pixel perfect"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer2/PixelPerfect"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer2/PixelPerfect/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer2/PixelPerfect/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer2/PixelPerfect/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer2/PixelPerfect"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 56.0
+theme_override_constants/separation = 0
+
+[node name="Apply" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Apply"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_top = 73.0
+offset_right = 40.0
+offset_bottom = 133.0
+theme_override_constants/separation = 20
+
+[node name="Filter" type="Control" parent="Menu/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer3/Filter"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "CURVATURE"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer3/Filter"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer3/Filter/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D2" type="Marker2D" parent="Menu/VBoxContainer3/Filter/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer3/Filter/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer3/Filter"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Yes"
+horizontal_alignment = 1
+
+[node name="Filter2" type="Control" parent="Menu/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer3/Filter2"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "SCAN LINES"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer3/Filter2"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer3/Filter2/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D2" type="Marker2D" parent="Menu/VBoxContainer3/Filter2/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer3/Filter2/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer3/Filter2"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Yes"
+horizontal_alignment = 1
+
+[node name="Filter3" type="Control" parent="Menu/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer3/Filter3"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "DISTORTION"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer3/Filter3"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer3/Filter3/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D2" type="Marker2D" parent="Menu/VBoxContainer3/Filter3/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer3/Filter3/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer3/Filter3"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Yes"
+horizontal_alignment = 1
+
+[node name="Filter4" type="Control" parent="Menu/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer3/Filter4"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "ABERRATION"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer3/Filter4"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = -24.0
+theme_override_constants/separation = 51
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer3/Filter4/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D2" type="Marker2D" parent="Menu/VBoxContainer3/Filter4/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer3/Filter4/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer3/Filter4"]
+layout_mode = 2
+offset_left = 22.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Yes"
+horizontal_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = 126.0
+offset_right = 200.0
+offset_bottom = 182.0
+theme_override_constants/separation = 0
+
+[node name="Back" type="Label" parent="Menu/VBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="SelectionArrow" type="Node2D" parent="Menu"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Menu/SelectionArrow"]
+texture = ExtResource("7")
+centered = false

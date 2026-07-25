@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbqfl3e0h7acx"]
+
+[ext_resource type="Script" path="res://scenes/splash/splash.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://7x1fmppg31xm" path="res://assets/sprites/majorariatto_logo_pixel.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="4"]
+
+[node name="Splash" type="Node2D" node_paths=PackedStringArray("logo")]
+script = ExtResource("1")
+logo = NodePath("Logo")
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Logo" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -0.5)
+texture = ExtResource("3")
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("4")

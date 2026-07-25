@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://plorlk2r38r"]
+
+[ext_resource type="Script" path="res://scenes/bars/bars_container.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://bj0ebnrv1uy5v" path="res://assets/sfx/metal clang 2.wav" id="4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4el17"]
+atlas = ExtResource("2")
+region = Rect2(0, 18, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4ks6"]
+atlas = ExtResource("2")
+region = Rect2(18, 18, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pafl"]
+atlas = ExtResource("2")
+region = Rect2(36, 18, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da57t"]
+atlas = ExtResource("2")
+region = Rect2(54, 18, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj5de"]
+atlas = ExtResource("2")
+region = Rect2(0, 18, 18, 18)
+
+[node name="BarsContainer" type="Node2D" node_paths=PackedStringArray("emblem_sprite", "audio")]
+z_index = 4
+script = ExtResource("1")
+emblems = [SubResource("AtlasTexture_4el17"), SubResource("AtlasTexture_r4ks6"), SubResource("AtlasTexture_8pafl"), SubResource("AtlasTexture_da57t")]
+emblem_sprite = NodePath("Emblem")
+audio = NodePath("AudioStreamPlayer2D")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Emblem" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(0, 8)
+texture = SubResource("AtlasTexture_qj5de")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4")
+volume_db = -3.0
+panning_strength = 2.5
+bus = &"SFX"

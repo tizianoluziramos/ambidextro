@@ -1,0 +1,232 @@
+[gd_scene load_steps=8 format=4 uid="uid://diref5aj143up"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dranrtxxrgg5r" path="res://scenes/moving_platform/moving_platform_v.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cbdveht8gtgwk" path="res://scenes/quantum_cube/quantum_manager.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://dkujj037vmli3" path="res://scenes/quantum_cube/quantum_cube.tscn" id="7"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." node_paths=PackedStringArray("quantum_managers") instance=ExtResource("1")]
+time = 8.5
+quantum_managers = [NodePath("QuantumManager"), NodePath("QuantumManager2"), NodePath("QuantumManager3"), NodePath("QuantumManager4"), NodePath("QuantumManager5"), NodePath("QuantumManager6"), NodePath("QuantumManager7"), NodePath("QuantumManager8")]
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz//n/AgABAAQAAAD8//n/AgABAAQAAAADAPn/AgABAAQAAAAMAPn/AgABAAQAAAD+/wEAAgABAAQAAAABAAEAAgABAAQAAAD0//n/AgACAAQAAADz//r/AgACAAQAAAAEAPn/AgACAAQAAAADAPr/AgACAAQAAAACAAEAAgACAAQAAAABAAIAAgACAAQAAAD7//n/AgAAAAQAAAD8//r/AgAAAAQAAAALAPn/AgAAAAQAAAAMAPr/AgAAAAQAAAD9/wEAAgAAAAQAAAD+/wIAAgAAAAQAAAD3/wEAAgADAAQAAAD3/wIAAgADAAQAAAD3/wMAAgADAAQAAAD4/wEAAgADAAQAAAD4/wIAAgADAAQAAAAIAAEAAgADAAQAAAAIAAIAAgADAAQAAAAIAAMAAgADAAQAAAAHAAEAAgADAAQAAAAHAAIAAgADAAQAAAD8/wUAAgAEAAQAAAD6/wIAAgAEAAQAAAD0/wQAAgAEAAQAAADz//7/AgAEAAQAAAD3//r/AgAEAAQAAAAJAPv/AgAEAAQAAAAMAP//AgAEAAQAAAALAAQAAgAEAAQAAAAEAAQAAgAEAAQAAAAEAAUAAgAHAAQAAAAMAAUAAgAHAAQAAAALAAMAAgAHAAQAAAAMAP7/AgAHAAQAAAAKAPz/AgAHAAQAAAAGAPz/AgAHAAQAAAACAP//AgAHAAQAAAD9//3/AgAEAAQAAAD+//3/AgAHAAQAAAD5//v/AgAHAAQAAAD4//r/AgAHAAQAAAD0//v/AgAHAAQAAAD0//z/AgAHAAQAAAD0/wMAAgAHAAQAAAD7/wMAAgAHAAQAAAD7/wUAAgAHAAQAAAD+/wUAAgAFAAQAAAABAAUAAgAFAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD3//v/AgACAAAAAAD4//v/AgACAAAAAAD3//z/AgAAAAEAAAD3//3/AgAAAAEAAAD3//7/AgAAAAEAAAD3////AgAAAAEAAAD4//z/AgAAAAEAAAD4//3/AgAAAAEAAAD4//7/AgAAAAEAAAD4////AgAAAAEAAAD9//n/AgAAAAEAAAD9//r/AgAAAAEAAAD9//v/AgADAAEAAAD+//n/AgAAAAEAAAD+//r/AgAAAAEAAAD+//v/AgADAAEAAAD///v/AgADAAEAAAD///r/AgAAAAEAAAD///n/AgAAAAEAAAAAAPn/AgAAAAEAAAAAAPr/AgAAAAEAAAAAAPv/AgADAAEAAAABAPv/AgADAAEAAAABAPr/AgAAAAEAAAABAPn/AgAAAAEAAAACAPn/AgAAAAEAAAACAPr/AgAAAAEAAAACAPv/AgADAAEAAAD+//7/AgABAAAAAAD///7/AgABAAAAAAAAAP7/AgABAAAAAAD4/wAAAgAAAAEAAAD3/wAAAgAAAAEAAAD+////AgAAAAEAAAD+/wAAAgAAAAEAAAD//wEAAgAAAAEAAAD//wAAAgAAAAEAAAD/////AgAAAAEAAAAAAP//AgAAAAEAAAAAAAAAAgAAAAEAAAAAAAEAAgAAAAEAAAABAP7/AgABAAAAAAABAP//AgAAAAEAAAABAAAAAgAAAAEAAAAHAPv/AgACAAAAAAAIAPv/AgACAAAAAAAHAPz/AgAAAAEAAAAHAP3/AgAAAAEAAAAHAP7/AgAAAAEAAAAHAP//AgAAAAEAAAAHAAAAAgAAAAEAAAAIAAAAAgAAAAEAAAAIAP//AgAAAAEAAAAIAP7/AgAAAAEAAAAIAP3/AgAAAAEAAAAIAPz/AgAAAAEAAAD//wIAAgAAAAEAAAD//wMAAgAAAAEAAAD//wQAAgAAAAEAAAD//wUAAgAAAAEAAAD//wYAAgAAAAEAAAAAAAYAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAIAAgAAAAEAAAD+/wYAAgACAAAAAAABAAYAAgACAAAAAAD9/wYAAgACAAAAAAD8/wYAAgAEAAEAAAD7/wYAAgAEAAEAAAD6/wYAAgAEAAEAAAD5/wYAAgAEAAEAAAD4/wYAAgAEAAEAAAD3/wYAAgAEAAEAAAD2/wYAAgAEAAEAAAD1/wYAAgAEAAEAAAD0/wYAAgAEAAEAAADz/wYAAgAEAAEAAAACAAYAAgACAAAAAAADAAYAAgAEAAEAAAAEAAYAAgAEAAEAAAAFAAYAAgAEAAEAAAAGAAYAAgAEAAEAAAAHAAYAAgAEAAEAAAAIAAYAAgAEAAEAAAAJAAYAAgAEAAEAAAAKAAYAAgAEAAEAAAALAAYAAgAEAAEAAAAMAAYAAgAEAAEAAAAMAAQAAgAGAAAAAAAMAAIAAgAGAAAAAAALAP7/AgAGAAAAAAALAPz/AgAGAAAAAAD5/wAAAgAEAAEAAAD6/wAAAgAEAAEAAAD7/wAAAgAEAAEAAAD8/wAAAgAEAAEAAAD9/wAAAgAEAAEAAAACAAAAAgAEAAEAAAADAAAAAgAEAAEAAAAEAAAAAgAEAAEAAAAFAAAAAgAEAAEAAAAGAAAAAgAEAAEAAADy/wYAAgAAAAEAAAD9//j/AgAAAAEAAAD+//j/AgAAAAEAAAD///j/AgAAAAEAAAAAAPj/AgAAAAEAAAABAPj/AgAAAAEAAAACAPj/AgAAAAEAAAANAAYAAgAAAAEAAAAJAAAAAgAGAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD9//n/AgAJAAAAAAD9//r/AgAJAAAAAAD3//v/AgAJAAAAAAD3//z/AgAJAAAAAAD3//3/AgAJAAAAAAD3//7/AgAJAAAAAAD3////AgAJAAAAAAD3/wAAAgAJAAAAAAD+//7/AgALAAAAAAD+////AgAJAAAAAAD//wEAAgAJAAAAAAD//wIAAgAJAAAAAAD//wMAAgAJAAAAAAD//wQAAgAJAAAAAAD//wUAAgAJAAAAAAAHAPv/AgAJAAAAAAAHAPz/AgAJAAAAAAAHAP3/AgAJAAAAAAAHAP7/AgAJAAAAAAAHAP//AgAJAAAAAAD9//j/AgANAAMAAAD9//v/AgALAAAAACD+/wAAAgALAAAAACAHAAAAAgALAAAAACD//wAAAgANAAMAAAALAPz/AgALAAQAAAALAP7/AgALAAQAAAAJAAEAAgALAAQAAAAMAAIAAgALAAQAAAANAAYAAgALAAAAACD9/wYAAgALAAAAACD//wYAAgAKAAAAACA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADy/wYAAgALAAAAADACAPn/AgAJAAAAABACAPr/AgAJAAAAABD4//v/AgAJAAAAABD4//z/AgAJAAAAABD4//3/AgAJAAAAABD4//7/AgAJAAAAABD4////AgAJAAAAABABAP7/AgALAAAAABABAP//AgAJAAAAABAIAPv/AgAJAAAAABAIAPz/AgAJAAAAABAIAP3/AgAJAAAAABAIAP7/AgAJAAAAABAIAP//AgAJAAAAABAIAAAAAgAJAAAAABAAAAEAAgAJAAAAABAAAAIAAgAJAAAAABAAAAMAAgAJAAAAABAAAAQAAgAJAAAAABAAAAUAAgAJAAAAABACAPj/AgANAAMAABACAPv/AgALAAAAADD4/wAAAgALAAAAADABAAAAAgALAAAAADAAAAAAAgANAAMAABAJAAEAAgALAAQAABAJAP//AgALAAQAABALAP7/AgALAAQAABALAPz/AgALAAQAABACAAYAAgALAAAAADAAAAYAAgAKAAAAADA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD3/wAAAgAJAAAAAGD4/wAAAgAJAAAAAGD5/wAAAgAJAAAAAGD6/wAAAgAJAAAAAGD7/wAAAgAJAAAAAGD8/wAAAgAJAAAAAGD9/wAAAgAJAAAAAGD+/wAAAgAJAAAAAGABAAAAAgAJAAAAAGACAAAAAgAJAAAAAGADAAAAAgAJAAAAAGAEAAAAAgAJAAAAAGAFAAAAAgAJAAAAAGAGAAAAAgAJAAAAAGAHAAAAAgAJAAAAAGAIAAAAAgAJAAAAAGD9//v/AgALAAIAAAD+//v/AgALAAIAAAD///v/AgALAAIAAAAAAPv/AgALAAIAAAABAPv/AgALAAIAAAACAPv/AgALAAIAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-24, 98)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(24, 98)
+side = 2
+
+[node name="Crumbling" type="Node2D" parent="LevelLayout"]
+position = Vector2(0, 1)
+
+[node name="CrumblingPlatform" parent="LevelLayout/Crumbling" instance=ExtResource("4")]
+position = Vector2(-104, -78)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling" instance=ExtResource("4")]
+position = Vector2(-88, -78)
+
+[node name="CrumblingPlatform3" parent="LevelLayout/Crumbling" instance=ExtResource("4")]
+position = Vector2(-72, -78)
+
+[node name="CrumblingPlatform4" parent="LevelLayout/Crumbling" instance=ExtResource("4")]
+position = Vector2(-56, -78)
+
+[node name="Crumbling2" type="Node2D" parent="LevelLayout"]
+position = Vector2(160, 1)
+
+[node name="CrumblingPlatform" parent="LevelLayout/Crumbling2" instance=ExtResource("4")]
+position = Vector2(-104, -78)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling2" instance=ExtResource("4")]
+position = Vector2(-88, -78)
+
+[node name="CrumblingPlatform3" parent="LevelLayout/Crumbling2" instance=ExtResource("4")]
+position = Vector2(-72, -78)
+
+[node name="CrumblingPlatform4" parent="LevelLayout/Crumbling2" instance=ExtResource("4")]
+position = Vector2(-56, -78)
+
+[node name="MovingPlatformV" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-200, 70)
+speed = 3.0
+
+[node name="MovingPlatformV2" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-184, 22)
+speed = 3.0
+start_bottom = false
+
+[node name="MovingPlatformV3" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-168, -26)
+speed = 3.0
+
+[node name="QuantumManager" parent="LevelLayout" instance=ExtResource("6")]
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumManager2" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(-48, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager2" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager2" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager2" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumManager3" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(-96, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager3" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager3" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager3" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumManager4" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(144, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager4" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager4" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager4" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumManager5" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(192, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager5" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager5" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager5" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumManager6" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(240, 0)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager6" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager6" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager6" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumManager7" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(-16, -96)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager7" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager7" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager7" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube4" parent="LevelLayout/QuantumManager7" instance=ExtResource("7")]
+position = Vector2(-40, 88)
+cube = true
+start_active = false
+
+[node name="QuantumManager8" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(144, -96)
+
+[node name="QuantumCube" parent="LevelLayout/QuantumManager8" instance=ExtResource("7")]
+position = Vector2(-88, 88)
+cube = true
+
+[node name="QuantumCube2" parent="LevelLayout/QuantumManager8" instance=ExtResource("7")]
+position = Vector2(-72, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube3" parent="LevelLayout/QuantumManager8" instance=ExtResource("7")]
+position = Vector2(-56, 88)
+cube = true
+start_active = false
+
+[node name="QuantumCube4" parent="LevelLayout/QuantumManager8" instance=ExtResource("7")]
+position = Vector2(-40, 88)
+cube = true
+start_active = false

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqeltgi64f3fm"]
+
+[ext_resource type="Script" path="res://scenes/level_timer/level_timer.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://chsbivhq7e14y" path="res://assets/sfx/wood_block_sticks_hit_clap_02.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://ccgo2n10t22y2" path="res://assets/sfx/button pressed 1.wav" id="3"]
+
+[node name="LevelTimer" type="Node2D" node_paths=PackedStringArray("timer", "bar_extra", "bar_extra_shadow", "bar", "bar_shadow", "audio_start", "audio_player")]
+position = Vector2(0, 384)
+script = ExtResource("1")
+timer = NodePath("Timer")
+bar_extra = NodePath("BarExtra")
+bar_extra_shadow = NodePath("BarExtra/BarExtraShadow")
+bar = NodePath("Bar")
+bar_shadow = NodePath("Bar/BarShadow")
+audio_start = NodePath("AudioStreamPlayerStart")
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="BarExtra" type="ColorRect" parent="."]
+self_modulate = Color(0.486979, 0.411784, 0.344944, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -3.5
+offset_right = 151.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BarExtraShadow" type="ColorRect" parent="BarExtra"]
+self_modulate = Color(0.411765, 0.341176, 0.278431, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = 2.0
+offset_right = 151.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="Bar" type="ColorRect" parent="."]
+self_modulate = Color(0.411765, 0.341176, 0.278431, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -3.5
+offset_right = 151.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BarShadow" type="ColorRect" parent="Bar"]
+self_modulate = Color(0.411765, 0.341176, 0.278431, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = 2.0
+offset_right = 151.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayerStart" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3")
+bus = &"SFX"

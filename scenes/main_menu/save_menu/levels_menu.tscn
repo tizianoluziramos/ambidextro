@@ -1,0 +1,354 @@
+[gd_scene load_steps=17 format=3 uid="uid://ux1oqjpdx1fe"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/save_menu/levels_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://cvunwx74qa4x3" path="res://scenes/preview_frame/preview_frame.tscn" id="4"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="5"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="6"]
+[ext_resource type="FontFile" uid="uid://bi25slua7huqa" path="res://assets/fonts/lanapixel_everything/LanaPixel.ttf" id="7"]
+[ext_resource type="FontFile" uid="uid://cuibndptg6bn2" path="res://assets/fonts/byte_bounce/bytebounce.medium.ttf" id="8"]
+[ext_resource type="PackedScene" uid="uid://bkvryhxdh1us4" path="res://scenes/mobile/clickable_area/clickable_area.tscn" id="9"]
+[ext_resource type="Script" path="res://scenes/main_menu/save_menu/delete_options_controller.gd" id="10"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="11"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywiko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhkp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmvai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byx0h"]
+
+[sub_resource type="Theme" id="Theme_dkr28"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("7")
+Button/styles/disabled = SubResource("StyleBoxEmpty_ywiko")
+Button/styles/focus = SubResource("StyleBoxEmpty_jhkp4")
+Button/styles/hover = SubResource("StyleBoxEmpty_jmvai")
+Button/styles/normal = SubResource("StyleBoxEmpty_byx0h")
+Button/styles/pressed = null
+Label/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("8")
+
+[node name="LevelsMenu" type="Node2D" node_paths=PackedStringArray("level_preview", "options", "level_label", "when_winning_label", "mirror_label", "swap_label", "labels", "preview_image")]
+script = ExtResource("1")
+level_preview = NodePath("LevelPreviewMask/LevelPreview")
+options = NodePath("Options")
+level_label = NodePath("LevelInfo/HBoxContainer/LevelNumber")
+when_winning_label = NodePath("Options/LevelOptions1/Clear/Value")
+mirror_label = NodePath("Options/LevelOptions1/Mirror/Value")
+swap_label = NodePath("Options/LevelOptions1/Swap/Value")
+labels = [NodePath("LevelInfo/HBoxContainer/Level"), NodePath("Options/LevelOptions1/Clear/Label"), NodePath("Options/LevelOptions1/Mirror/Label"), NodePath("Options/LevelOptions1/Swap/Label"), NodePath("Options/LevelOptions2/Play"), NodePath("Options/LevelOptions2/Back")]
+preview_image = NodePath("LevelPreviewMask/LevelPreview/PreviewImage")
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="LevelPreviewMask" type="ColorRect" parent="."]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -92.0
+offset_right = 112.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="LevelPreview" type="Node2D" parent="LevelPreviewMask"]
+position = Vector2(112, 64)
+scale = Vector2(0.5, 0.5)
+
+[node name="PreviewImage" type="Sprite2D" parent="LevelPreviewMask/LevelPreview"]
+
+[node name="BG" type="ColorRect" parent="LevelPreviewMask/LevelPreview"]
+z_index = -29
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -457.0
+offset_top = -271.0
+offset_right = 477.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PreviewFrame" parent="." instance=ExtResource("4")]
+
+[node name="Options" type="Control" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("5")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("SelectionArrow")
+options = [NodePath("LevelChange/<"), NodePath("LevelOptions1/Clear/Arrows/</Marker2D"), NodePath("LevelOptions1/Mirror/Arrows/</Marker2D"), NodePath("LevelOptions1/Swap/Arrows/</Marker2D"), NodePath("LevelOptions2/Play"), NodePath("LevelOptions2/Back")]
+combo_to_fast_cooldown = Vector2(3, -1)
+menu_allows_quick_actions = true
+
+[node name="LevelChange" type="HBoxContainer" parent="Options"]
+layout_mode = 0
+offset_left = -316.0
+offset_top = -48.0
+offset_right = 316.0
+offset_bottom = -8.0
+theme_override_constants/separation = 250
+alignment = 1
+
+[node name="<" type="Label" parent="Options/LevelChange"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name=">" type="Label" parent="Options/LevelChange"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="LevelOptions1" type="VBoxContainer" parent="Options"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 140.0
+theme_override_constants/separation = 14
+
+[node name="Clear" type="Control" parent="Options/LevelOptions1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/LevelOptions1/Clear"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "On clear 12345"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Options/LevelOptions1/Clear"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -36.0
+offset_right = 98.0
+offset_bottom = -24.0
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="<" type="Label" parent="Options/LevelOptions1/Clear/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Options/LevelOptions1/Clear/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Options/LevelOptions1/Clear/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Options/LevelOptions1/Clear"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 100.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="Mirror" type="Control" parent="Options/LevelOptions1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/LevelOptions1/Mirror"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Mirror levels"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Options/LevelOptions1/Mirror"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -36.0
+offset_right = 98.0
+offset_bottom = -24.0
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="<" type="Label" parent="Options/LevelOptions1/Mirror/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Options/LevelOptions1/Mirror/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Options/LevelOptions1/Mirror/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Options/LevelOptions1/Mirror"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 100.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="Swap" type="Control" parent="Options/LevelOptions1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/LevelOptions1/Swap"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Swap positions"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Options/LevelOptions1/Swap"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -36.0
+offset_right = 98.0
+offset_bottom = -24.0
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="<" type="Label" parent="Options/LevelOptions1/Swap/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Options/LevelOptions1/Swap/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Options/LevelOptions1/Swap/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Options/LevelOptions1/Swap"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 100.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="LevelOptions2" type="VBoxContainer" parent="Options"]
+layout_mode = 0
+offset_left = -256.0
+offset_top = 87.0
+offset_right = 256.0
+offset_bottom = 299.0
+localize_numeral_system = false
+theme_override_constants/separation = 0
+
+[node name="Play" type="Label" parent="Options/LevelOptions2"]
+layout_mode = 2
+theme = SubResource("Theme_dkr28")
+text = "Play"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/LevelOptions2/Play" node_paths=PackedStringArray("options") instance=ExtResource("9")]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 88.0
+offset_right = 20.0
+offset_bottom = 98.0
+options = NodePath("../../..")
+
+[node name="Back" type="Label" parent="Options/LevelOptions2"]
+layout_mode = 2
+theme = SubResource("Theme_dkr28")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="DeleteOptionsController" type="Node" parent="Options" node_paths=PackedStringArray("options", "save_menu", "option_labels")]
+script = ExtResource("10")
+options = NodePath("..")
+save_menu = NodePath("../..")
+option_labels = [null, null]
+
+[node name="SelectionArrow" type="Node2D" parent="Options"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Options/SelectionArrow"]
+texture = ExtResource("11")
+centered = false
+
+[node name="LevelInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelInfo"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = -127.0
+offset_right = 200.0
+offset_bottom = -87.0
+alignment = 1
+
+[node name="Level" type="Label" parent="LevelInfo/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dkr28")
+text = "Level"
+horizontal_alignment = 1
+
+[node name="LevelNumber" type="Label" parent="LevelInfo/HBoxContainer"]
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+theme = SubResource("Theme_dkr28")
+text = "000"

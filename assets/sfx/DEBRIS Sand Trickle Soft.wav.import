@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cayf12tmeydxo"
+path="res://.godot/imported/DEBRIS Sand Trickle Soft.wav-45e81270365a6b85d600f1bb076f61fb.sample"
+
+[deps]
+
+source_file="res://assets/sfx/DEBRIS Sand Trickle Soft.wav"
+dest_files=["res://.godot/imported/DEBRIS Sand Trickle Soft.wav-45e81270365a6b85d600f1bb076f61fb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=96000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

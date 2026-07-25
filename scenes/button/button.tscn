@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://8kb7pa0ygfr3"]
+
+[ext_resource type="Script" path="res://scenes/button/button.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://bcl5wqb1lgles" path="res://assets/sfx/App Button Click 1 Various Dry Sound Effect_2496SoundEffects.wav" id="4"]
+[ext_resource type="AudioStream" uid="uid://bhe4ltpi8cme4" path="res://assets/sfx/App Button Click 1 Various Dry Sound Effect_2496SoundEffects_2.wav" id="5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c5j5"]
+atlas = ExtResource("2")
+region = Rect2(108, 0, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeasd"]
+atlas = ExtResource("2")
+region = Rect2(126, 0, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1rre"]
+atlas = ExtResource("2")
+region = Rect2(0, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fpuj"]
+atlas = ExtResource("2")
+region = Rect2(18, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alhd5"]
+atlas = ExtResource("2")
+region = Rect2(36, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2galk"]
+atlas = ExtResource("2")
+region = Rect2(54, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq5u3"]
+atlas = ExtResource("2")
+region = Rect2(108, 0, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0mmn"]
+size = Vector2(12, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gttm"]
+atlas = ExtResource("2")
+region = Rect2(0, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[node name="Button" type="Node2D" node_paths=PackedStringArray("sprite", "emblem_sprite", "audio_player", "audio_player_2")]
+z_index = 3
+script = ExtResource("1")
+sprites = [SubResource("AtlasTexture_7c5j5"), SubResource("AtlasTexture_qeasd")]
+sprite = NodePath("Sprite2D")
+emblems = [SubResource("AtlasTexture_b1rre"), SubResource("AtlasTexture_2fpuj"), SubResource("AtlasTexture_alhd5"), SubResource("AtlasTexture_2galk")]
+emblem_sprite = NodePath("Emblem")
+audio_player = NodePath("AudioStreamPlayer2D")
+audio_player_2 = NodePath("AudioStreamPlayer2D2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.32549)
+script = ExtResource("3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = SubResource("AtlasTexture_jq5u3")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_l0mmn")
+
+[node name="Emblem" type="Sprite2D" parent="."]
+position = Vector2(0, 14)
+texture = SubResource("AtlasTexture_1gttm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 0)
+stream = ExtResource("5")
+volume_db = 3.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

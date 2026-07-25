@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=4 uid="uid://ccy2k1pucxwq"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dcjonyvavvxv1" path="res://scenes/mace/mace.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cmqnu17jsp054" path="res://scenes/shooter/shooter.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://bq3hbcmjp5sg2" path="res://scenes/target/target.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bharunv3wfeb2" path="res://scenes/smasher/smasher.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://w01s74v80mqh" path="res://scenes/moving_spikeball/moving_spikeball.tscn" id="8"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 12.0
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAIAPz/AgACAAAAAAAHAPz/AgACAAAAAAAGAPz/AgACAAAAAAAFAPz/AgACAAAAAAAEAPz/AgACAAAAAAADAPz/AgACAAAAAAACAPz/AgACAAAAAAABAPz/AgACAAAAAAAAAPz/AgACAAAAAAD///z/AgACAAAAAAD+//z/AgACAAAAAAD9//z/AgACAAAAAAD8//z/AgACAAAAAAD7//z/AgACAAAAAAD6//z/AgACAAAAAAD5//z/AgACAAAAAAD4//z/AgACAAAAAAD3//z/AgACAAAAAAD2//z/AgACAAAAAAD2//3/AgAAAAEAAAD2//7/AgAAAAEAAAD2////AgAAAAEAAAD2/wAAAgAAAAEAAAD2/wEAAgAAAAEAAAD2/wIAAgAAAAEAAAD2/wMAAgAAAAEAAAD3/wMAAgACAAAAAAD4/wMAAgACAAAAAAD5/wMAAgACAAAAAAD6/wMAAgACAAAAAAD7/wMAAgACAAAAAAD8/wMAAgACAAAAAAD9/wMAAgACAAAAAAD+/wMAAgACAAAAAAD//wMAAgACAAAAAAAAAAMAAgACAAAAAAABAAMAAgACAAAAAAACAAMAAgACAAAAAAADAAMAAgACAAAAAAAEAAMAAgACAAAAAAAFAAMAAgACAAAAAAAGAAMAAgACAAAAAAAHAAMAAgACAAAAAAAIAAMAAgACAAAAAAAJAAMAAgACAAAAAAAKAAMAAgACAAAAAAALAAMAAgACAAAAAAAMAAMAAgACAAAAAAAJAPz/AgAAAAEAAAAJAP3/AgAAAAEAAAAJAP7/AgAAAAEAAAAJAP//AgAAAAEAAAAIAP//AgACAAAAAAAHAP//AgACAAAAAAAGAP//AgACAAAAAAD3//3/AgAHAAEAAAD3//7/AgAHAAEAAAD3////AgAHAAEAAAD3/wAAAgAHAAEAAAD3/wEAAgAHAAEAAAD3/wIAAgAHAAEAAAD6//7/AgAFAAAAAAD6////AgAEAAEAAAD7//7/AgAFAAAAAAD7////AgAEAAEAAAD8////AgAEAAEAAAD9////AgACAAAAAAD+//3/AgAHAAAAAAD+////AgACAAAAAAD///3/AgAHAAAAAAD/////AgACAAAAAAAAAP3/AgAHAAAAAAAAAP//AgACAAAAAAABAP//AgACAAAAAAACAP//AgACAAAAAAADAP7/AgAFAAAAAAADAP//AgAEAAEAAAAEAP7/AgAFAAAAAAAEAP//AgAEAAEAAAAFAP//AgAEAAEAAAD8//7/AgAFAAAAAAABAP3/AgAHAAAAAAAFAP7/AgAFAAAAAAAKAAEAAgAFAAAAAAALAAEAAgAFAAAAAAAMAAEAAgAFAAAAAAAKAP//AgAEAAAAAAALAP//AgAEAAAAAAAMAP//AgAEAAAAAAAKAPz/AgAGAAAAAAALAPz/AgAGAAAAAAAMAPz/AgAGAAAAAAAKAP7/AgAGAAAAAAALAP7/AgAGAAAAAAAMAP7/AgAGAAAAAAAJAPv/AgACAAAAAADz/wUAAgAFAAAAAAD0/wUAAgAFAAAAAAD1/wUAAgAFAAAAAAD1//z/AgAGAAAAAAD0//z/AgAGAAAAAADz//z/AgAGAAAAAAD1//7/AgAGAAAAAAD0//7/AgAGAAAAAADz//7/AgAGAAAAAAD1/wAAAgAGAAAAAAD0/wAAAgAGAAAAAADz/wAAAgAGAAAAAAD1/wIAAgAGAAAAAAD0/wIAAgAGAAAAAADz/wIAAgAGAAAAAAD1/wMAAgAEAAAAAAD0/wMAAgAEAAAAAADz/wMAAgAEAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(272, -28)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(400, 220)
+side = 2
+
+[node name="Mace" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-112, 0)
+
+[node name="Mace2" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(48, 0)
+
+[node name="Mace3" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(208, 0)
+
+[node name="Shooter" parent="LevelLayout" node_paths=PackedStringArray("target") instance=ExtResource("5")]
+position = Vector2(-400, -140)
+rotation = 3.14159
+interval = 2.0
+target = NodePath("../Target")
+
+[node name="Target" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(272, -140)
+rotation = -3.14159
+
+[node name="Smashers" type="Node2D" parent="LevelLayout"]
+
+[node name="Smasher" parent="LevelLayout/Smashers" node_paths=PackedStringArray("brothers") instance=ExtResource("7")]
+position = Vector2(240, 144)
+brothers = [NodePath("../Smasher2"), NodePath("../Smasher3")]
+
+[node name="Smasher2" parent="LevelLayout/Smashers" instance=ExtResource("7")]
+position = Vector2(208, 144)
+
+[node name="Smasher3" parent="LevelLayout/Smashers" instance=ExtResource("7")]
+position = Vector2(176, 144)
+
+[node name="Smashers2" type="Node2D" parent="LevelLayout"]
+position = Vector2(-448, 0)
+
+[node name="Smasher" parent="LevelLayout/Smashers2" node_paths=PackedStringArray("brothers") instance=ExtResource("7")]
+position = Vector2(240, 144)
+brothers = [NodePath("../Smasher2"), NodePath("../Smasher3")]
+
+[node name="Smasher2" parent="LevelLayout/Smashers2" instance=ExtResource("7")]
+position = Vector2(208, 144)
+
+[node name="Smasher3" parent="LevelLayout/Smashers2" instance=ExtResource("7")]
+position = Vector2(176, 144)
+
+[node name="MovingSpikeball" parent="LevelLayout" instance=ExtResource("8")]
+position = Vector2(-112, 208)
+length = 3
+
+[node name="MovingSpikeball3" parent="LevelLayout" instance=ExtResource("8")]
+position = Vector2(16, 208)
+length = 3
+start_left = false

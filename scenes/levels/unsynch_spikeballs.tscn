@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=4 uid="uid://06wmolodo3x8"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://w01s74v80mqh" path="res://scenes/moving_spikeball/moving_spikeball.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bb51ja1alpmys" path="res://scenes/piston/piston.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://ciw32ubax06oe" path="res://scenes/glass/glass.tscn" id="6"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 9.0
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD3/wMAAgAAAAEAAAD3/wIAAgAAAAEAAAD3/wEAAgAAAAEAAAD3/wAAAgAAAAEAAAD3////AgAAAAEAAAD3//7/AgAAAAEAAAD3//3/AgAAAAEAAAD3//z/AgACAAAAAAD4//z/AgACAAAAAAD5//z/AgAEAAEAAAD6//z/AgAEAAEAAAD7//z/AgACAAAAAAD8//z/AgACAAAAAAD9//z/AgACAAAAAAD+//z/AgACAAAAAAD///z/AgACAAAAAAAAAPz/AgACAAAAAAABAPz/AgAEAAEAAAACAPz/AgAEAAEAAAADAPz/AgACAAAAAAAEAPz/AgACAAAAAAAFAPz/AgACAAAAAAAIAAMAAgACAAAAAAD4/wMAAgACAAAAAAD5/wMAAgACAAAAAAD6/wMAAgACAAAAAAD7/wMAAgACAAAAAAD8/wMAAgACAAAAAAD9/wMAAgACAAAAAAD+/wMAAgACAAAAAAD//wMAAgACAAAAAAAAAAMAAgACAAAAAAABAAMAAgACAAAAAAACAAMAAgACAAAAAAADAAMAAgACAAAAAAAEAAMAAgACAAAAAAAFAAMAAgACAAAAAAAGAAMAAgACAAAAAAAHAAMAAgACAAAAAAAGAPz/AgAEAAEAAAAHAPz/AgAEAAEAAAAIAPz/AgACAAAAAAD4////AgACAAAAAAD5////AgACAAAAAAD6////AgACAAAAAAD7////AgACAAAAAAD8////AgACAAAAAAD9////AgACAAAAAAD+////AgACAAAAAAD/////AgACAAAAAAAAAP//AgACAAAAAAABAP//AgACAAAAAAACAP//AgACAAAAAAADAP//AgACAAAAAAAEAP//AgACAAAAAAAFAP//AgACAAAAAAAGAP//AgACAAAAAAAHAP//AgACAAAAAAAIAP//AgACAAAAAAAJAP//AgACAAAAAAAKAP//AgACAAAAAAALAP//AgACAAAAAAAMAP//AgACAAAAAAAJAAMAAgACAAAAAAAKAPv/AgAEAAEAAAAJAPz/AgACAAAAAAAKAPz/AgAAAAEAAAAKAAMAAgACAAAAAADz//z/AgACAAAAAAD2//z/AgACAAAAAADz/wMAAgAEAAAAAAD2/wMAAgAEAAAAAAD0/wMAAgAEAAAAAAD1/wMAAgAEAAAAAADz/wEAAgAFAAAAAAD0/wEAAgAFAAAAAAD1/wEAAgAFAAAAAAD2/wEAAgAFAAAAAAD2////AgAGAAAAAAD1////AgAGAAAAAAD0////AgAGAAAAAADz////AgAGAAAAAAAGAAYAAgAEAAEAAAAHAAYAAgAEAAEAAAAAAAUAAgAEAAEAAAAAAAYAAgAAAAEAAAD6/wYAAgAEAAEAAAD7/wYAAgAEAAEAAADz/wYAAgACAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-240, -28)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-240, 100)
+side = 2
+
+[node name="Up" type="Node2D" parent="LevelLayout"]
+
+[node name="MovingSpikeball" parent="LevelLayout/Up" instance=ExtResource("4")]
+position = Vector2(-144, -44)
+length = 4
+speed = 8.0
+start_left = false
+
+[node name="MovingSpikeball2" parent="LevelLayout/Up" instance=ExtResource("4")]
+position = Vector2(112, -44)
+length = 4
+speed = 8.0
+
+[node name="Piston" parent="LevelLayout/Up" node_paths=PackedStringArray("pair") instance=ExtResource("5")]
+position = Vector2(400, -24)
+pair = NodePath("../../Down/Piston")
+
+[node name="Glass" parent="LevelLayout/Up" instance=ExtResource("6")]
+position = Vector2(-352, -112)
+
+[node name="Down" type="Node2D" parent="LevelLayout"]
+
+[node name="MovingSpikeball" parent="LevelLayout/Down" instance=ExtResource("4")]
+position = Vector2(-144, 84)
+length = 4
+speed = 8.0
+
+[node name="MovingSpikeball2" parent="LevelLayout/Down" instance=ExtResource("4")]
+position = Vector2(112, 84)
+length = 4
+speed = 8.0
+start_left = false
+
+[node name="Piston" parent="LevelLayout/Down" node_paths=PackedStringArray("pair") instance=ExtResource("5")]
+position = Vector2(400, 224)
+down = false
+pair = NodePath("../../Up/Piston")

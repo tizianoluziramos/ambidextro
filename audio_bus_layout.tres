@@ -1,0 +1,187 @@
+[gd_resource type="AudioBusLayout" load_steps=16 format=3 uid="uid://cd0ify0ut4vgn"]
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_4626e"]
+resource_name = "HardLimiter"
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_phmln"]
+resource_name = "HardLimiter"
+ceiling_db = -5.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_0xd17"]
+resource_name = "HardLimiter"
+ceiling_db = -10.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_ii133"]
+resource_name = "HardLimiter"
+ceiling_db = -20.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_hqwig"]
+resource_name = "HardLimiter"
+ceiling_db = -10.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_x7j13"]
+resource_name = "HardLimiter"
+ceiling_db = -5.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_gslko"]
+resource_name = "Delay"
+tap1_delay_ms = 350.0
+tap1_level_db = -30.0
+tap2_delay_ms = 700.0
+tap2_level_db = -45.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_jfjdb"]
+resource_name = "Reverb"
+room_size = 0.01
+wet = 0.02
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_uplq3"]
+resource_name = "HighPassFilter"
+cutoff_hz = 50.0
+db = 3
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_s5dib"]
+resource_name = "HardLimiter"
+ceiling_db = -17.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_n0bxr"]
+resource_name = "HardLimiter"
+ceiling_db = -1.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_t2ltj"]
+resource_name = "HardLimiter"
+ceiling_db = -5.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_68s5q"]
+resource_name = "HardLimiter"
+ceiling_db = 0.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_m30c0"]
+resource_name = "HardLimiter"
+ceiling_db = -5.0
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_v3wpb"]
+resource_name = "HardLimiter"
+ceiling_db = -8.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_4626e")
+bus/0/effect/0/enabled = true
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"SFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_jfjdb")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectHighPassFilter_uplq3")
+bus/2/effect/1/enabled = true
+bus/3/name = &"SFXClean"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/4/name = &"CrumblingPlatform"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"SFX"
+bus/4/effect/0/effect = SubResource("AudioEffectHardLimiter_s5dib")
+bus/4/effect/0/enabled = true
+bus/5/name = &"Box"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"SFX"
+bus/5/effect/0/effect = SubResource("AudioEffectHardLimiter_n0bxr")
+bus/5/effect/0/enabled = true
+bus/6/name = &"DirectionalBlock"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"SFX"
+bus/6/effect/0/effect = SubResource("AudioEffectHardLimiter_t2ltj")
+bus/6/effect/0/enabled = true
+bus/7/name = &"Mace"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"SFX"
+bus/7/effect/0/effect = SubResource("AudioEffectHardLimiter_68s5q")
+bus/7/effect/0/enabled = true
+bus/8/name = &"Projectile"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 0.0
+bus/8/send = &"SFX"
+bus/8/effect/0/effect = SubResource("AudioEffectHardLimiter_m30c0")
+bus/8/effect/0/enabled = true
+bus/9/name = &"Shooter"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = &"SFX"
+bus/9/effect/0/effect = SubResource("AudioEffectHardLimiter_v3wpb")
+bus/9/effect/0/enabled = true
+bus/10/name = &"Smasher"
+bus/10/solo = false
+bus/10/mute = false
+bus/10/bypass_fx = false
+bus/10/volume_db = 0.0
+bus/10/send = &"SFX"
+bus/10/effect/0/effect = SubResource("AudioEffectHardLimiter_phmln")
+bus/10/effect/0/enabled = true
+bus/11/name = &"TogglePlatform"
+bus/11/solo = false
+bus/11/mute = false
+bus/11/bypass_fx = false
+bus/11/volume_db = 0.0
+bus/11/send = &"SFX"
+bus/11/effect/0/effect = SubResource("AudioEffectHardLimiter_0xd17")
+bus/11/effect/0/enabled = true
+bus/12/name = &"Spikeball"
+bus/12/solo = false
+bus/12/mute = false
+bus/12/bypass_fx = false
+bus/12/volume_db = -6.14301
+bus/12/send = &"SFX"
+bus/12/effect/0/effect = SubResource("AudioEffectHardLimiter_ii133")
+bus/12/effect/0/enabled = true
+bus/13/name = &"MovingPlatform"
+bus/13/solo = false
+bus/13/mute = false
+bus/13/bypass_fx = false
+bus/13/volume_db = 0.0
+bus/13/send = &"SFX"
+bus/13/effect/0/effect = SubResource("AudioEffectHardLimiter_hqwig")
+bus/13/effect/0/enabled = true
+bus/14/name = &"MovingPlatformCling"
+bus/14/solo = false
+bus/14/mute = false
+bus/14/bypass_fx = false
+bus/14/volume_db = 0.0
+bus/14/send = &"SFX"
+bus/14/effect/0/effect = SubResource("AudioEffectHardLimiter_x7j13")
+bus/14/effect/0/enabled = true
+bus/15/name = &"LevelChange"
+bus/15/solo = false
+bus/15/mute = false
+bus/15/bypass_fx = false
+bus/15/volume_db = 0.0
+bus/15/send = &"SFX"
+bus/15/effect/0/effect = SubResource("AudioEffectDelay_gslko")
+bus/15/effect/0/enabled = true

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ur1bypi5wg2w"
+path="res://.godot/imported/MECHANICS Small Switch Push.wav-689aa948dd24871f10cdea760ece0345.sample"
+
+[deps]
+
+source_file="res://assets/sfx/MECHANICS Small Switch Push.wav"
+dest_files=["res://.godot/imported/MECHANICS Small Switch Push.wav-689aa948dd24871f10cdea760ece0345.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=96000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

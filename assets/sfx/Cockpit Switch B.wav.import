@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgnc72e36xhmg"
+path="res://.godot/imported/Cockpit Switch B.wav-bdf2fbb925e84340277ef55a32fbc2a4.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Cockpit Switch B.wav"
+dest_files=["res://.godot/imported/Cockpit Switch B.wav-bdf2fbb925e84340277ef55a32fbc2a4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

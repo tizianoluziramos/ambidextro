@@ -1,0 +1,536 @@
+[gd_scene load_steps=9 format=3 uid="uid://e3a2olafeago"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/save_menu/modifiers_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="4"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="5"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="6"]
+[ext_resource type="PackedScene" uid="uid://bkvryhxdh1us4" path="res://scenes/mobile/clickable_area/clickable_area.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="8"]
+
+[node name="ModifiersMenu" type="Node2D" node_paths=PackedStringArray("options", "label_values", "labels", "arrow_containers", "v_box_container_1", "v_box_container_2", "v_box_container_3", "v_box_container_4")]
+script = ExtResource("1")
+options = NodePath("Options")
+label_values = [NodePath("Menu/VBoxContainer1/Cutscenes/Value"), NodePath("Menu/VBoxContainer2/Timer/Value"), NodePath("Menu/VBoxContainer2/Pausable/Value"), NodePath("Menu/VBoxContainer3/Order/Value"), NodePath("Menu/VBoxContainer3/Mirror/Value"), NodePath("Menu/VBoxContainer3/Swap/Value")]
+labels = [NodePath("Menu/Title"), NodePath("Menu/VBoxContainer1/Cutscenes/Label"), NodePath("Menu/VBoxContainer2/Timer/Label"), NodePath("Menu/VBoxContainer2/Pausable/Label"), NodePath("Menu/VBoxContainer3/Order/Label"), NodePath("Menu/VBoxContainer3/Mirror/Label"), NodePath("Menu/VBoxContainer3/Swap/Label"), NodePath("Menu/VBoxContainer/Back")]
+arrow_containers = [NodePath("Menu/VBoxContainer1/Cutscenes/Arrows"), NodePath("Menu/VBoxContainer2/Timer/Arrows"), NodePath("Menu/VBoxContainer2/Pausable/Arrows"), NodePath("Menu/VBoxContainer3/Order/Arrows"), NodePath("Menu/VBoxContainer3/Mirror/Arrows"), NodePath("Menu/VBoxContainer3/Swap/Arrows")]
+v_box_container_1 = NodePath("Menu/VBoxContainer1")
+v_box_container_2 = NodePath("Menu/VBoxContainer2")
+v_box_container_3 = NodePath("Menu/VBoxContainer3")
+v_box_container_4 = NodePath("Menu/VBoxContainer")
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="Options" type="Node" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+script = ExtResource("4")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("../Menu/SelectionArrow")
+options = [NodePath("../Menu/VBoxContainer1/Cutscenes/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer2/Timer/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer2/Pausable/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer3/Order/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer3/Mirror/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer3/Swap/Arrows/</Marker2D"), NodePath("../Menu/VBoxContainer/Back")]
+combo_to_fast_cooldown = Vector2(3, -1)
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -29.0
+offset_right = 40.0
+offset_bottom = 11.0
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -83.0
+offset_right = 80.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Modifiers"
+horizontal_alignment = 1
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 67.0
+theme_override_constants/separation = 16
+
+[node name="Cutscenes" type="Control" parent="Menu/VBoxContainer1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer1/Cutscenes"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Cutscenes"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer1/Cutscenes"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 90.0
+offset_bottom = -24.0
+theme_override_constants/separation = 71
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer1/Cutscenes/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Menu/VBoxContainer1/Cutscenes/Arrows/<" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = -45.0
+action = 1
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer1/Cutscenes/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name=">" type="Label" parent="Menu/VBoxContainer1/Cutscenes/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="ClickableArea2" parent="Menu/VBoxContainer1/Cutscenes/Arrows/>" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = -60.0
+offset_right = 94.0
+offset_bottom = -45.0
+action = 2
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../../</Marker2D")
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer1/Cutscenes"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "Случайный"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 100.0
+theme_override_constants/separation = 16
+
+[node name="Timer" type="Control" parent="Menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer2/Timer"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Speedrun timer"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer2/Timer"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 90.0
+offset_bottom = -24.0
+theme_override_constants/separation = 71
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer2/Timer/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer2/Timer/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name="ClickableArea" parent="Menu/VBoxContainer2/Timer/Arrows/<" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = -12.0
+action = 1
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../Marker2D")
+
+[node name=">" type="Label" parent="Menu/VBoxContainer2/Timer/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Menu/VBoxContainer2/Timer/Arrows/>" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = -27.0
+offset_right = 94.0
+offset_bottom = -12.0
+action = 2
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../../</Marker2D")
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer2/Timer"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="Pausable" type="Control" parent="Menu/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer2/Pausable"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Pausable"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer2/Pausable"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 90.0
+offset_bottom = -24.0
+theme_override_constants/separation = 71
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer2/Pausable/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer2/Pausable/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name="ClickableArea" parent="Menu/VBoxContainer2/Pausable/Arrows/<" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -11.0
+offset_right = 20.0
+offset_bottom = 4.0
+action = 1
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../Marker2D")
+
+[node name=">" type="Label" parent="Menu/VBoxContainer2/Pausable/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Menu/VBoxContainer2/Pausable/Arrows/>" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = -11.0
+offset_right = 94.0
+offset_bottom = 4.0
+action = 2
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../../</Marker2D")
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer2/Pausable"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 40.0
+offset_bottom = 149.0
+theme_override_constants/separation = 16
+
+[node name="Order" type="Control" parent="Menu/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer3/Order"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Level order"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer3/Order"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 90.0
+offset_bottom = -24.0
+theme_override_constants/separation = 71
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer3/Order/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer3/Order/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name="ClickableArea" parent="Menu/VBoxContainer3/Order/Arrows/<" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 22.0
+offset_right = 20.0
+offset_bottom = 37.0
+action = 1
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../Marker2D")
+
+[node name=">" type="Label" parent="Menu/VBoxContainer3/Order/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Menu/VBoxContainer3/Order/Arrows/>" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 22.0
+offset_right = 94.0
+offset_bottom = 37.0
+action = 2
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../../</Marker2D")
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer3/Order"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="Mirror" type="Control" parent="Menu/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer3/Mirror"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Mirror levels"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer3/Mirror"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 90.0
+offset_bottom = -24.0
+theme_override_constants/separation = 71
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer3/Mirror/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer3/Mirror/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name="ClickableArea" parent="Menu/VBoxContainer3/Mirror/Arrows/<" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 38.0
+offset_right = 20.0
+offset_bottom = 53.0
+action = 1
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../Marker2D")
+
+[node name=">" type="Label" parent="Menu/VBoxContainer3/Mirror/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Menu/VBoxContainer3/Mirror/Arrows/>" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 38.0
+offset_right = 94.0
+offset_bottom = 53.0
+action = 2
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../../</Marker2D")
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer3/Mirror"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="Swap" type="Control" parent="Menu/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer3/Swap"]
+layout_mode = 2
+offset_left = -169.0
+offset_top = -36.0
+offset_right = -19.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+text = "Swap positions"
+horizontal_alignment = 2
+
+[node name="Arrows" type="HBoxContainer" parent="Menu/VBoxContainer3/Swap"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -36.0
+offset_right = 90.0
+offset_bottom = -24.0
+theme_override_constants/separation = 71
+alignment = 1
+
+[node name="<" type="Label" parent="Menu/VBoxContainer3/Swap/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = "<"
+horizontal_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="Menu/VBoxContainer3/Swap/Arrows/<"]
+position = Vector2(0, 1)
+
+[node name="ClickableArea" parent="Menu/VBoxContainer3/Swap/Arrows/<" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 54.0
+offset_right = 20.0
+offset_bottom = 69.0
+action = 1
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../Marker2D")
+
+[node name=">" type="Label" parent="Menu/VBoxContainer3/Swap/Arrows"]
+layout_mode = 2
+theme = ExtResource("6")
+text = ">"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Menu/VBoxContainer3/Swap/Arrows/>" node_paths=PackedStringArray("options", "marker2D") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 54.0
+offset_right = 94.0
+offset_bottom = 69.0
+action = 2
+options = NodePath("../../../../../../Options")
+marker2D = NodePath("../../</Marker2D")
+
+[node name="Value" type="Label" parent="Menu/VBoxContainer3/Swap"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+text = "No"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = 115.0
+offset_right = 200.0
+offset_bottom = 171.0
+theme_override_constants/separation = 4
+
+[node name="Back" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Menu/VBoxContainer/Back" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 85.0
+offset_right = 40.0
+offset_bottom = 99.0
+options = NodePath("../../../../Options")
+
+[node name="SelectionArrow" type="Node2D" parent="Menu"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Menu/SelectionArrow"]
+texture = ExtResource("8")
+centered = false

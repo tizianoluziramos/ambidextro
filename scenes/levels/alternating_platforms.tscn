@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=4 uid="uid://dobij6d33x3n0"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cbwde5q0aprdd" path="res://scenes/toggle_platform/toggle_platform_l.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://626abysmbyys" path="res://scenes/toggle_platform/toggle_platform_r.tscn" id="5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 10.0
+toggles_should_swap_on_chara_swap = true
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz/wUAAgAFAAUAAADz/wYAAgAFAAYAAAAMAAUAAgAFAAUAAAAMAAYAAgAFAAYAAADz//n/AgABAAQAAAAMAPn/AgABAAQAAAD+//3/AgABAAQAAAD0//n/AgACAAQAAADz//r/AgACAAQAAAD///3/AgACAAQAAAD+//7/AgACAAQAAAALAPn/AgAAAAQAAAAMAPr/AgAAAAQAAAD4//n/AgADAAQAAAD4//r/AgADAAQAAAD4//v/AgADAAQAAAD4//z/AgADAAQAAAD4//3/AgADAAQAAAD4//7/AgADAAQAAAD4////AgADAAQAAAD4/wAAAgADAAQAAAD4/wEAAgADAAQAAAD4/wIAAgADAAQAAAD4/wMAAgADAAQAAAD4/wQAAgADAAQAAAD4/wUAAgADAAQAAAD3//n/AgADAAQAAAD3//r/AgADAAQAAAD3//v/AgADAAQAAAD3//z/AgADAAQAAAD3//3/AgADAAQAAAD3//7/AgADAAQAAAD3////AgADAAQAAAAKAP3/AgADAAQAAAAKAP7/AgADAAQAAAAKAP//AgADAAQAAAAKAAAAAgADAAQAAAAKAAEAAgADAAQAAAAKAAIAAgADAAQAAAAKAAMAAgADAAQAAAADAP3/AgADAAQAAAADAP7/AgADAAQAAAADAP//AgADAAQAAAD8/wYAAgAEAAQAAAD7/wIAAgAEAAQAAAD0////AgAEAAQAAAD7//v/AgAEAAQAAAAFAPv/AgAEAAQAAAAHAP//AgAEAAQAAAADAAYAAgAEAAQAAAD//wQAAgAEAAQAAAAIAAQAAgAHAAQAAAADAAUAAgAHAAQAAAAAAAQAAgAHAAQAAAAGAP7/AgAHAAQAAAAGAPv/AgAHAAQAAAABAPn/AgAHAAQAAAD6//v/AgAHAAQAAAD1/wAAAgAHAAQAAAD7/wEAAgAHAAQAAAD7/wYAAgAHAAQAAAD8/wUAAgAHAAQAAAAMAAAAAgAHAAQAAAAMAP//AgAHAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD9/wYAAgAAAAEAAAD9/wUAAgAAAAEAAAD9/wQAAgAAAAEAAAD9/wMAAgAAAAEAAAD9/wIAAgAAAAEAAAD9/wEAAgAAAAEAAAD9/wAAAgAAAAEAAAD9////AgAAAAEAAAD9//7/AgAAAAEAAAD9//3/AgAAAAEAAAD9//z/AgACAAAAAAAKAAUAAgACAAAAAAAJAAUAAgACAAAAAAAJAAYAAgAAAAEAAAAKAAYAAgAAAAEAAAAFAAUAAgAAAAEAAAAFAAYAAgAAAAEAAAAGAAYAAgAAAAEAAAAGAAUAAgAAAAEAAAABAAUAAgAAAAEAAAABAAYAAgAAAAEAAAACAAYAAgAAAAEAAAACAAUAAgAAAAEAAAD+//z/AgACAAAAAAD///z/AgACAAAAAAAAAPz/AgAEAAEAAAABAPz/AgAEAAEAAAACAPz/AgACAAAAAAADAPz/AgACAAAAAAAEAPz/AgACAAAAAAAFAPz/AgAEAAEAAAAGAPz/AgAEAAEAAAAHAPz/AgACAAAAAAAIAPz/AgACAAAAAAAJAPz/AgACAAAAAAAKAPz/AgACAAAAAAALAPz/AgAGAAAAAAAMAPz/AgAGAAAAAAABAAQAAgACAAAAAAACAAQAAgACAAAAAAAFAAQAAgACAAAAAAAGAAQAAgACAAAAAAD+/wAAAgAEAAAAAAD+/wIAAgAEAAAAAAD//wAAAgAEAAAAAAD//wIAAgAEAAAAAAD8//z/AgAGAAAAAAD7//z/AgAGAAAAAAD6//z/AgAGAAAAAAD5//z/AgAGAAAAAAD4//z/AgAGAAAAAAD3//z/AgAGAAAAAAD2//z/AgAGAAAAAAD1//z/AgAGAAAAAAD0//z/AgAGAAAAAADz//z/AgAGAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD9//z/AgAJAAAAAAD9//3/AgAJAAAAAAD9//7/AgAJAAAAAAD9////AgAJAAAAAAD9/wAAAgAJAAAAAAD9/wEAAgAJAAAAAAD9/wIAAgAJAAAAAAD9/wMAAgAJAAAAAAD9/wQAAgAJAAAAAAD9/wUAAgAJAAAAAAD9/wYAAgAJAAAAAAABAAQAAgAJAAAAAAABAAUAAgAJAAAAAAABAAYAAgAJAAAAAAAFAAYAAgAJAAAAAAAFAAUAAgAJAAAAAAAFAAQAAgAJAAAAAAAJAAUAAgAJAAAAAAAJAAYAAgAJAAAAAAACAPz/AgALAAAAACAHAPz/AgALAAAAACA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAAKAAYAAgAJAAAAABAKAAUAAgAJAAAAABAGAAYAAgAJAAAAABAGAAUAAgAJAAAAABAGAAQAAgAJAAAAABACAAYAAgAJAAAAABACAAUAAgAJAAAAABACAAQAAgAJAAAAABD9/wYAAgAJAAAAABD9/wUAAgAJAAAAABD9/wQAAgAJAAAAABD9/wMAAgAJAAAAABD9/wIAAgAJAAAAABD9/wEAAgAJAAAAABD9/wAAAgAJAAAAABD9////AgAJAAAAABD9//7/AgAJAAAAABD9//3/AgAJAAAAABAKAPz/AgAJAAAAABD//wIAAgAJAAQAABD//wAAAgAJAAQAABD9//z/AgANAAMAABAEAPz/AgALAAAAADD///z/AgALAAAAADA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD+//z/AgAJAAAAAGD///z/AgAJAAAAAGAAAPz/AgAJAAAAAGABAPz/AgAJAAAAAGACAPz/AgAJAAAAAGADAPz/AgAJAAAAAGAEAPz/AgAJAAAAAGAFAPz/AgAJAAAAAGAGAPz/AgAJAAAAAGAHAPz/AgAJAAAAAGAIAPz/AgAJAAAAAGAJAPz/AgAJAAAAAGAKAPz/AgAJAAAAAGA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 110)
+side = 2
+
+[node name="TogglePlatformL" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-152, 91)
+toggle_count = 7
+
+[node name="TogglePlatformR" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-200, 59)
+toggle_count = 5
+
+[node name="TogglePlatformL2" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-152, 27)
+toggle_count = 7
+
+[node name="TogglePlatformR2" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-88, 27)
+toggle_count = 5
+
+[node name="TogglePlatformL3" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(-56, -4)
+toggle_count = 7
+
+[node name="TogglePlatformR3" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(-88, -36)
+toggle_count = 5
+
+[node name="TogglePlatformL4" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(56, 11)
+toggle_count = 7
+
+[node name="TogglePlatformL5" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(72, 11)
+toggle_count = 7
+
+[node name="TogglePlatformR4" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(136, 11)
+toggle_count = 5
+
+[node name="TogglePlatformR5" parent="LevelLayout" instance=ExtResource("5")]
+position = Vector2(152, 11)
+toggle_count = 5
+
+[node name="TogglePlatformL6" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(184, -20)
+toggle_count = 7
+
+[node name="TogglePlatformL7" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(200, -20)
+toggle_count = 7

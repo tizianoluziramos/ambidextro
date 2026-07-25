@@ -1,0 +1,475 @@
+[gd_scene load_steps=95 format=3 uid="uid://du6vrcdm0frln"]
+
+[ext_resource type="Script" path="res://scenes/main/translation_loader.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://bi25slua7huqa" path="res://assets/fonts/lanapixel_everything/LanaPixel.ttf" id="2"]
+[ext_resource type="FontFile" uid="uid://cuibndptg6bn2" path="res://assets/fonts/byte_bounce/bytebounce.medium.ttf" id="3"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="4"]
+[ext_resource type="Script" path="res://scenes/main/general_input_controller.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/steam_manager.gd" id="6"]
+[ext_resource type="Script" path="res://scenes/main/save_load.gd" id="7"]
+[ext_resource type="Script" path="res://scenes/main/menu_loader.gd" id="8"]
+[ext_resource type="PackedScene" uid="uid://ddjkj5tq4p1s" path="res://scenes/main_menu/main_menu.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://rp6la6gvuvsd" path="res://scenes/main_menu/save_menu/save_menu.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://e3a2olafeago" path="res://scenes/main_menu/save_menu/modifiers_menu.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://ck0treo5ofpb5" path="res://scenes/main_menu/pause_menu/pause_menu.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://ux1oqjpdx1fe" path="res://scenes/main_menu/save_menu/levels_menu.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://juk7oxq1e3mw" path="res://scenes/main_menu/settings_menu/settings_menu.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://ddeambsmmkdve" path="res://scenes/main_menu/settings_menu/data_menu/data_menu.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://fv6kt5dwdwlx" path="res://scenes/main_menu/credits_menu/credits_menu.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://dk3mobbglblux" path="res://scenes/main_menu/keyboard_test/keyboard_test.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://cv0w6sv16u3gc" path="res://scenes/main_menu/settings_menu/controls_menu/keys_finder/keys_finder.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://mj7cim50nfqd" path="res://scenes/intro_cutscene/intro_cutscene.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://bwbv15846xfq6" path="res://scenes/end_credits/end_credits.tscn" id="20"]
+[ext_resource type="PackedScene" uid="uid://c0ixf388i657g" path="res://scenes/main_menu/settings_menu/controls_menu/controls_menu.tscn" id="21"]
+[ext_resource type="PackedScene" uid="uid://1r2b2wlida7y" path="res://scenes/main_menu/settings_menu/language_menu/language_menu.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://hrejv58gsgah" path="res://scenes/main_menu/settings_menu/video_menu/video_menu.tscn" id="23"]
+[ext_resource type="PackedScene" uid="uid://bnpn6aplt35nf" path="res://scenes/main_menu/settings_menu/audio_menu/audio_menu.tscn" id="24"]
+[ext_resource type="PackedScene" uid="uid://bwqqr3vma52ue" path="res://scenes/main_menu/settings_menu/accessibility_menu/accessibility_menu.tscn" id="25"]
+[ext_resource type="PackedScene" uid="uid://bj4t8nsatfi0t" path="res://scenes/main_menu/settings_menu/speedrun_menu/speedrun_menu.tscn" id="26"]
+[ext_resource type="Script" path="res://scenes/main/level_loader.gd" id="27"]
+[ext_resource type="PackedScene" uid="uid://djl57g5tmt3pv" path="res://scenes/level_counter_screen/level_counter_screen.tscn" id="28"]
+[ext_resource type="Script" path="res://scenes/main/level_previews.gd" id="29"]
+[ext_resource type="Script" path="res://scenes/main/level_screenshot_taker.gd" id="30"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="31"]
+[ext_resource type="PackedScene" uid="uid://b3ofgvf6s6njw" path="res://scenes/mobile/virtual_pad/virtual_pad.tscn" id="32"]
+[ext_resource type="PackedScene" uid="uid://c13e4sdfqk8vn" path="res://scenes/mobile/touch_controller/touch_controller.tscn" id="33"]
+[ext_resource type="PackedScene" uid="uid://ddml6pakpwqet" path="res://scenes/mobile/touch_button/touch_button.tscn" id="34"]
+[ext_resource type="Texture2D" uid="uid://cswry7icael2x" path="res://assets/sprites/mobile/restart_button.png" id="35"]
+[ext_resource type="Texture2D" uid="uid://h7qydj24ilcx" path="res://assets/sprites/mobile/restart_button_pressed.png" id="36"]
+[ext_resource type="Texture2D" uid="uid://de4osfkrtctxu" path="res://assets/sprites/mobile/menu_button.png" id="37"]
+[ext_resource type="Script" path="res://scenes/main/sub_viewport_container.gd" id="38"]
+[ext_resource type="Script" path="res://scenes/main/fps_counter.gd" id="39"]
+[ext_resource type="PackedScene" uid="uid://bbqfl3e0h7acx" path="res://scenes/splash/splash.tscn" id="40"]
+[ext_resource type="Script" path="res://scenes/main/music_controller.gd" id="41"]
+[ext_resource type="AudioStream" uid="uid://b53eg0t75hyqp" path="res://assets/music/menu/menu.ogg" id="42"]
+[ext_resource type="AudioStream" uid="uid://iwrhliiqx80f" path="res://assets/music/main/loop_0_intro.ogg" id="43"]
+[ext_resource type="AudioStream" uid="uid://dsfj5mj6hsalp" path="res://assets/music/main/loop_0.ogg" id="44"]
+[ext_resource type="AudioStream" uid="uid://dupc1jpdrgqlm" path="res://assets/music/main/loop_0_bridge.ogg" id="45"]
+[ext_resource type="AudioStream" uid="uid://dmyws84464iix" path="res://assets/music/main/loop_1.ogg" id="46"]
+[ext_resource type="AudioStream" uid="uid://kus8somgpq1j" path="res://assets/music/main/loop_1_bridge.ogg" id="47"]
+[ext_resource type="AudioStream" uid="uid://cc3vmg42mj56u" path="res://assets/music/main/loop_2.ogg" id="48"]
+[ext_resource type="AudioStream" uid="uid://d2rq3jfrtnwly" path="res://assets/music/main/loop_2_bridge.ogg" id="49"]
+[ext_resource type="AudioStream" uid="uid://cagn8d07e8m2c" path="res://assets/music/main/loop_3.ogg" id="50"]
+[ext_resource type="AudioStream" uid="uid://jua6trumvlan" path="res://assets/music/main/loop_3_bridge.ogg" id="51"]
+[ext_resource type="AudioStream" uid="uid://bhae2p618ij7f" path="res://assets/music/main/loop_4.ogg" id="52"]
+[ext_resource type="AudioStream" uid="uid://by727205b83ie" path="res://assets/music/main/loop_5.ogg" id="53"]
+[ext_resource type="AudioStream" uid="uid://c3s6co51j3jsa" path="res://assets/music/main/loop_6.ogg" id="54"]
+[ext_resource type="AudioStream" uid="uid://6vhoed8oy0cc" path="res://assets/music/main/loop_6_bridge.ogg" id="55"]
+[ext_resource type="AudioStream" uid="uid://7gunlq5n3vsc" path="res://assets/music/main/loop_7.ogg" id="56"]
+[ext_resource type="AudioStream" uid="uid://bicci03agmy1u" path="res://assets/music/main/loop_7_bridge.ogg" id="57"]
+[ext_resource type="AudioStream" uid="uid://dltvamj6kpfnj" path="res://assets/music/main/loop_8.ogg" id="58"]
+[ext_resource type="AudioStream" uid="uid://c0fhi8ue6rov5" path="res://assets/music/main/loop_8_bridge.ogg" id="59"]
+[ext_resource type="AudioStream" uid="uid://cp0v34i81m4mw" path="res://assets/music/main/loop_9.ogg" id="60"]
+[ext_resource type="AudioStream" uid="uid://c41lsw68goqk5" path="res://assets/music/main/loop_9_bridge.ogg" id="61"]
+[ext_resource type="AudioStream" uid="uid://n17w7xj1fe3u" path="res://assets/music/main/loop_10.ogg" id="62"]
+[ext_resource type="AudioStream" uid="uid://bopjh1rafbou2" path="res://assets/music/main/loop_11.ogg" id="63"]
+[ext_resource type="AudioStream" uid="uid://cbwv5emntp4e2" path="res://assets/music/main/loop_11_bridge.ogg" id="64"]
+[ext_resource type="AudioStream" uid="uid://d180lwgjb3wp" path="res://assets/music/main/loop_12.ogg" id="65"]
+[ext_resource type="AudioStream" uid="uid://bj6fu83gvuw41" path="res://assets/music/last_level/endgame_0.ogg" id="66"]
+[ext_resource type="AudioStream" uid="uid://co0htcnl3xks1" path="res://assets/music/last_level/endgame_1.ogg" id="67"]
+[ext_resource type="AudioStream" uid="uid://blm6nq3gmhh6q" path="res://assets/music/last_level/endgame_2.ogg" id="68"]
+[ext_resource type="AudioStream" uid="uid://f0e6hy6fxxnm" path="res://assets/music/last_level/endgame_3.ogg" id="69"]
+[ext_resource type="AudioStream" uid="uid://bqa6aebl1ji73" path="res://assets/music/last_level/endgame_4.ogg" id="70"]
+[ext_resource type="AudioStream" uid="uid://dqav40jtvy0so" path="res://assets/music/last_level/endgame_5.ogg" id="71"]
+[ext_resource type="AudioStream" uid="uid://drjqrfiaaqwf2" path="res://assets/music/last_level/endgame_6.ogg" id="72"]
+[ext_resource type="AudioStream" uid="uid://ct05dily4doap" path="res://assets/music/last_level/endgame_7.ogg" id="73"]
+[ext_resource type="AudioStream" uid="uid://d0iiagverck2f" path="res://assets/sfx/BaseballWoodBatHi SSC023301.wav" id="74"]
+[ext_resource type="AudioStream" uid="uid://cq54aflwhakb0" path="res://assets/sfx/camera 6 shutter mechanism mono 192kHz.mp3" id="75"]
+[ext_resource type="AudioStream" uid="uid://cjpiolulsbnl7" path="res://assets/sfx/GEARBOX - DESIGNED - LARGE - Original Helmsworth Cylinder Press 01.wav" id="76"]
+[ext_resource type="Script" path="res://scenes/main/ui_sounds.gd" id="77"]
+[ext_resource type="AudioStream" uid="uid://cdw3wp0glew3r" path="res://assets/sfx/button assorted 20 - FilmCow.wav" id="78"]
+[ext_resource type="AudioStream" uid="uid://dfjv8moudjmv5" path="res://assets/sfx/button assorted 35 - FilmCow.wav" id="79"]
+[ext_resource type="AudioStream" uid="uid://dy8pnadgowyer" path="res://assets/sfx/button assorted 65 - FilmCow.wav" id="80"]
+[ext_resource type="AudioStream" uid="uid://y132n7c8w2kl" path="res://assets/sfx/button assorted 75 - FilmCow.wav" id="81"]
+[ext_resource type="AudioStream" uid="uid://c1uwmu2bkxqbp" path="res://assets/sfx/button assorted 37 - FilmCow.wav" id="82"]
+[ext_resource type="AudioStream" uid="uid://dxq8af1wgp1dt" path="res://assets/sfx/button assorted 42 - FilmCow.wav" id="83"]
+[ext_resource type="AudioStream" uid="uid://cqdvh0eayi0fv" path="res://assets/sfx/button assorted 89 - FilmCow.wav" id="84"]
+[ext_resource type="Material" uid="uid://g4jgssynab2u" path="res://shaders/CRT2/crt_material2.tres" id="85"]
+[ext_resource type="Script" path="res://scenes/main/crt_shader.gd" id="86"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywiko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhkp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmvai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byx0h"]
+
+[sub_resource type="Theme" id="Theme_dkr28"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("2")
+Button/styles/disabled = SubResource("StyleBoxEmpty_ywiko")
+Button/styles/focus = SubResource("StyleBoxEmpty_jhkp4")
+Button/styles/hover = SubResource("StyleBoxEmpty_jmvai")
+Button/styles/normal = SubResource("StyleBoxEmpty_byx0h")
+Button/styles/pressed = null
+Label/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("3")
+
+[sub_resource type="Theme" id="Theme_acr8n"]
+Label/constants/line_spacing = 0
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("2")
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_8g72e"]
+stream_count = 8
+stream_0/stream = ExtResource("66")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("67")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("68")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("69")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("70")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("71")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("72")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("73")
+stream_7/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_s8vi2"]
+stream_count = 8
+stream_0/stream = ExtResource("66")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("67")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("68")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("69")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("70")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("71")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("72")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("73")
+stream_7/volume = 0.0
+
+[node name="MainScene" type="Node"]
+
+[node name="TranslationLoader" type="Node" parent="."]
+script = ExtResource("1")
+main_theme = SubResource("Theme_dkr28")
+secondary_theme = ExtResource("4")
+
+[node name="GeneralInputController" type="Node" parent="." node_paths=PackedStringArray("save_load", "faulty_joystick_timer", "subviewport_container")]
+process_mode = 3
+script = ExtResource("5")
+save_load = NodePath("../SaveLoad")
+faulty_joystick_timer = NodePath("FaultyJoysticTimer")
+subviewport_container = NodePath("../SubViewportContainer")
+
+[node name="FaultyJoysticTimer" type="Timer" parent="GeneralInputController"]
+wait_time = 1.5
+one_shot = true
+
+[node name="SteamManager" type="Node" parent="." node_paths=PackedStringArray("save_load")]
+script = ExtResource("6")
+save_load = NodePath("../SaveLoad")
+
+[node name="SaveLoad" type="Node" parent="." node_paths=PackedStringArray("steam_manager")]
+script = ExtResource("7")
+steam_manager = NodePath("../SteamManager")
+
+[node name="MenuLoader" type="Node" parent="." node_paths=PackedStringArray("general_input_controller", "level_loader", "level_previews", "save_load", "menu_container", "level_container", "music_controller", "ui_sounds", "crt_shader", "subviewport_container", "steam_manager")]
+script = ExtResource("8")
+general_input_controller = NodePath("../GeneralInputController")
+level_loader = NodePath("../LevelLoader")
+level_previews = NodePath("../LevelLoader/LevelPreviews")
+save_load = NodePath("../SaveLoad")
+menu_container = NodePath("../SubViewportContainer/SubViewport/MenuContainer")
+level_container = NodePath("../SubViewportContainer/SubViewport/LevelContainer")
+music_controller = NodePath("../AudioPlayers/MusicController")
+ui_sounds = NodePath("../AudioPlayers/UISounds")
+crt_shader = NodePath("../CRTShader")
+subviewport_container = NodePath("../SubViewportContainer")
+steam_manager = NodePath("../SteamManager")
+main_menu = ExtResource("9")
+save_menu = ExtResource("10")
+modifiers_menu = ExtResource("11")
+pause_menu = ExtResource("12")
+levels_menu = ExtResource("13")
+settings_menu = ExtResource("14")
+data_menu = ExtResource("15")
+credits_menu = ExtResource("16")
+keyboard_test = ExtResource("17")
+keys_finder = ExtResource("18")
+intro_cutscene = ExtResource("19")
+end_credits = ExtResource("20")
+controls_menu = ExtResource("21")
+language = ExtResource("22")
+video = ExtResource("23")
+audio = ExtResource("24")
+accessibility = ExtResource("25")
+speedrun = ExtResource("26")
+
+[node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("level_container", "win_player", "reset_player", "change_level_audio", "save_load", "menu_loader", "music_controller", "general_input_controller", "CRT_shader", "subviewport_container", "touch_controllers")]
+process_mode = 3
+script = ExtResource("27")
+level_container = NodePath("../SubViewportContainer/SubViewport/LevelContainer")
+win_player = NodePath("../AudioPlayers/WinPlayer")
+reset_player = NodePath("../AudioPlayers/ResetPlayer")
+change_level_audio = NodePath("../AudioPlayers/ChangeLevel")
+level_counter_screen = ExtResource("28")
+save_load = NodePath("../SaveLoad")
+menu_loader = NodePath("../MenuLoader")
+music_controller = NodePath("../AudioPlayers/MusicController")
+general_input_controller = NodePath("../GeneralInputController")
+CRT_shader = NodePath("../CRTShader")
+subviewport_container = NodePath("../SubViewportContainer")
+touch_controllers = [NodePath("../UI/TouchControllerL"), NodePath("../UI/TouchControllerR"), NodePath("../UI/TouchButtonReset"), NodePath("../UI/TouchButtonPause")]
+
+[node name="LevelPreviews" type="Node" parent="LevelLoader"]
+script = ExtResource("29")
+
+[node name="LevelScreenshotTaker" type="Node" parent="LevelLoader" node_paths=PackedStringArray("menu_loader", "level_loader", "crt_shader")]
+process_mode = 4
+script = ExtResource("30")
+menu_loader = NodePath("../../MenuLoader")
+level_loader = NodePath("..")
+crt_shader = NodePath("../../CRTShader")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Virtual joystick left" parent="UI" instance=ExtResource("31")]
+process_mode = 4
+visible = false
+offset_top = -717.0
+offset_right = 594.0
+offset_bottom = 0.0
+joystick_mode = 1
+action_left = "left_l"
+action_right = "right_l"
+action_up = "up_l"
+action_down = "empty"
+
+[node name="Virtual joystick right" parent="UI" instance=ExtResource("31")]
+process_mode = 4
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -559.0
+offset_top = -718.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+joystick_mode = 1
+action_left = "left_r"
+action_right = "right_r"
+action_up = "up_r"
+action_down = "empty"
+
+[node name="VirtualPadLeft" parent="UI" node_paths=PackedStringArray("subviewport_container") instance=ExtResource("32")]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+action_left = "left_l"
+action_right = "right_l"
+action_up = "up_l"
+subviewport_container = NodePath("../../SubViewportContainer")
+
+[node name="VirtualPadRight" parent="UI" node_paths=PackedStringArray("subviewport_container") instance=ExtResource("32")]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+action_left = "left_r"
+action_right = "right_r"
+action_up = "up_r"
+subviewport_container = NodePath("../../SubViewportContainer")
+
+[node name="TouchControllerL" parent="UI" node_paths=PackedStringArray("subviewport_container") instance=ExtResource("33")]
+left_side = true
+action_left = "left_l"
+action_right = "right_l"
+action_up = "up_l"
+subviewport_container = NodePath("../../SubViewportContainer")
+
+[node name="TouchControllerR" parent="UI" node_paths=PackedStringArray("subviewport_container") instance=ExtResource("33")]
+subviewport_container = NodePath("../../SubViewportContainer")
+
+[node name="TouchButtonReset" parent="UI" node_paths=PackedStringArray("subviewport_container") instance=ExtResource("34")]
+action = "reset"
+texture_normal = ExtResource("35")
+texture_pressed = ExtResource("36")
+subviewport_container = NodePath("../../SubViewportContainer")
+
+[node name="TouchButtonPause" parent="UI" node_paths=PackedStringArray("subviewport_container") instance=ExtResource("34")]
+action = "pause"
+texture_normal = ExtResource("37")
+placement = 1
+subviewport_container = NodePath("../../SubViewportContainer")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." node_paths=PackedStringArray("save_load", "camera", "subviewport", "CRT_shader", "level_loader", "clickable_areas_container")]
+process_mode = 3
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("38")
+save_load = NodePath("../SaveLoad")
+camera = NodePath("SubViewport/Camera2D")
+subviewport = NodePath("SubViewport")
+CRT_shader = NodePath("../CRTShader")
+level_loader = NodePath("../LevelLoader")
+clickable_areas_container = NodePath("ClickableAreasContainer")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+process_mode = 1
+disable_3d = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer/SubViewport"]
+process_mode = 4
+visible = false
+offset_left = -228.0
+offset_top = -128.0
+offset_right = 2332.0
+offset_bottom = 1312.0
+scale = Vector2(0.178, 0.178)
+mouse_filter = 2
+buffering_msec = 1000
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+scale = Vector2(0.9, 0.9)
+zoom = Vector2(0.7, 0.7)
+
+[node name="FPSCounter" type="Label" parent="SubViewportContainer/SubViewport/Camera2D"]
+visible = false
+offset_left = -240.0
+offset_top = -125.0
+offset_right = -200.0
+offset_bottom = -102.0
+theme = SubResource("Theme_acr8n")
+text = "60"
+script = ExtResource("39")
+
+[node name="LevelContainer" type="Node2D" parent="SubViewportContainer/SubViewport"]
+texture_filter = 1
+
+[node name="MenuContainer" type="Node2D" parent="SubViewportContainer/SubViewport"]
+process_mode = 3
+texture_filter = 1
+
+[node name="Splash" parent="SubViewportContainer/SubViewport/MenuContainer" node_paths=PackedStringArray("menu_loader") instance=ExtResource("40")]
+menu_loader = NodePath("../../../../MenuLoader")
+
+[node name="ClickableAreasContainer" type="CanvasLayer" parent="SubViewportContainer"]
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="MusicController" type="Node" parent="AudioPlayers" node_paths=PackedStringArray("save_load", "music_players", "music_players_layers", "layer_0_timer", "layer_change_timer")]
+process_mode = 3
+script = ExtResource("41")
+save_load = NodePath("../../SaveLoad")
+music_players = [NodePath("MusicPlayerA"), NodePath("MusicPlayerB")]
+music_players_layers = [NodePath("MusicPlayerLayers1"), NodePath("MusicPlayerLayers2")]
+layer_0_timer = NodePath("Layer0Timer")
+layer_change_timer = NodePath("LayerChangeTimer")
+main_menu_music = ExtResource("42")
+loop_0_intro = ExtResource("43")
+loop_0 = ExtResource("44")
+loop_0_bridge = ExtResource("45")
+loop_1 = ExtResource("46")
+loop_1_bridge = ExtResource("47")
+loop_2 = ExtResource("48")
+loop_2_bridge = ExtResource("49")
+loop_3 = ExtResource("50")
+loop_3_bridge = ExtResource("51")
+loop_4 = ExtResource("52")
+loop_5 = ExtResource("53")
+loop_6 = ExtResource("54")
+loop_6_bridge = ExtResource("55")
+loop_7 = ExtResource("56")
+loop_7_bridge = ExtResource("57")
+loop_8 = ExtResource("58")
+loop_8_bridge = ExtResource("59")
+loop_9 = ExtResource("60")
+loop_9_bridge = ExtResource("61")
+loop_10 = ExtResource("62")
+loop_11 = ExtResource("63")
+loop_11_bridge = ExtResource("64")
+loop_12 = ExtResource("65")
+
+[node name="MusicPlayerA" type="AudioStreamPlayer" parent="AudioPlayers/MusicController"]
+bus = &"Music"
+
+[node name="MusicPlayerB" type="AudioStreamPlayer" parent="AudioPlayers/MusicController"]
+bus = &"Music"
+
+[node name="MusicPlayerLayers1" type="AudioStreamPlayer" parent="AudioPlayers/MusicController"]
+stream = SubResource("AudioStreamSynchronized_8g72e")
+bus = &"Music"
+
+[node name="MusicPlayerLayers2" type="AudioStreamPlayer" parent="AudioPlayers/MusicController"]
+stream = SubResource("AudioStreamSynchronized_s8vi2")
+bus = &"Music"
+
+[node name="Layer0Timer" type="Timer" parent="AudioPlayers/MusicController"]
+wait_time = 11.0
+one_shot = true
+
+[node name="LayerChangeTimer" type="Timer" parent="AudioPlayers/MusicController"]
+wait_time = 2.5
+one_shot = true
+
+[node name="WinPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("74")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="ResetPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("75")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="ChangeLevel" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("76")
+bus = &"LevelChange"
+
+[node name="UISounds" type="Node" parent="AudioPlayers" node_paths=PackedStringArray("ui_players")]
+script = ExtResource("77")
+ui_players = [NodePath("UI1"), NodePath("UI2")]
+accept_sound = ExtResource("78")
+back_sound = ExtResource("79")
+selection_sound = ExtResource("80")
+lateral_sound = ExtResource("81")
+invalid_sound = ExtResource("82")
+remap_sound = ExtResource("83")
+key_sound = ExtResource("84")
+
+[node name="UI1" type="AudioStreamPlayer" parent="AudioPlayers/UISounds"]
+process_mode = 3
+bus = &"SFX"
+
+[node name="UI2" type="AudioStreamPlayer" parent="AudioPlayers/UISounds"]
+process_mode = 3
+bus = &"SFX"
+
+[node name="CRTShader" type="ColorRect" parent="."]
+process_mode = 3
+material = ExtResource("85")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("86")

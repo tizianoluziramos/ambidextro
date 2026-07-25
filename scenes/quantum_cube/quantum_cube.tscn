@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkujj037vmli3"]
+
+[ext_resource type="Script" path="res://scenes/quantum_cube/quantum_cube.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkewy"]
+atlas = ExtResource("2")
+region = Rect2(90, 54, 18, 18)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2pkq"]
+size = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltxfb"]
+atlas = ExtResource("2")
+region = Rect2(0, 126, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pvbs"]
+size = Vector2(16, 14)
+
+[node name="QuantumCube" type="Node2D" node_paths=PackedStringArray("collision", "sprite", "collision_cube", "sprite_cube")]
+z_index = 2
+script = ExtResource("1")
+collision = NodePath("StaticBody2D/CollisionShape2D")
+sprite = NodePath("Sprite2D")
+collision_cube = NodePath("StaticBody2Cube/CollisionShape2D")
+sprite_cube = NodePath("Sprite2DCube")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_rkewy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_k2pkq")
+
+[node name="Sprite2DCube" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_ltxfb")
+
+[node name="StaticBody2Cube" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2Cube"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_2pvbs")
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 1, 1, 0.294118)
+script = ExtResource("3")

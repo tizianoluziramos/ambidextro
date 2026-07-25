@@ -1,0 +1,152 @@
+[gd_scene load_steps=17 format=3 uid="uid://wdn413ve2436"]
+
+[ext_resource type="Script" path="res://scenes/levels/speedrun_timer.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dtb68qlwwbn8a" path="res://assets/sprites/numbers_new.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q886n"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_473gq"]
+atlas = ExtResource("2")
+region = Rect2(8, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04o7f"]
+atlas = ExtResource("2")
+region = Rect2(16, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12uum"]
+atlas = ExtResource("2")
+region = Rect2(24, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjk8c"]
+atlas = ExtResource("2")
+region = Rect2(32, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpv8l"]
+atlas = ExtResource("2")
+region = Rect2(40, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ammv"]
+atlas = ExtResource("2")
+region = Rect2(48, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vps0r"]
+atlas = ExtResource("2")
+region = Rect2(56, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bhsi"]
+atlas = ExtResource("2")
+region = Rect2(0, 10, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_widsn"]
+atlas = ExtResource("2")
+region = Rect2(8, 10, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7c7w"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecirt"]
+atlas = ExtResource("2")
+region = Rect2(16, 10, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cn4a"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 8, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4lj4"]
+atlas = ExtResource("2")
+region = Rect2(16, 10, 8, 10)
+
+[node name="SpeedrunTimer" type="Node2D" node_paths=PackedStringArray("hours_sprite", "minutes_sprites", "seconds_sprites", "mili_sprites", "color_rects", "dots")]
+z_index = 30
+position = Vector2(0, -120)
+script = ExtResource("1")
+numbers_font = [SubResource("AtlasTexture_q886n"), SubResource("AtlasTexture_473gq"), SubResource("AtlasTexture_04o7f"), SubResource("AtlasTexture_12uum"), SubResource("AtlasTexture_rjk8c"), SubResource("AtlasTexture_lpv8l"), SubResource("AtlasTexture_8ammv"), SubResource("AtlasTexture_vps0r"), SubResource("AtlasTexture_3bhsi"), SubResource("AtlasTexture_widsn")]
+hours_sprite = NodePath("Hours")
+minutes_sprites = [NodePath("Minutes1"), NodePath("Minutes2")]
+seconds_sprites = [NodePath("Seconds1"), NodePath("Seconds2")]
+mili_sprites = [NodePath("Mili1"), NodePath("Mili2"), NodePath("Mili3")]
+color_rects = [NodePath("ColorRect2"), NodePath("ColorRect")]
+dots = [NodePath("Dots"), NodePath("Dots2"), NodePath("Dots3")]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -37.0
+offset_top = -6.0
+offset_right = 37.0
+offset_bottom = 6.0
+color = Color(0.156863, 0.207843, 0.576471, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -36.0
+offset_top = -5.0
+offset_right = 36.0
+offset_bottom = 5.0
+color = Color(0.309804, 0.368627, 0.701961, 1)
+
+[node name="Hours" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(-36, -5)
+texture = SubResource("AtlasTexture_b7c7w")
+centered = false
+
+[node name="Dots" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(-30, -5)
+texture = SubResource("AtlasTexture_ecirt")
+centered = false
+
+[node name="Minutes1" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(-24, -5)
+texture = SubResource("AtlasTexture_b7c7w")
+centered = false
+
+[node name="Minutes2" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(-17, -5)
+texture = SubResource("AtlasTexture_3cn4a")
+centered = false
+
+[node name="Dots2" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(-11, -5)
+texture = SubResource("AtlasTexture_e4lj4")
+centered = false
+
+[node name="Seconds1" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(-5, -5)
+texture = SubResource("AtlasTexture_b7c7w")
+centered = false
+
+[node name="Seconds2" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(2, -5)
+texture = SubResource("AtlasTexture_b7c7w")
+centered = false
+
+[node name="Dots3" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(8, -5)
+texture = SubResource("AtlasTexture_e4lj4")
+centered = false
+
+[node name="Mili1" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(14, -5)
+texture = SubResource("AtlasTexture_b7c7w")
+centered = false
+
+[node name="Mili2" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(21, -5)
+texture = SubResource("AtlasTexture_b7c7w")
+centered = false
+
+[node name="Mili3" type="Sprite2D" parent="."]
+modulate = Color(0.0901961, 0.121569, 0.435294, 1)
+position = Vector2(28, -5)
+texture = SubResource("AtlasTexture_b7c7w")
+centered = false

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=4 uid="uid://7lbidsdo08sg"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cmqnu17jsp054" path="res://scenes/shooter/shooter.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bq3hbcmjp5sg2" path="res://scenes/target/target.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b044uookd5lrc" path="res://scenes/box/box.tscn" id="6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10r84"]
+size = Vector2(48, 16)
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 7.0
+charas_souldnt_swap_on_mirror = true
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz//n/AgABAAQAAAAMAPn/AgABAAQAAAD2//3/AgABAAQAAADz//3/AgABAAQAAAD7//3/AgABAAQAAAAAAP3/AgABAAQAAAAFAP3/AgABAAQAAAAGAP3/AgABAAQAAAAIAP3/AgABAAQAAAAMAP//AgABAAQAAAD0//n/AgACAAQAAADz//r/AgACAAQAAAD0//3/AgACAAQAAADz//7/AgACAAQAAAD8//3/AgACAAQAAAAJAP3/AgACAAQAAAAIAP7/AgACAAQAAAALAPn/AgAAAAQAAAAMAPr/AgAAAAQAAAALAP//AgAAAAQAAAAMAAAAAgAAAAQAAAAGAP7/AgAAAAQAAAD///3/AgAAAAQAAAD1//3/AgAAAAQAAAD3//7/AgADAAQAAAD3////AgADAAQAAAD3/wAAAgADAAQAAAD3/wEAAgADAAQAAAD3/wIAAgADAAQAAAD3/wMAAgADAAQAAAD6//7/AgADAAQAAAD6////AgADAAQAAAD6/wAAAgADAAQAAAD6/wEAAgADAAQAAAABAP7/AgADAAQAAAABAP//AgADAAQAAAABAAAAAgADAAQAAAAEAP7/AgADAAQAAAAEAP//AgADAAQAAAAEAAAAAgADAAQAAAAEAAEAAgADAAQAAAAEAAIAAgADAAQAAAAEAAMAAgADAAQAAAAEAAQAAgADAAQAAAD9/wAAAgAGAAQAAAD0/wEAAgAEAAQAAAD8/wUAAgAEAAQAAAAAAAMAAgAEAAQAAAAHAAQAAgAEAAQAAAAMAAMAAgAEAAQAAAAJAPv/AgAEAAQAAAABAPr/AgAEAAQAAAD8//v/AgAEAAQAAAD4//z/AgAEAAQAAAD4//v/AgAHAAQAAAD9//v/AgAHAAQAAAACAPn/AgAHAAQAAAAIAPv/AgAHAAQAAAAMAAQAAgAHAAQAAAAGAAQAAgAHAAQAAAABAAQAAgAHAAQAAAD7/wUAAgAHAAQAAAD0/wIAAgAHAAQAAADz/wIAAgAHAAQAAAD6//n/AgAHAAQAAADz//v/AgAFAAQAAADz/wQAAgAFAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AADz//z/AgACAAAAAAD0//z/AgACAAAAAAD1//z/AgACAAAAAAD2//z/AgACAAAAAAD3//z/AgACAAAAAAD3//3/AgAAAAEAAAD6//3/AgAAAAEAAAD6//z/AgACAAAAAAD7//z/AgACAAAAAAD8//z/AgACAAAAAAD2/wYAAgAFAAEAAAD3/wYAAgAFAAEAAAD4/wYAAgAFAAEAAAD5/wYAAgAFAAEAAAD6/wYAAgAFAAEAAAD7/wYAAgAFAAEAAADz/wUAAgACAAAAAAD0/wUAAgACAAAAAAD9/wUAAgACAAAAAAD+/wUAAgACAAAAAAD1/wYAAgAFAAEAAAD8/wYAAgAFAAEAAAD//wYAAgAFAAEAAAAAAAYAAgAFAAEAAAABAAYAAgAFAAEAAAACAAYAAgAFAAEAAAADAAYAAgAFAAEAAAAEAAYAAgAFAAEAAAAFAAYAAgAFAAEAAAAGAAYAAgAFAAEAAAD9//z/AgACAAAAAAD+//z/AgACAAAAAAD///z/AgACAAAAAAAAAPz/AgACAAAAAAABAPz/AgACAAAAAAABAP3/AgAAAAEAAAAEAPz/AgACAAAAAAAEAP3/AgAAAAEAAAAFAPz/AgACAAAAAAAGAPz/AgACAAAAAAAHAPz/AgACAAAAAAAHAAUAAgACAAAAAAAIAAUAAgACAAAAAAAJAAUAAgACAAAAAAAKAAUAAgACAAAAAAALAAUAAgACAAAAAAAMAAUAAgACAAAAAAAIAAAAAgACAAAAAAAJAAAAAgACAAAAAAAKAAAAAgACAAAAAAALAAAAAgACAAAAAAAHAP3/AgAAAAEAAAAHAP7/AgAAAAEAAAAHAP//AgAAAAEAAAAHAAAAAgAAAAEAAAAIAPz/AgACAAAAAAAJAPz/AgACAAAAAAAKAPz/AgACAAAAAAAJAP7/AgACAAAAAAAKAP7/AgACAAAAAAALAP7/AgACAAAAAAAMAP7/AgACAAAAAAALAPz/AgACAAAAAAD0/wYAAgAAAAEAAADz/wYAAgAAAAEAAAD9/wYAAgAAAAEAAAD+/wYAAgAAAAEAAAAHAAYAAgAAAAEAAAAIAAYAAgAAAAEAAAAJAAYAAgAAAAEAAAAKAAYAAgAAAAEAAAALAAYAAgAAAAEAAAAMAAYAAgAAAAEAAAAMAAIAAgAEAAAAAAALAAIAAgAEAAAAAADy/wYAAgAAAAEAAADy/wUAAgAAAAEAAADy//z/AgAAAAEAAAANAAYAAgAAAAEAAAANAAUAAgAAAAEAAAANAP7/AgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAAHAAYAAgAJAAAAAAAHAAUAAgAJAAAAAAD9/wYAAgAJAAAAAAD9/wUAAgAJAAAAAAD3//3/AgAJAAAAAAD6//3/AgAJAAAAAAD6//z/AgAJAAAAAAD3//z/AgANAAMAAAABAP3/AgAJAAAAAAAEAP3/AgAJAAAAAAAHAP3/AgAJAAAAAAAHAP7/AgAJAAAAAAAHAP//AgAJAAAAAAAHAAAAAgAJAAAAAAAJAP7/AgAJAAAAAAAEAPz/AgAJAAAAAAALAAIAAgAJAAQAAAABAPz/AgANAAMAAAAHAPz/AgANAAMAAAANAP7/AgANAAMAAAANAAUAAgAKAAAAACA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD0/wYAAgAJAAAAABD0/wUAAgAJAAAAABD+/wYAAgAJAAAAABD+/wUAAgAJAAAAABDy/wUAAgAKAAAAADDy//z/AgAKAAAAADD3//3/AgAJAAAAABD3//z/AgAJAAAAABD6//3/AgAJAAAAABD6//z/AgANAAMAABABAP3/AgAJAAAAABABAPz/AgAJAAAAABAEAP3/AgAJAAAAABALAPz/AgAJAAAAABAHAP3/AgAJAAAAABAHAP7/AgAJAAAAABAHAP//AgAJAAAAABALAAAAAgAJAAAAABAHAPz/AgANAAMAABAEAPz/AgANAAMAABAHAAAAAgAKAAAAADA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADz//z/AgAJAAAAAGD0//z/AgAJAAAAAGD1//z/AgAJAAAAAGD2//z/AgAJAAAAAGD3//3/AgAJAAAAAGD6//3/AgAJAAAAAGD7//z/AgAJAAAAAGD8//z/AgAJAAAAAGD9//z/AgAJAAAAAGD+//z/AgAJAAAAAGD///z/AgAJAAAAAGAAAPz/AgAJAAAAAGABAP3/AgAJAAAAAGAEAP3/AgAJAAAAAGAFAPz/AgAJAAAAAGAGAPz/AgAJAAAAAGAHAAAAAgAJAAAAAGAIAAAAAgAJAAAAAGAJAAAAAgAJAAAAAGAKAAAAAgAJAAAAAGALAAAAAgAJAAAAAGAMAP7/AgAJAAAAAGALAP7/AgAJAAAAAGAKAP7/AgAJAAAAAGAJAP7/AgAJAAAAAGAIAPz/AgAJAAAAAGAJAPz/AgAJAAAAAGAKAPz/AgAJAAAAAGALAPz/AgAJAAAAAGDy//z/AgANAAMAABA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 82)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, -62)
+side = 2
+
+[node name="Shooter" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4")]
+position = Vector2(-120, -40)
+rotation = 3.14159
+interval = 0.25
+speed = 50.0
+prepopulation_offset = 0.05
+target = NodePath("../Target")
+mute_projectiles = true
+limit_audio = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Shooter"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter/StaticBody2D"]
+position = Vector2(-9.99998, -8.00002)
+shape = SubResource("RectangleShape2D_10r84")
+
+[node name="Target" parent="." instance=ExtResource("5")]
+position = Vector2(-104, -40)
+rotation = -3.14159
+
+[node name="Shooter2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4")]
+position = Vector2(40, -40)
+rotation = 3.14159
+interval = 0.25
+speed = 50.0
+prepopulation_offset = 0.05
+target = NodePath("../Target2")
+mute_projectiles = true
+limit_audio = true
+limit_audio_count = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Shooter2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter2/StaticBody2D"]
+position = Vector2(-7.99997, -8.00009)
+shape = SubResource("RectangleShape2D_10r84")
+
+[node name="Target2" parent="." instance=ExtResource("5")]
+position = Vector2(56, -40)
+rotation = -3.14159
+
+[node name="Box" parent="." instance=ExtResource("6")]
+position = Vector2(-152, -62)
+
+[node name="Box2" parent="." instance=ExtResource("6")]
+position = Vector2(88, -62)

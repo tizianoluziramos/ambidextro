@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5savuletq1hs"]
+
+[ext_resource type="Script" path="res://scenes/tutorial_key/tutorial_key.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b4cgnn270w5w6" path="res://assets/sprites/key_arrow_10x10.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d1is1dv34csoo" path="res://assets/sprites/stick_l.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cl36ak2jamnbb" path="res://assets/sprites/stick_r.png" id="4"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="5"]
+[ext_resource type="FontFile" uid="uid://bi25slua7huqa" path="res://assets/fonts/lanapixel_everything/LanaPixel.ttf" id="6"]
+
+[sub_resource type="Theme" id="Theme_acr8n"]
+Label/constants/line_spacing = 0
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("6")
+
+[node name="TutorialKey" type="Node2D" node_paths=PackedStringArray("color_rect_small", "color_rect_large", "label_small", "label_large", "sprite", "large_sprites")]
+script = ExtResource("1")
+color_rect_small = NodePath("ColorRectSmall")
+color_rect_large = NodePath("ColorRectLarge")
+label_small = NodePath("ColorRectSmall/ColorRect2/Label")
+label_large = NodePath("ColorRectLarge/ColorRect2/Label")
+sprite = NodePath("ColorRectSmall/ColorRect2/Sprite2D")
+large_sprites = [NodePath("ColorRectLarge/ColorRect2/Sprite2D"), NodePath("ColorRectLarge/ColorRect2/Sprite2D2")]
+arrow_sprite = ExtResource("2")
+stick_sprites = [ExtResource("3"), ExtResource("4")]
+
+[node name="ColorRectSmall" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.369792, 0.369792, 0.369792, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRectSmall"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Label" type="Label" parent="ColorRectSmall/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -11.0
+offset_right = 10.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRectSmall/ColorRect2"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9, 9)
+texture = ExtResource("2")
+
+[node name="ColorRectLarge" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.369792, 0.369792, 0.369792, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRectLarge"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -9.0
+offset_right = 19.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Label" type="Label" parent="ColorRectLarge/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -10.0
+offset_right = 18.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acr8n")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Parenthes"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRectLarge/ColorRect2"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(10, 9)
+texture = ExtResource("2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ColorRectLarge/ColorRect2"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(29, 9)
+texture = ExtResource("3")

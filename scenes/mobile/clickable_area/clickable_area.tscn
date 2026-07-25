@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkvryhxdh1us4"]
+
+[ext_resource type="Script" path="res://scenes/mobile/clickable_area/clickable_area.gd" id="1"]
+
+[node name="ClickableArea" type="TextureButton" node_paths=PackedStringArray("color_rect")]
+top_level = true
+offset_right = 80.0
+offset_bottom = 14.0
+action_mode = 0
+script = ExtResource("1")
+color_rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2291, 0.79, 0.257145, 0.568627)
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

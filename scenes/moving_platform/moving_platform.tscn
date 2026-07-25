@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://hfj4fk1p11c2"]
+
+[ext_resource type="Script" path="res://scenes/moving_platform/moving_platform.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://bpx8iqx5dwohn" path="res://assets/sfx/UI_Mechanical_Move_40.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://coxrsagbcs1lm" path="res://assets/sfx/elevator door close 2.wav" id="4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am0sm"]
+atlas = ExtResource("2")
+region = Rect2(126, 18, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmxfn"]
+atlas = ExtResource("2")
+region = Rect2(18, 0, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et05r"]
+atlas = ExtResource("2")
+region = Rect2(18, 0, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv8cl"]
+atlas = ExtResource("2")
+region = Rect2(36, 0, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc5t7"]
+size = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87nf3"]
+atlas = ExtResource("2")
+region = Rect2(72, 0, 36, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkl10"]
+size = Vector2(22, 5)
+
+[node name="MovingPlatform" type="Node2D" node_paths=PackedStringArray("platform", "platform_long", "platform_audio", "platform_audio_cling", "platform_long_audio", "platform_long_audio_cling")]
+z_index = 1
+script = ExtResource("1")
+line_sprite = SubResource("AtlasTexture_am0sm")
+platform = NodePath("Platform")
+platform_long = NodePath("PlatformLong")
+platform_audio = NodePath("Platform/AudioStreamPlayer2D")
+platform_audio_cling = NodePath("Platform/AudioStreamPlayer2DCling")
+platform_long_audio = NodePath("PlatformLong/AudioStreamPlayer2D")
+platform_long_audio_cling = NodePath("PlatformLong/AudioStreamPlayer2DCling")
+
+[node name="VisiblePath" type="Node2D" parent="."]
+
+[node name="Origin" type="Sprite2D" parent="VisiblePath"]
+texture = SubResource("AtlasTexture_qmxfn")
+
+[node name="End1" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(16, 0)
+texture = SubResource("AtlasTexture_et05r")
+flip_h = true
+
+[node name="End2" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(32, 0)
+texture = SubResource("AtlasTexture_et05r")
+flip_h = true
+
+[node name="End3" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(48, 0)
+texture = SubResource("AtlasTexture_et05r")
+flip_h = true
+
+[node name="End4" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(64, 0)
+texture = SubResource("AtlasTexture_et05r")
+flip_h = true
+
+[node name="End5" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(80, 0)
+texture = SubResource("AtlasTexture_et05r")
+flip_h = true
+
+[node name="End6" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(96, 0)
+texture = SubResource("AtlasTexture_et05r")
+flip_h = true
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+visible = false
+collision_layer = 64
+
+[node name="PlatformSprite" type="Sprite2D" parent="Platform"]
+texture = SubResource("AtlasTexture_rv8cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_lc5t7")
+one_way_collision = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Platform"]
+stream = ExtResource("3")
+max_distance = 250.0
+attenuation = 0.3
+panning_strength = 2.5
+bus = &"MovingPlatform"
+
+[node name="AudioStreamPlayer2DCling" type="AudioStreamPlayer2D" parent="Platform"]
+stream = ExtResource("4")
+max_distance = 250.0
+attenuation = 0.3
+panning_strength = 2.5
+bus = &"MovingPlatformCling"
+
+[node name="PlatformLong" type="AnimatableBody2D" parent="."]
+position = Vector2(1, 0)
+collision_layer = 64
+
+[node name="PlatformSprite" type="Sprite2D" parent="PlatformLong"]
+position = Vector2(8, 0)
+texture = SubResource("AtlasTexture_87nf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLong"]
+position = Vector2(2, 1.5)
+shape = SubResource("RectangleShape2D_nkl10")
+one_way_collision = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PlatformLong"]
+stream = ExtResource("3")
+max_distance = 250.0
+attenuation = 0.15
+panning_strength = 2.5
+bus = &"MovingPlatform"
+
+[node name="AudioStreamPlayer2DCling" type="AudioStreamPlayer2D" parent="PlatformLong"]
+stream = ExtResource("4")
+max_distance = 250.0
+attenuation = 0.15
+panning_strength = 2.5
+bus = &"MovingPlatformCling"

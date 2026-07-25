@@ -1,0 +1,162 @@
+[gd_scene load_steps=6 format=4 uid="uid://de15ful181p4c"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://w01s74v80mqh" path="res://scenes/moving_spikeball/moving_spikeball.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 6.0
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AAD3//n/AgABAAQAAAD4//n/AgABAAQAAAD7//n/AgABAAQAAAD8//n/AgABAAQAAAD0//r/AgABAAQAAADz//v/AgABAAQAAAD+//r/AgABAAQAAAABAPn/AgABAAQAAAAMAPn/AgABAAQAAAAIAAAAAgABAAQAAAAHAAAAAgABAAQAAAAEAAAAAgABAAQAAAADAAAAAgABAAQAAAAAAAAAAgABAAQAAAALAPn/AgAAAAQAAAAMAPr/AgAAAAQAAAD9//r/AgAAAAQAAAD+//v/AgAAAAQAAAD1//r/AgACAAQAAAD0//v/AgACAAQAAADz//z/AgACAAQAAAACAPn/AgACAAQAAAABAPr/AgACAAQAAAD//wAAAgAAAAQAAAD3/wEAAgAGAAQAAAD6/wEAAgAGAAQAAAD9/wEAAgAGAAQAAAAJAAEAAgADAAQAAAAJAAIAAgADAAQAAAAJAAMAAgADAAQAAAABAAEAAgADAAQAAAABAAIAAgADAAQAAAD2//r/AgADAAQAAAD2//v/AgADAAQAAAD2//z/AgADAAQAAAD6//r/AgADAAQAAAD6//v/AgADAAQAAAD5//3/AgAEAAQAAAD0////AgAEAAQAAADz/wQAAgAEAAQAAAD3/wQAAgAEAAQAAAD8/wMAAgAEAAQAAAABAAQAAgAEAAQAAAAFAAIAAgAEAAQAAAAMAAQAAgAEAAQAAAALAAAAAgAEAAQAAAAMAPz/AgAEAAQAAAAGAPz/AgAEAAQAAAAFAPz/AgAHAAQAAAAJAPv/AgAHAAQAAAAMAP3/AgAHAAQAAAAMAP//AgAHAAQAAAALAAQAAgAHAAQAAAAGAAMAAgAHAAQAAAACAAQAAgAHAAQAAAAAAAUAAgAHAAQAAAD8/wQAAgAHAAQAAAD2/wQAAgAHAAQAAAD0/wUAAgAHAAQAAADz/wAAAgAHAAQAAAD4//z/AgAHAAQAAAD+//3/AgAFAAQAAAABAP3/AgAFAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD///n/AgAAAAEAAAD///r/AgAAAAEAAAD///v/AgAAAAEAAAD///z/AgAAAAEAAAD///3/AgAAAAEAAAAAAP7/AgAAAAEAAAAAAP//AgAAAAEAAAD/////AgAAAAEAAAD///7/AgAAAAEAAAAAAP3/AgAAAAEAAAAAAPz/AgAAAAEAAAAAAPv/AgAAAAEAAAAAAPr/AgAAAAEAAAAAAPn/AgAAAAEAAAD9//n/AgAAAAEAAAD+//n/AgAAAAEAAAD1////AgAAAAEAAAD2////AgAAAAEAAAD3////AgAEAAEAAAD4////AgAEAAEAAAD5////AgAAAAEAAAD6////AgAAAAEAAAD7////AgAEAAEAAAD8////AgAEAAEAAAD1//7/AgACAAAAAAD2//7/AgACAAAAAAD5//7/AgACAAAAAAD6//7/AgACAAAAAAD9//7/AgACAAAAAAD9////AgAAAAEAAAD+//7/AgACAAAAAAD+////AgAAAAEAAADz/wYAAgAFAAEAAAD0/wYAAgAFAAEAAAD1/wYAAgAFAAEAAAD2/wYAAgAFAAEAAAD3/wYAAgAFAAEAAAD4/wYAAgAFAAEAAAD5/wYAAgAFAAEAAAD6/wYAAgAFAAEAAAD7/wYAAgAFAAEAAAD8/wYAAgAFAAEAAAD9/wYAAgAFAAEAAAD+/wYAAgAFAAEAAAD1//n/AgAAAAEAAAD2//n/AgAAAAEAAAD5//n/AgAAAAEAAAD6//n/AgAAAAEAAAD0//n/AgAAAAEAAADz//n/AgAAAAEAAAADAP//AgAAAAEAAAADAAYAAgAEAAEAAAAEAP//AgAAAAEAAAAEAAYAAgAEAAEAAAAFAP//AgAAAAEAAAAFAAYAAgAAAAEAAAAGAP//AgAAAAEAAAAGAAYAAgAAAAEAAAAHAP//AgAAAAEAAAAHAAYAAgAEAAEAAAAIAP//AgAAAAEAAAAIAAYAAgAEAAEAAAAJAP//AgAAAAEAAAAJAAYAAgAAAAEAAAAKAAYAAgAAAAEAAAABAP//AgAAAAEAAAABAAAAAgAAAAEAAAABAAUAAgACAAAAAAABAAYAAgAAAAEAAAACAP//AgAAAAEAAAACAAAAAgAAAAEAAAACAAUAAgACAAAAAAACAAYAAgAAAAEAAAAFAAAAAgAAAAEAAAAFAAUAAgACAAAAAAAGAAAAAgAAAAEAAAAGAAUAAgACAAAAAAAJAAUAAgACAAAAAAAKAAUAAgACAAAAAAD//wYAAgAFAAEAAAAAAAYAAgAFAAEAAAABAP7/AgACAAAAAAACAP7/AgACAAAAAAADAP7/AgAEAAEAAAAEAP7/AgAEAAEAAAAFAP7/AgAEAAEAAAAGAP7/AgAEAAEAAAAHAP7/AgAEAAEAAAAIAP7/AgAEAAEAAAAJAP7/AgAEAAEAAAAKAP7/AgAEAAEAAAAKAP//AgAAAAEAAAALAAUAAgACAAAAAAAMAAUAAgACAAAAAAALAAYAAgAAAAEAAAAMAAYAAgAAAAEAAAAJAAAAAgAAAAEAAAAKAAAAAgACAAMAAAD0//r/AgACAAMAAADz//v/AgACAAMAAADz//r/AgAAAAEAAAAAAAAAAgABAAMAAAD+//r/AgABAAMAAAABAPn/AgACAAMAAAAMAPn/AgABAAMAAADy//v/AgAAAAEAAADy//r/AgAAAAEAAADy//n/AgAAAAEAAADz//j/AgAAAAEAAAD0//j/AgAAAAEAAAD1//j/AgAAAAEAAAD2//j/AgAAAAEAAAD5//j/AgAAAAEAAAD6//j/AgAAAAEAAAD9//j/AgAAAAEAAAD///j/AgAAAAEAAAD+//j/AgAAAAEAAAAAAPj/AgAAAAEAAAABAPj/AgAAAAEAAAAMAPj/AgAAAAEAAAANAPn/AgAAAAEAAAANAAYAAgAAAAEAAAANAAUAAgAAAAEAAADy//j/AgAAAAEAAAANAPj/AgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAANAPn/AgAJAAMAAAAMAPn/AgAJAAIAAAD+//r/AgAJAAIAAAD///v/AgAJAAAAAAD///z/AgAJAAAAAAD///3/AgAJAAAAAAD9//7/AgAJAAAAAAD9////AgALAAAAACD5////AgALAAAAACD5//7/AgAJAAAAAAD1//7/AgAJAAAAAAD1////AgAJAAAAAAABAAUAAgAJAAAAAAABAAYAAgAJAAAAAAAFAAUAAgAJAAAAAAAJAAUAAgAJAAAAAAAFAAYAAgALAAAAACAJAAYAAgALAAAAACAJAAAAAgAJAAAAAAAFAAAAAgAJAAAAAAAAAAAAAgAJAAIAAAABAAAAAgAJAAMAAAD2//7/AgAJAAAAABD6//7/AgAJAAAAABD2////AgAKAAEAADD6////AgAKAAEAADD5//n/AgAJAAAAAAD9//n/AgAJAAAAAAD///r/AgAJAAMAAAD5//j/AgANAAMAAAD9//j/AgANAAMAAAAFAP//AgANAAMAAAAJAP//AgANAAMAAAD///7/AgAKAAAAACANAAUAAgAKAAAAACA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADy//v/AgAJAAMAABDz//v/AgAJAAIAABD0//r/AgAJAAIAABDz//r/AgAKAAIAABABAPn/AgAJAAIAABAAAPr/AgAJAAAAABAAAPv/AgAJAAAAABAAAPz/AgAJAAAAABAAAP3/AgAJAAAAABAKAAAAAgAJAAIAABAJAAAAAgAJAAMAABAKAP//AgAJAAAAABAKAP7/AgALAAAAABAGAAAAAgAJAAAAABACAAAAAgAJAAAAABAAAPn/AgAJAAMAABD2//n/AgAJAAAAABD6//n/AgAJAAAAABACAAUAAgAJAAAAABAGAAUAAgAJAAAAABACAAYAAgALAAAAADAGAAYAAgALAAAAADD2//j/AgANAAMAABD6//j/AgANAAMAABD2////AgALAAAAADD6////AgALAAAAADACAP//AgANAAMAABAGAP//AgANAAMAABACAP7/AgALAAAAADAAAP7/AgAKAAAAADA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD5//n/AgAJAAAAAGD6//n/AgAJAAAAAGD2//n/AgAJAAAAAGD1//n/AgAJAAAAAGD9//n/AgAJAAAAAGD1////AgAJAAAAAGD2////AgAJAAAAAGD3////AgAJAAAAAGD4////AgAJAAAAAGD5////AgAJAAAAAGD6////AgAJAAAAAGD7////AgAJAAAAAGD8////AgAJAAAAAGD9////AgAJAAAAAGD+////AgAJAAAAAGD/////AgAJAAAAAGABAAAAAgAJAAAAAGACAAAAAgAJAAAAAGADAP//AgAJAAAAAGAEAP//AgAJAAAAAGAFAAAAAgAJAAAAAGAGAAAAAgAJAAAAAGAHAP//AgAJAAAAAGAIAP//AgAJAAAAAGAJAAAAAgAJAAAAAGD0//n/AgAJAAMAAGD+//n/AgAJAAMAAHABAPj/AgAJAAMAAGAMAPj/AgAJAAMAAHAKAP//AgAJAAMAAGAAAP//AgAJAAMAAHA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-24, -30)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(24, -30)
+side = 2
+
+[node name="Spikeballs" type="Node2D" parent="LevelLayout"]
+
+[node name="MovingSpikeball" parent="LevelLayout/Spikeballs" instance=ExtResource("4")]
+position = Vector2(-136, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+dont_play = true
+
+[node name="MovingSpikeball2" parent="LevelLayout/Spikeballs" instance=ExtResource("4")]
+position = Vector2(-120, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+dont_play = true
+
+[node name="Spikeballs2" type="Node2D" parent="LevelLayout"]
+
+[node name="MovingSpikeball3" parent="LevelLayout/Spikeballs2" instance=ExtResource("4")]
+position = Vector2(-72, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+start_left = false
+
+[node name="MovingSpikeball4" parent="LevelLayout/Spikeballs2" instance=ExtResource("4")]
+position = Vector2(-56, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+start_left = false
+dont_play = true
+
+[node name="Crumbling" type="Node2D" parent="LevelLayout"]
+
+[node name="CrumblingPlatform" parent="LevelLayout/Crumbling" instance=ExtResource("5")]
+position = Vector2(-200, -4)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling" instance=ExtResource("5")]
+position = Vector2(-184, -4)
+
+[node name="Crumbling2" type="Node2D" parent="LevelLayout"]
+position = Vector2(0, 96)
+
+[node name="CrumblingPlatform" parent="LevelLayout/Crumbling2" instance=ExtResource("5")]
+position = Vector2(-200, -4)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling2" instance=ExtResource("5")]
+position = Vector2(-184, -4)
+
+[node name="Crumbling3" type="Node2D" parent="LevelLayout"]
+position = Vector2(80, 77)
+
+[node name="CrumblingPlatform" parent="LevelLayout/Crumbling3" instance=ExtResource("5")]
+position = Vector2(-200, -4)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling3" instance=ExtResource("5")]
+position = Vector2(-184, -4)
+
+[node name="Crumbling4" type="Node2D" parent="LevelLayout"]
+position = Vector2(144, 96)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling4" instance=ExtResource("5")]
+position = Vector2(-184, -4)
+
+[node name="CrumblingPlatform3" parent="LevelLayout/Crumbling4" instance=ExtResource("5")]
+position = Vector2(-168, -4)
+
+[node name="Spikeballs3" type="Node2D" parent="LevelLayout"]
+position = Vector2(192, 112)
+
+[node name="MovingSpikeball" parent="LevelLayout/Spikeballs3" instance=ExtResource("4")]
+position = Vector2(-136, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+dont_play = true
+
+[node name="MovingSpikeball2" parent="LevelLayout/Spikeballs3" instance=ExtResource("4")]
+position = Vector2(-120, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+
+[node name="Spikeballs4" type="Node2D" parent="LevelLayout"]
+position = Vector2(256, 112)
+
+[node name="MovingSpikeball" parent="LevelLayout/Spikeballs4" instance=ExtResource("4")]
+position = Vector2(-136, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+start_left = false
+dont_play = true
+
+[node name="MovingSpikeball2" parent="LevelLayout/Spikeballs4" instance=ExtResource("4")]
+position = Vector2(-120, -22)
+rotation = -1.57079
+length = 6
+speed = 6.0
+start_left = false
+dont_play = true
+
+[node name="Crumbling5" type="Node2D" parent="LevelLayout"]
+position = Vector2(288, -48)
+
+[node name="CrumblingPlatform" parent="LevelLayout/Crumbling5" instance=ExtResource("5")]
+position = Vector2(-200, -4)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling5" instance=ExtResource("5")]
+position = Vector2(-184, -4)
+
+[node name="Crumbling6" type="Node2D" parent="LevelLayout"]
+position = Vector2(352, -80)
+
+[node name="CrumblingPlatform" parent="LevelLayout/Crumbling6" instance=ExtResource("5")]
+position = Vector2(-200, -4)
+
+[node name="CrumblingPlatform2" parent="LevelLayout/Crumbling6" instance=ExtResource("5")]
+position = Vector2(-184, -4)

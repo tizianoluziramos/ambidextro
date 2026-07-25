@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bgivtktx0mylw"]
+
+[ext_resource type="FontFile" uid="uid://bi25slua7huqa" path="res://assets/fonts/lanapixel_everything/LanaPixel.ttf" id="1"]
+
+[resource]
+default_font_size = 11
+Label/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+Label/constants/line_spacing = 0
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("1")
+RichTextLabel/font_sizes/normal_font_size = 11
+RichTextLabel/fonts/normal_font = ExtResource("1")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bciw8w3csw5le"]
+
+[ext_resource type="Script" path="res://scenes/lariat_fireball/lariat_fireball.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://mrjd5gx8q60e" path="res://assets/sprites/props_forest_16_margin.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://b14edduia51e1" path="res://assets/sfx/Fireballs - Torch  Shake Fast.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://dvf37t60bmd1y" path="res://assets/sfx/ArrowImpact1.mp3" id="4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y33gn"]
+atlas = ExtResource("2")
+region = Rect2(90, 108, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6mrk2"]
+radius = 2.0
+
+[node name="LariatFireball" type="AnimatableBody2D" node_paths=PackedStringArray("sprite", "collision", "audio_shoot", "audio_hit")]
+z_index = 11
+z_as_relative = false
+collision_layer = 2
+collision_mask = 2
+sync_to_physics = false
+script = ExtResource("1")
+sprite = NodePath("Sprite2D")
+collision = NodePath("CollisionShape2D")
+audio_shoot = NodePath("AudioStreamPlayer2DShoot")
+audio_hit = NodePath("AudioStreamPlayer2DHit")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_y33gn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6mrk2")
+
+[node name="AudioStreamPlayer2DShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3")
+panning_strength = 2.5
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2DHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4")
+volume_db = -5.0
+panning_strength = 2.5
+bus = &"SFX"

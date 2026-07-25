@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwbv15846xfq6"]
+
+[ext_resource type="Script" path="res://scenes/end_credits/end_credits.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bmxsir2sgepb7" path="res://assets/sprites/ambidextro_logo_pixel.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bsh1ltxxu0rn4" path="res://assets/sprites/majorariatto_logo_pixel_small.png" id="4"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="5"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="6"]
+[ext_resource type="Script" path="res://scenes/end_credits/full_fade.gd" id="7"]
+
+[node name="EndCredits" type="Node2D" node_paths=PackedStringArray("logo_ambidextro", "logo_majorariatto", "credits_label", "version_label", "full_fade", "_timer")]
+process_mode = 1
+script = ExtResource("1")
+logo_ambidextro = NodePath("LogoAmbidextro")
+logo_majorariatto = NodePath("LogoMajorariatto")
+credits_label = NodePath("Label")
+version_label = NodePath("LabelVersion")
+full_fade = NodePath("full_fade")
+_timer = NodePath("Timer")
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("2")
+
+[node name="LogoAmbidextro" type="Sprite2D" parent="."]
+position = Vector2(0, -91)
+texture = ExtResource("3")
+
+[node name="LogoMajorariatto" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+texture = ExtResource("4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -200.0
+offset_top = -55.0
+offset_right = 200.0
+offset_bottom = 101.0
+theme = ExtResource("5")
+text = "Using sounds by
+
+A Sound Effect
+AudioHero
+Epic Stock Media
+FilmCow
+GameDevMarket
+Imphenzia
+Krotos Audio
+Ovani Sound
+SmartsoundFX
+Sonniss
+SoundBits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelVersion" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 91.0
+offset_top = -80.0
+offset_right = 143.0
+offset_bottom = -67.0
+theme = ExtResource("5")
+text = "v1.1.2"
+
+[node name="full_fade" parent="." instance=ExtResource("6")]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 30
+script = ExtResource("7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+one_shot = true

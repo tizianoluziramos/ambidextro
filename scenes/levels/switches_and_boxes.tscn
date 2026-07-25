@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=4 uid="uid://cqu06g2x7bwij"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://plorlk2r38r" path="res://scenes/bars/bars_container.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://lnej0x7u6a48" path="res://scenes/bars/bars.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://8kb7pa0ygfr3" path="res://scenes/button/button.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://b044uookd5lrc" path="res://scenes/box/box.tscn" id="7"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 10.5
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz/wQAAgAFAAUAAADz/wUAAgAFAAYAAAAMAAQAAgAFAAUAAAAMAAUAAgAFAAYAAADz//n/AgAAAAQAAAAMAPr/AgAAAAQAAAAMAP//AgAAAAQAAAABAAMAAgAAAAQAAAD0//n/AgACAAQAAADz//r/AgACAAQAAAACAAMAAgACAAQAAAABAAQAAgACAAQAAAALAP//AgAAAAQAAAAMAAAAAgAAAAQAAAALAPr/AgAAAAQAAAAMAPv/AgAAAAQAAAD0/wEAAgAEAAQAAADz//3/AgAEAAQAAAD6//v/AgAGAAQAAAADAPv/AgAGAAQAAAD4//7/AgAEAAQAAAD2//n/AgAEAAQAAAAJAP3/AgAEAAQAAAABAAAAAgAEAAQAAAAIAAEAAgAEAAQAAAAGAAQAAgAEAAQAAAAGAAUAAgAHAAQAAAAKAAIAAgAHAAQAAAAHAAAAAgAHAAQAAAABAAEAAgAHAAQAAAAIAPz/AgAHAAQAAAD5//7/AgAHAAQAAAD2//r/AgAHAAQAAAD0//7/AgAHAAQAAADz/wIAAgAHAAQAAAD+//r/AgAHAAQAAAD+//n/AgAAAAQAAAD9//n/AgAAAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAPn/AgAAAAEAAAD///n/AgAAAAEAAAAMAPn/AgAAAAEAAAALAPn/AgAAAAEAAAAKAPn/AgAAAAEAAAAJAPn/AgAAAAEAAAAIAPn/AgAAAAEAAAAHAPn/AgAAAAEAAAAGAPn/AgAAAAEAAAAFAPn/AgAAAAEAAAAEAPn/AgAAAAEAAAADAPn/AgAAAAEAAAACAPn/AgAAAAEAAAABAPn/AgAAAAEAAAD1/wYAAgAAAAEAAAD1/wUAAgAAAAEAAAD1/wQAAgAAAAEAAAD1/wMAAgAAAAEAAAD1/wIAAgAAAAEAAAD1/wEAAgAAAAEAAAD1/wAAAgAAAAEAAAD1////AgAAAAEAAAD1//7/AgAAAAEAAAD1//3/AgAAAAEAAADz//n/AgAHAAAAAAD0//n/AgAHAAAAAADz/wQAAgAEAAAAAADz/wIAAgAEAAAAAADz/wAAAgAEAAAAAADz//7/AgAEAAAAAADz//z/AgAEAAAAAADz//r/AgAEAAAAAAD1//z/AgACAAAAAAD///7/AgAAAAEAAAD/////AgAAAAEAAAD//wAAAgAAAAEAAAD//wEAAgAAAAEAAAD//wIAAgAAAAEAAAD//wMAAgAAAAEAAAD//wQAAgAAAAEAAAD//wUAAgAAAAEAAAAAAP7/AgAAAAEAAAAAAP//AgAAAAEAAAAAAAAAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAUAAgAAAAEAAAD///3/AgAAAAEAAAAAAP3/AgAAAAEAAAABAAIAAgACAAAAAAACAAIAAgACAAAAAAADAAIAAgACAAAAAAAEAP7/AgAAAAEAAAAEAAIAAgACAAAAAAAFAP7/AgACAAAAAAAFAAIAAgACAAAAAAAGAP7/AgACAAAAAAAGAAIAAgACAAAAAAAHAP7/AgACAAAAAAAHAAIAAgACAAAAAAAIAP7/AgACAAAAAAAIAAIAAgACAAAAAAAJAP7/AgACAAAAAAAJAAIAAgACAAAAAAAKAP7/AgACAAAAAAALAP7/AgACAAAAAAAMAP7/AgACAAAAAAAMAAMAAgAEAAAAAAD//wYAAgAAAAEAAAAAAAYAAgAAAAEAAAABAAYAAgAAAAEAAAACAAYAAgAAAAEAAAADAAYAAgAAAAEAAAAEAAYAAgAAAAEAAAAFAAYAAgAAAAEAAAAGAAYAAgAAAAEAAAAHAAYAAgAAAAEAAAAIAAYAAgAAAAEAAAAJAAYAAgAAAAEAAAAKAAYAAgAAAAEAAAALAAYAAgAAAAEAAAAMAAYAAgAAAAEAAAABAAUAAgAAAAAAAAACAAUAAgAAAAAAAAADAAUAAgAAAAAAAAAEAAUAAgAAAAAAAAAFAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAIAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAMAAUAAgAAAAAAAADz/wYAAgAAAAEAAAD0/wYAAgAAAAEAAAD2/wYAAgAAAAEAAAD3/wYAAgAAAAEAAAD4/wYAAgAAAAEAAAD5/wYAAgAAAAEAAAD6/wYAAgAAAAEAAAD7/wYAAgAAAAEAAAD8/wYAAgAAAAEAAAD9/wYAAgAAAAEAAAD+/wYAAgAAAAEAAADz/wUAAgAAAAAAAAD0/wUAAgAAAAAAAAD2/wUAAgAAAAEAAAD3/wUAAgAAAAEAAAD4/wUAAgAAAAEAAAD5/wUAAgAAAAEAAAD6/wUAAgAAAAEAAAD7/wUAAgAAAAEAAAD8/wUAAgAAAAEAAAD9/wUAAgAAAAEAAAD+/wUAAgAAAAEAAAAMAPr/AgAGAAEAAAAMAPv/AgAGAAEAAAAMAPz/AgAGAAEAAAAMAP3/AgAGAAEAAAD+////AgACAAAAAAD9////AgACAAAAAAD8////AgACAAAAAAD7////AgACAAAAAAD6////AgACAAAAAAD5////AgACAAAAAAD4////AgACAAAAAAD3////AgACAAAAAAD2////AgACAAAAAAD2//7/AgAHAAEAAAD2//3/AgAHAAEAAAD2//z/AgAHAAEAAAD+//7/AgAGAAEAAAD+//3/AgAGAAEAAAD///z/AgAAAAAAAAAAAPz/AgAAAAAAAAD2/wAAAgAAAAEAAAD2/wEAAgAAAAEAAAD2/wIAAgAAAAEAAAD2/wMAAgAAAAEAAAD2/wQAAgAAAAEAAAD3/wAAAgAAAAEAAAD3/wEAAgAAAAEAAAD3/wIAAgAAAAEAAAD3/wMAAgAAAAEAAAD3/wQAAgAAAAEAAAD4/wAAAgAAAAEAAAD4/wEAAgAAAAEAAAD4/wIAAgAAAAEAAAD4/wMAAgAAAAEAAAD4/wQAAgAAAAEAAAD5/wAAAgAAAAEAAAD5/wEAAgAAAAEAAAD5/wIAAgAAAAEAAAD5/wMAAgAAAAEAAAD5/wQAAgAAAAEAAAD6/wAAAgAAAAEAAAD6/wEAAgAAAAEAAAD6/wIAAgAAAAEAAAD6/wMAAgAAAAEAAAD6/wQAAgAAAAEAAAD7/wAAAgAAAAEAAAD7/wEAAgAAAAEAAAD7/wIAAgAAAAEAAAD7/wMAAgAAAAEAAAD7/wQAAgAAAAEAAAD8/wAAAgAAAAEAAAD8/wEAAgAAAAEAAAD8/wIAAgAAAAEAAAD8/wMAAgAAAAEAAAD8/wQAAgAAAAEAAAD9/wAAAgAAAAEAAAD9/wEAAgAAAAEAAAD9/wIAAgAAAAEAAAD9/wMAAgAAAAEAAAD9/wQAAgAAAAEAAAD+/wAAAgAAAAEAAAD+/wEAAgAAAAEAAAD+/wIAAgAAAAEAAAD+/wMAAgAAAAEAAAD+/wQAAgAAAAEAAAD///j/AgAAAAEAAAAAAPj/AgAAAAEAAAABAPj/AgAAAAEAAAACAPj/AgAAAAEAAAADAPj/AgAAAAEAAAAEAPj/AgAAAAEAAAAFAPj/AgAAAAEAAAAGAPj/AgAAAAEAAAAHAPj/AgAAAAEAAAAIAPj/AgAAAAEAAAAJAPj/AgAAAAEAAAAKAPj/AgAAAAEAAAALAPj/AgAAAAEAAAAMAPj/AgAAAAEAAAANAPj/AgAAAAEAAAANAPn/AgAAAAEAAAANAP7/AgAAAAEAAADy/wYAAgAAAAEAAAANAAYAAgAAAAEAAAAEAP//AgAAAAEAAAAEAP3/AgAFAAEAAAABAP//AgAEAAAAAAACAP//AgAEAAAAAAADAP//AgAEAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD///n/AgAJAAAAAAD///j/AgANAAMAAAANAPn/AgANAAMAAAD1/wUAAgAJAAAAAAD1/wQAAgAJAAAAAAD1/wMAAgAJAAAAAAD1/wIAAgAJAAAAAAD1/wEAAgAJAAAAAAD1/wAAAgAJAAAAAAD1////AgAJAAAAAAD1//7/AgAJAAAAAAD1//3/AgAJAAAAAAD1//z/AgAJAAAAAAD///3/AgAJAAAAAAD///7/AgAJAAAAAAD/////AgAKAAAAACD///z/AgAKAAAAAAAEAP7/AgAJAAAAAAANAP7/AgAKAAAAACAMAAMAAgAJAAQAAAAEAP//AgAJAAAAAAAEAP3/AgAKAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD1//z/AgAJAAAAABD1//3/AgAJAAAAABD1//7/AgAJAAAAABD1////AgAKAAAAADAAAPz/AgAKAAAAABAAAP3/AgAJAAAAABAAAP7/AgAJAAAAABAAAP//AgAJAAAAABAAAAAAAgAJAAAAABAAAAEAAgAJAAAAABAAAAIAAgAKAAAAADAJAAIAAgAJAAAAABAAAAMAAgAJAAAAABAAAAQAAgAJAAAAABAAAAUAAgAJAAAAABDz/wQAAgAJAAQAABDz/wIAAgAJAAQAABDz/wAAAgAJAAQAABDz//7/AgAJAAQAABDz//z/AgAJAAQAABDz//r/AgAJAAQAABABAP//AgAJAAQAABAEAP//AgAJAAAAABAEAP3/AgAKAAAAABA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD///n/AgAJAAAAAGAAAPn/AgAJAAAAAGABAPn/AgAJAAAAAGACAPn/AgAJAAAAAGADAPn/AgAJAAAAAGAEAPn/AgAJAAAAAGAFAPn/AgAJAAAAAGAGAPn/AgAJAAAAAGAHAPn/AgAJAAAAAGAIAPn/AgAJAAAAAGAJAPn/AgAJAAAAAGAKAPn/AgAJAAAAAGALAPn/AgAJAAAAAGAMAPn/AgAJAAAAAGAFAP7/AgAJAAAAAGAGAP7/AgAJAAAAAGAHAP7/AgAJAAAAAGAIAP7/AgAJAAAAAGAJAP7/AgAJAAAAAGAKAP7/AgAJAAAAAGALAP7/AgAJAAAAAGAMAP7/AgAJAAAAAGANAP7/AgANAAMAAAABAAIAAgAJAAAAAGACAAIAAgAJAAAAAGADAAIAAgAJAAAAAGAEAAIAAgAJAAAAAGAFAAIAAgAJAAAAAGAGAAIAAgAJAAAAAGAHAAIAAgAJAAAAAGAIAAIAAgAJAAAAAGAJAAIAAgAJAAAAAGAAAAIAAgANAAMAABAEAP//AgAJAAAAAGAEAP7/AgANAAMAABA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 94)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 94)
+side = 2
+
+[node name="BarsContainer" parent="." instance=ExtResource("4")]
+position = Vector2(-168, -112)
+emblem = 2
+
+[node name="BarsFull" parent="BarsContainer" instance=ExtResource("5")]
+
+[node name="BarsFull2" parent="BarsContainer" instance=ExtResource("5")]
+position = Vector2(0, 16)
+
+[node name="BarsFull3" parent="BarsContainer" instance=ExtResource("5")]
+position = Vector2(0, 32)
+
+[node name="BarsFull4" parent="BarsContainer" instance=ExtResource("5")]
+position = Vector2(0, 34)
+
+[node name="BarsContainer2" parent="." instance=ExtResource("4")]
+position = Vector2(152, -16)
+
+[node name="BarsFull" parent="BarsContainer2" instance=ExtResource("5")]
+
+[node name="BarsFull2" parent="BarsContainer2" instance=ExtResource("5")]
+position = Vector2(0, 16)
+
+[node name="BarsFull3" parent="BarsContainer2" instance=ExtResource("5")]
+position = Vector2(0, 32)
+
+[node name="BarsFull4" parent="BarsContainer2" instance=ExtResource("5")]
+position = Vector2(0, 34)
+
+[node name="BarsContainer3" parent="." instance=ExtResource("4")]
+position = Vector2(8, -96)
+emblem = 3
+
+[node name="BarsFull" parent="BarsContainer3" instance=ExtResource("5")]
+
+[node name="BarsFull2" parent="BarsContainer3" instance=ExtResource("5")]
+position = Vector2(0, 16)
+
+[node name="BarsFull3" parent="BarsContainer3" instance=ExtResource("5")]
+position = Vector2(0, 30)
+
+[node name="BarsContainer4" parent="." instance=ExtResource("4")]
+position = Vector2(-8, -96)
+emblem = 4
+
+[node name="BarsFull" parent="BarsContainer4" instance=ExtResource("5")]
+
+[node name="BarsFull2" parent="BarsContainer4" instance=ExtResource("5")]
+position = Vector2(0, 16)
+
+[node name="BarsFull3" parent="BarsContainer4" instance=ExtResource("5")]
+position = Vector2(0, 30)
+
+[node name="Button" parent="." instance=ExtResource("6")]
+position = Vector2(136, 87)
+
+[node name="Button2" parent="." instance=ExtResource("6")]
+position = Vector2(104, 27)
+emblem = 2
+
+[node name="Box" parent="." instance=ExtResource("7")]
+position = Vector2(56, 94)
+
+[node name="Box2" parent="." instance=ExtResource("7")]
+position = Vector2(168, -30)
+
+[node name="Button3" parent="." instance=ExtResource("6")]
+position = Vector2(104, -36)
+emblem = 3
+
+[node name="Button4" parent="." instance=ExtResource("6")]
+position = Vector2(-136, -20)
+emblem = 4
+
+[node name="Box3" parent="." instance=ExtResource("7")]
+position = Vector2(-56, -14)

@@ -1,0 +1,174 @@
+[gd_scene load_steps=16 format=3 uid="uid://w01s74v80mqh"]
+
+[ext_resource type="Script" path="res://scenes/moving_spikeball/moving_spikeball.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://mrjd5gx8q60e" path="res://assets/sprites/props_forest_16_margin.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://dhnp4c2mf3gia" path="res://assets/sfx/Bluezone_BC0254_wood_crushing_branches_001_001_2.wav" id="4"]
+[ext_resource type="AudioStream" uid="uid://onkr7a6wgybf" path="res://assets/sfx/Bluezone_BC0254_wood_crushing_branches_001_001.wav" id="5"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="6"]
+[ext_resource type="AudioStream" uid="uid://c75egovu0ajnd" path="res://assets/sfx/Grinding-Lathe_01_ST_8.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://dwgmyg2775aix" path="res://assets/sfx/IMPACT_Metal_Cling_Clean_mono.wav" id="8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi62e"]
+atlas = ExtResource("2")
+region = Rect2(126, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0w2"]
+atlas = ExtResource("3")
+region = Rect2(90, 72, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etu84"]
+atlas = ExtResource("3")
+region = Rect2(72, 72, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25sug"]
+atlas = ExtResource("3")
+region = Rect2(54, 0, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxybh"]
+atlas = ExtResource("2")
+region = Rect2(72, 72, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0qxw"]
+atlas = ExtResource("2")
+region = Rect2(90, 72, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_amkik"]
+radius = 4.12311
+
+[node name="MovingSpikeball" type="Node2D" node_paths=PackedStringArray("spikeball", "spikeball_sprite", "origin_sprite", "visible_path", "audio", "audio_cling")]
+z_index = 1
+script = ExtResource("1")
+line_sprite = SubResource("AtlasTexture_oi62e")
+spikeball = NodePath("Spikeball")
+spikeball_sprite = NodePath("Spikeball/SpikeballSprite")
+origin_sprite = NodePath("VisiblePath/Origin")
+visible_path = NodePath("VisiblePath")
+sprites_forest = [SubResource("AtlasTexture_nf0w2"), SubResource("AtlasTexture_etu84"), SubResource("AtlasTexture_25sug")]
+audio = NodePath("Spikeball/AudioStreamPlayer2D")
+audio_cling = NodePath("Spikeball/AudioStreamPlayer2DCling")
+tick_sound_forest = ExtResource("4")
+cling_sound_forest = ExtResource("5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.32549)
+script = ExtResource("6")
+
+[node name="VisiblePath" type="Node2D" parent="."]
+
+[node name="Origin" type="Sprite2D" parent="VisiblePath"]
+texture = SubResource("AtlasTexture_rxybh")
+
+[node name="End1" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(16, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End2" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(32, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End3" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(48, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End4" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(64, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End5" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(80, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End6" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(96, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End7" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(112, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End8" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(128, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End9" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(144, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End10" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(160, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End11" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(176, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End12" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(192, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End13" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(208, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="End14" type="Sprite2D" parent="VisiblePath"]
+position = Vector2(224, 0)
+texture = SubResource("AtlasTexture_rxybh")
+flip_h = true
+
+[node name="Spikeball" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="SpikeballSprite" type="Sprite2D" parent="Spikeball"]
+texture = SubResource("AtlasTexture_y0qxw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikeball"]
+shape = SubResource("CircleShape2D_amkik")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Spikeball"]
+stream = ExtResource("7")
+max_distance = 250.0
+attenuation = 0.2
+panning_strength = 2.5
+bus = &"Spikeball"
+
+[node name="AudioStreamPlayer2DCling" type="AudioStreamPlayer2D" parent="Spikeball"]
+stream = ExtResource("8")
+volume_db = -5.0
+pitch_scale = 1.5
+max_distance = 250.0
+attenuation = 0.2
+panning_strength = 2.5
+bus = &"Spikeball"

@@ -1,0 +1,372 @@
+[gd_scene load_steps=11 format=3 uid="uid://rp6la6gvuvsd"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/save_menu/save_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="4"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="5"]
+[ext_resource type="PackedScene" uid="uid://bkvryhxdh1us4" path="res://scenes/mobile/clickable_area/clickable_area.tscn" id="6"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="7"]
+[ext_resource type="Script" path="res://scenes/main_menu/save_menu/delete_options_controller.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="9"]
+[ext_resource type="PackedScene" uid="uid://cvunwx74qa4x3" path="res://scenes/preview_frame/preview_frame.tscn" id="10"]
+
+[node name="SaveMenu" type="Node2D" node_paths=PackedStringArray("level_preview", "save_info_labels", "options", "delete_options_controller", "labels", "preview_image", "save_file_options", "save_info", "level_preview_mask", "preview_frame", "clickable_areas")]
+script = ExtResource("1")
+level_preview = NodePath("LevelPreviewMask/LevelPreview")
+save_info_labels = [NodePath("SaveInfo/HBoxContainer/SaveNumber"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer/LevelNumber"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer2/RetriesNumber"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer3/Number")]
+options = NodePath("Options")
+delete_options_controller = NodePath("Options/DeleteOptionsController")
+labels = [NodePath("Options/SaveFileOptions/Play"), NodePath("SaveInfo/HBoxContainer/Save"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer/Level"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer2/Retries"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer3/Time"), NodePath("Options/SaveFileOptions/Modifiers"), NodePath("Options/SaveFileOptions/Delete"), NodePath("Options/SaveFileOptions/Back"), NodePath("Options/DeleteOptionsLabel/Question"), NodePath("Options/DeleteOptions/Yes"), NodePath("Options/DeleteOptions/No")]
+preview_image = NodePath("LevelPreviewMask/LevelPreview/PreviewImage")
+save_file_options = NodePath("Options/SaveFileOptions")
+save_info = NodePath("SaveInfo")
+level_preview_mask = NodePath("LevelPreviewMask")
+preview_frame = NodePath("PreviewFrame")
+clickable_areas = [NodePath("Options/SaveFileChange/</ClickableArea"), NodePath("Options/SaveFileChange/>/ClickableArea"), NodePath("Options/SaveFileOptions/Play/ClickableArea"), NodePath("Options/SaveFileOptions/Modifiers/ClickableArea"), NodePath("Options/SaveFileOptions/Delete/ClickableArea"), NodePath("Options/SaveFileOptions/Back/ClickableArea")]
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+texture = ExtResource("3")
+
+[node name="LevelPreviewMask" type="ColorRect" parent="."]
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -94.0
+offset_right = 112.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="LevelPreview" type="Node2D" parent="LevelPreviewMask"]
+position = Vector2(112, 64)
+scale = Vector2(0.5, 0.5)
+
+[node name="PreviewImage" type="Sprite2D" parent="LevelPreviewMask/LevelPreview"]
+
+[node name="BG" type="ColorRect" parent="LevelPreviewMask/LevelPreview"]
+z_index = -29
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -457.0
+offset_top = -271.0
+offset_right = 477.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Options" type="Control" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 67.0
+offset_bottom = 67.0
+script = ExtResource("4")
+loop = true
+default_option = 1
+controller = NodePath("..")
+selection_arrow = NodePath("SelectionArrow")
+options = [NodePath("SaveFileChange/<"), NodePath("SaveFileOptions/Play"), NodePath("SaveFileOptions/Modifiers"), NodePath("SaveFileOptions/Delete"), NodePath("SaveFileOptions/Back")]
+
+[node name="SaveFileChange" type="HBoxContainer" parent="Options"]
+layout_mode = 0
+offset_left = -316.0
+offset_top = -114.0
+offset_right = 316.0
+offset_bottom = -74.0
+theme_override_constants/separation = 250
+alignment = 1
+
+[node name="<" type="Label" parent="Options/SaveFileChange"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "<"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/SaveFileChange/<" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -137.0
+offset_top = -37.0
+offset_right = -117.0
+offset_bottom = -17.0
+action = 1
+options = NodePath("../../..")
+
+[node name=">" type="Label" parent="Options/SaveFileChange"]
+layout_mode = 2
+theme = ExtResource("5")
+text = ">"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/SaveFileChange/>" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = -37.0
+offset_right = 137.0
+offset_bottom = -17.0
+action = 2
+options = NodePath("../../..")
+
+[node name="SaveFileOptions" type="VBoxContainer" parent="Options"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = -2.0
+offset_right = 200.0
+offset_bottom = 98.0
+localize_numeral_system = false
+theme_override_constants/separation = 0
+
+[node name="Play" type="Label" parent="Options/SaveFileOptions"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "Play"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/SaveFileOptions/Play" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 66.0
+offset_right = 50.0
+offset_bottom = 76.0
+options = NodePath("../../..")
+
+[node name="Modifiers" type="Label" parent="Options/SaveFileOptions"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "Modifiers (4)"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/SaveFileOptions/Modifiers" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 77.0
+offset_right = 50.0
+offset_bottom = 87.0
+options = NodePath("../../..")
+
+[node name="Delete" type="Label" parent="Options/SaveFileOptions"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "Delete"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/SaveFileOptions/Delete" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 88.0
+offset_right = 50.0
+offset_bottom = 98.0
+options = NodePath("../../..")
+
+[node name="Back" type="Label" parent="Options/SaveFileOptions"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/SaveFileOptions/Back" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 99.0
+offset_right = 50.0
+offset_bottom = 109.0
+options = NodePath("../../..")
+
+[node name="DeleteOptionsController" type="Node" parent="Options" node_paths=PackedStringArray("delete_options_label", "delete_options", "save_file_options", "options", "save_menu", "question_label", "option_labels", "clickable_areas")]
+script = ExtResource("8")
+delete_options_label = NodePath("../DeleteOptionsLabel")
+delete_options = NodePath("../DeleteOptions")
+save_file_options = NodePath("../SaveFileOptions")
+options = NodePath("..")
+save_menu = NodePath("../..")
+question_label = NodePath("../DeleteOptionsLabel/Question")
+option_labels = [NodePath("../DeleteOptions/Yes"), NodePath("../DeleteOptions/No")]
+clickable_areas = [NodePath("../DeleteOptions/Yes/ClickableArea"), NodePath("../DeleteOptions/No/ClickableArea")]
+
+[node name="DeleteOptionsLabel" type="VBoxContainer" parent="Options" node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+visible = false
+layout_mode = 0
+offset_left = -256.0
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 216.0
+localize_numeral_system = false
+theme_override_constants/separation = 10
+script = ExtResource("4")
+active = false
+horizontal = true
+loop = true
+default_option = 1
+controller = NodePath("../DeleteOptionsController")
+selection_arrow = NodePath("../SelectionArrow")
+options = [NodePath("../DeleteOptions/Yes/Yes"), NodePath("../DeleteOptions/No/No")]
+
+[node name="Question" type="Label" parent="Options/DeleteOptionsLabel"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "Delete save 0"
+horizontal_alignment = 1
+
+[node name="DeleteOptions" type="HBoxContainer" parent="Options"]
+visible = false
+layout_mode = 0
+offset_left = -250.0
+offset_top = 12.0
+offset_right = 250.0
+offset_bottom = 52.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Yes" type="Label" parent="Options/DeleteOptions"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Yes"
+horizontal_alignment = 1
+
+[node name="Yes" type="Marker2D" parent="Options/DeleteOptions/Yes"]
+
+[node name="ClickableArea" parent="Options/DeleteOptions/Yes" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 91.0
+offset_right = -10.0
+offset_bottom = 105.0
+options = NodePath("../../../DeleteOptionsLabel")
+autoinitilize = false
+
+[node name="No" type="Label" parent="Options/DeleteOptions"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "No"
+horizontal_alignment = 1
+
+[node name="No" type="Marker2D" parent="Options/DeleteOptions/No"]
+
+[node name="ClickableArea" parent="Options/DeleteOptions/No" node_paths=PackedStringArray("options") instance=ExtResource("6")]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 91.0
+offset_right = 51.0
+offset_bottom = 105.0
+options = NodePath("../../../DeleteOptionsLabel")
+autoinitilize = false
+
+[node name="SelectionArrow" type="Node2D" parent="Options"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Options/SelectionArrow"]
+texture = ExtResource("9")
+centered = false
+
+[node name="SaveInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveInfo"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = -126.0
+offset_right = 200.0
+offset_bottom = -86.0
+alignment = 1
+
+[node name="Save" type="Label" parent="SaveInfo/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "Save"
+horizontal_alignment = 1
+
+[node name="SaveNumber" type="Label" parent="SaveInfo/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7")
+text = "1"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SaveInfo"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = 27.0
+offset_right = 200.0
+offset_bottom = 67.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Level" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Level"
+horizontal_alignment = 1
+
+[node name="LevelNumber" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme = ExtResource("5")
+text = "000"
+
+[node name="Separator" type="Label" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "-"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Retries" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Retries"
+horizontal_alignment = 1
+
+[node name="RetriesNumber" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("5")
+text = "00000"
+
+[node name="Separator2" type="Label" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "-"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Time" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Time"
+horizontal_alignment = 1
+
+[node name="Number" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(26, 0)
+layout_mode = 2
+theme = ExtResource("5")
+text = "00:00"
+
+[node name="PreviewFrame" parent="." instance=ExtResource("10")]
+offset_top = -96.0
+offset_bottom = 36.0

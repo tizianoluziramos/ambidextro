@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=4 uid="uid://b30oou1dfn52v"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bb51ja1alpmys" path="res://scenes/piston/piston.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dcjonyvavvxv1" path="res://scenes/mace/mace.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://plorlk2r38r" path="res://scenes/bars/bars_container.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://lnej0x7u6a48" path="res://scenes/bars/bars.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://cn7c8ysb5jea7" path="res://scenes/bars/bars_half.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://naknfr18rbr6" path="res://scenes/switch/switch.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="10"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 12.5
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAZAAQAAgAAAAEAAAD//wYAAgAAAAEAAAD//wUAAgAAAAEAAAD//wQAAgAAAAEAAAD//wMAAgAAAAEAAAD//wIAAgAAAAEAAAD//wEAAgAAAAEAAAD//wAAAgAAAAEAAAD/////AgAAAAEAAAD///7/AgAAAAEAAAD///3/AgAAAAEAAAAAAP3/AgAAAAEAAAAAAP7/AgAAAAEAAAAAAP//AgAAAAEAAAAAAAAAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAYAAgAAAAEAAAD7/wEAAgABAAAAAAD6/wEAAgABAAAAAAD5/wEAAgABAAAAAAD4/wEAAgABAAAAAAD3/wEAAgABAAAAAAD2/wEAAgAAAAEAAADz/wQAAgABAAAAAAD0/wQAAgABAAAAAAD1/wQAAgABAAAAAAD2/wQAAgABAAAAAAD2/wAAAgAAAAEAAAD2////AgAAAAEAAAD2//7/AgAAAAEAAAD2//3/AgAAAAEAAAD///z/AgACAAAAAAAAAPz/AgACAAAAAAD+//z/AgACAAAAAAD9//z/AgACAAAAAAD8//z/AgACAAAAAAD7//z/AgACAAAAAAD6//z/AgACAAAAAAD5//z/AgACAAAAAAD4//z/AgACAAAAAAD3//z/AgACAAAAAAD2//z/AgACAAAAAAAEAAEAAgABAAAAAAAFAAEAAgABAAAAAAAGAAEAAgABAAAAAAAHAAEAAgAAAAEAAAAIAAEAAgAAAAEAAAAJAAEAAgABAAAAAAAKAAEAAgABAAAAAAALAAEAAgABAAAAAAAMAAEAAgABAAAAAAD6////AgABAAAAAAD7////AgABAAAAAAD8////AgABAAAAAAD9////AgABAAAAAAD+////AgABAAAAAADz/wUAAgAHAAAAAAD0/wUAAgAHAAAAAAD1/wUAAgAHAAAAAAD2/wUAAgAHAAAAAAD7/wYAAgAEAAEAAAD8/wYAAgAEAAEAAAAEAAMAAgABAAAAAAAFAAMAAgABAAAAAAAGAAMAAgABAAAAAAAHAAMAAgABAAAAAAAIAAMAAgABAAAAAAAJAAMAAgABAAAAAAAKAAMAAgABAAAAAAALAAMAAgABAAAAAAALAAYAAgAEAAEAAAAKAAYAAgAEAAEAAAAEAAYAAgAEAAEAAAAFAAYAAgAEAAEAAAADAAEAAgABAAAAAAABAP3/AgAAAAEAAAACAP3/AgAAAAEAAAADAP3/AgAAAAEAAAAEAP3/AgAAAAEAAAAFAP3/AgAAAAEAAAAGAP3/AgAAAAEAAAAHAP3/AgACAAAAAAAIAP3/AgACAAAAAAAJAP3/AgACAAAAAAABAPz/AgACAAAAAAACAPz/AgACAAAAAAADAPz/AgACAAAAAAAEAPz/AgACAAAAAAAFAPz/AgACAAAAAAAGAPz/AgACAAAAAAAHAPz/AgAHAAEAAAD+//7/AgAGAAEAAAD+//3/AgAGAAEAAAD3/wAAAgAHAAEAAAD3////AgAHAAEAAAD3//7/AgAHAAEAAAD3//3/AgAHAAEAAAABAP7/AgAAAAEAAAACAP7/AgAAAAEAAAADAP7/AgAAAAEAAAAHAAAAAgAFAAEAAAAIAAAAAgAFAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-400, 220)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(400, 220)
+side = 2
+
+[node name="Piston" parent="." node_paths=PackedStringArray("pair") instance=ExtResource("4")]
+position = Vector2(-48, 220)
+down = false
+pair = NodePath("../Piston2")
+
+[node name="Piston2" parent="." node_paths=PackedStringArray("pair") instance=ExtResource("4")]
+position = Vector2(48, 220)
+pair = NodePath("../Piston")
+
+[node name="Mace" parent="." instance=ExtResource("5")]
+position = Vector2(-16, -224)
+
+[node name="BarsContainer" parent="." instance=ExtResource("6")]
+position = Vector2(-304, 64)
+
+[node name="BarsFull" parent="BarsContainer" instance=ExtResource("7")]
+position = Vector2(0, 16)
+
+[node name="BarsFull2" parent="BarsContainer" instance=ExtResource("7")]
+position = Vector2(0, 48)
+
+[node name="BarsHalf" parent="BarsContainer" instance=ExtResource("8")]
+position = Vector2(0, 80)
+
+[node name="Switch" parent="." instance=ExtResource("9")]
+position = Vector2(-80, -80)
+
+[node name="Switch2" parent="." instance=ExtResource("9")]
+position = Vector2(336, 80)
+emblem = 2
+
+[node name="BarsContainer2" parent="." instance=ExtResource("6")]
+position = Vector2(112, -32)
+emblem = 2
+
+[node name="BarsFull" parent="BarsContainer2" instance=ExtResource("7")]
+position = Vector2(0, 16)
+
+[node name="BarsFull2" parent="BarsContainer2" instance=ExtResource("7")]
+position = Vector2(0, 48)
+
+[node name="BarsHalf" parent="BarsContainer2" instance=ExtResource("8")]
+position = Vector2(0, 80)
+
+[node name="CrumblingPlatform" parent="." instance=ExtResource("10")]
+position = Vector2(-400, 80)
+
+[node name="CrumblingPlatform2" parent="." instance=ExtResource("10")]
+position = Vector2(-336, 16)
+
+[node name="CrumblingPlatform3" parent="." instance=ExtResource("10")]
+position = Vector2(-400, -48)
+
+[node name="CrumblingPlatform4" parent="." instance=ExtResource("10")]
+position = Vector2(-336, -112)
+
+[node name="CrumblingPlatform5" parent="." instance=ExtResource("10")]
+position = Vector2(400, -16)
+
+[node name="CrumblingPlatform6" parent="." instance=ExtResource("10")]
+position = Vector2(336, -80)
+
+[node name="CrumblingPlatform7" parent="." instance=ExtResource("10")]
+position = Vector2(112, 144)

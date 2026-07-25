@@ -1,0 +1,167 @@
+[gd_scene load_steps=13 format=4 uid="uid://c1snif03tm0c0"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://626abysmbyys" path="res://scenes/toggle_platform/toggle_platform_r.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cbwde5q0aprdd" path="res://scenes/toggle_platform/toggle_platform_l.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dlqlerqrcktyn" path="res://scenes/trampoline/trampoline.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bharunv3wfeb2" path="res://scenes/smasher/smasher.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://bb51ja1alpmys" path="res://scenes/piston/piston.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://naknfr18rbr6" path="res://scenes/switch/switch.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://plorlk2r38r" path="res://scenes/bars/bars_container.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://lnej0x7u6a48" path="res://scenes/bars/bars.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://d4m4e6m1emtek" path="res://scenes/crumbling_platform/crumbling_platform.tscn" id="12"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 9.5
+toggles_should_swap_on_chara_swap = true
+
+[node name="TileMapBG" type="TileMapLayer" parent="LevelLayout"]
+z_index = -10
+tile_map_data = PackedByteArray("AADz//n/AgABAAQAAADz/wUAAgAFAAUAAADz/wYAAgAFAAYAAAAMAAUAAgAFAAUAAAAMAAYAAgAFAAYAAAAMAPn/AgABAAQAAAD///7/AgABAAQAAADz/wMAAgABAAQAAAD0//n/AgACAAQAAADz//r/AgACAAQAAAD0/wMAAgACAAQAAADz/wQAAgACAAQAAAD+//7/AgAAAAQAAAD/////AgAAAAQAAAALAPn/AgAAAAQAAAAMAPr/AgAAAAQAAAAHAPv/AgAGAAQAAAD9/wUAAgADAAQAAAD9/wYAAgADAAQAAAD9/wcAAgADAAQAAAD5//n/AgADAAQAAAD5//r/AgADAAQAAAD5//v/AgADAAQAAAD7//n/AgADAAQAAAD7//r/AgADAAQAAAD3/wUAAgABAAQAAAD//wQAAgABAAQAAAD8/wAAAgABAAQAAAD2/wEAAgABAAQAAAD2//v/AgABAAQAAAD///z/AgABAAQAAAADAPn/AgABAAQAAAAGAP//AgABAAQAAAALAP3/AgABAAQAAAAKAAQAAgABAAQAAAALAAQAAgACAAQAAAALAPz/AgACAAQAAAAHAAAAAgACAAQAAAAEAPn/AgACAAQAAAD///v/AgACAAQAAAD2//r/AgACAAQAAAD1/wEAAgACAAQAAAD7/wEAAgACAAQAAAD//wUAAgACAAQAAAD4/wQAAgACAAQAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAKAAYAAgAEAAEAAAAJAAUAAgAEAAEAAAAIAAQAAgAEAAEAAAAHAAMAAgAEAAEAAAAGAAIAAgAEAAEAAAAFAAEAAgAEAAEAAAAEAAAAAgAEAAEAAAADAP//AgAEAAEAAAACAP7/AgAEAAEAAAABAP3/AgAEAAEAAAAAAP3/AgAEAAEAAAAAAP7/AgAAAAEAAAAAAP//AgAAAAEAAAAAAAAAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAYAAgAAAAEAAAADAAQAAgAAAAEAAAADAAMAAgAAAAEAAAADAAIAAgAAAAEAAAADAAEAAgAAAAEAAAADAAAAAgAAAAEAAAACAAAAAgAAAAEAAAACAP//AgAAAAEAAAABAP//AgAAAAEAAAABAP7/AgAAAAEAAAABAAAAAgAAAAEAAAABAAEAAgAAAAEAAAABAAIAAgAAAAEAAAABAAMAAgAAAAEAAAABAAQAAgAAAAEAAAABAAUAAgAAAAEAAAABAAYAAgAAAAEAAAACAAYAAgAAAAEAAAACAAUAAgAAAAEAAAACAAQAAgAAAAEAAAACAAMAAgAAAAEAAAACAAIAAgAAAAEAAAACAAEAAgAAAAEAAAADAAUAAgAAAAEAAAADAAYAAgAAAAEAAAAEAAYAAgAAAAEAAAAEAAUAAgAAAAEAAAAEAAQAAgAAAAEAAAAEAAMAAgAAAAEAAAAEAAIAAgAAAAEAAAAEAAEAAgAAAAEAAAAFAAIAAgAAAAEAAAAFAAMAAgAAAAEAAAAFAAQAAgAAAAEAAAAFAAUAAgAAAAEAAAAFAAYAAgAAAAEAAAAGAAYAAgAAAAEAAAAGAAUAAgAAAAEAAAAGAAQAAgAAAAEAAAAGAAMAAgAAAAEAAAAHAAQAAgAAAAEAAAAHAAUAAgAAAAEAAAAHAAYAAgAAAAEAAAAIAAYAAgAAAAEAAAAIAAUAAgAAAAEAAAAJAAYAAgAAAAEAAADz/wIAAgACAAAAAAD0/wIAAgACAAAAAAD1/wIAAgACAAAAAAD2/wIAAgACAAAAAAD3/wIAAgACAAAAAAD4/wIAAgACAAAAAAD5/wIAAgACAAAAAAD6/wIAAgACAAAAAAD7/wIAAgACAAAAAAD8/wIAAgACAAAAAAD9/wIAAgACAAAAAAD4/wYAAgAEAAEAAAD5/wYAAgAEAAEAAAD///3/AgAEAAEAAAD+//3/AgAEAAEAAAD9//3/AgAEAAEAAAD8//3/AgAEAAEAAAD7//3/AgAEAAEAAAD6//3/AgAEAAEAAAD5//3/AgAEAAEAAAD4//3/AgAEAAEAAAD3//3/AgAEAAEAAAD2//3/AgABAAAAAAD1//3/AgABAAAAAAD///7/AgADAAEAAAD+//7/AgADAAEAAAD9//7/AgADAAEAAAD8//7/AgADAAEAAAD7//7/AgADAAEAAAD6//7/AgADAAEAAAD5//7/AgADAAEAAAD4//7/AgADAAEAAAD3//7/AgADAAEAAAD2//7/AgADAAEAAAD1//7/AgADAAEAAAD0//7/AgAGAAAAAADz//7/AgAGAAAAAAD9/wMAAgAAAAEAAAD9/wQAAgAAAAEAAAD8/wMAAgAGAAEAAAD8/wQAAgAGAAEAAADy/wIAAgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsL" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AAD9/wMAAgAJAAAAAAD9/wQAAgAJAAAAAAD9/wIAAgANAAMAAAD4/wYAAgALAAAAAAAAAAYAAgAJAAAAAAAAAAUAAgAJAAAAAAAAAAQAAgAJAAAAAAAAAAMAAgAJAAAAAAAAAAIAAgAJAAAAAAAAAAEAAgAJAAAAAAAAAAAAAgAJAAAAAAAAAP//AgAJAAAAAAAAAP7/AgAJAAQAAAD1//7/AgANAAAAAAD1//3/AgALAAAAAAA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsR" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADy/wIAAgAKAAAAADD9/wQAAgAJAAAAABD9/wMAAgAJAAAAABD9/wIAAgAJAAAAABD5/wYAAgALAAAAABABAP3/AgALAAAAABABAP7/AgALAAAAADACAP7/AgALAAAAABADAP//AgALAAAAABACAP//AgALAAAAADADAAAAAgALAAAAADAEAAEAAgALAAAAADAFAAIAAgALAAAAADAGAAMAAgALAAAAADAHAAQAAgALAAAAADAIAAUAAgALAAAAADAJAAYAAgALAAAAADAEAAAAAgALAAAAABAFAAEAAgALAAAAABAGAAIAAgALAAAAABAHAAMAAgALAAAAABAIAAQAAgALAAAAABAJAAUAAgALAAAAABAKAAYAAgALAAAAABA=")
+tile_set = ExtResource("2")
+
+[node name="TileMapShadowsD" type="TileMapLayer" parent="LevelLayout/TileMap"]
+tile_map_data = PackedByteArray("AADz/wIAAgAJAAAAAGD0/wIAAgAJAAAAAGD1/wIAAgAJAAAAAGD2/wIAAgAJAAAAAGD3/wIAAgAJAAAAAGD4/wIAAgAJAAAAAGD5/wIAAgAJAAAAAGD6/wIAAgAJAAAAAGD7/wIAAgAJAAAAAGD8/wIAAgAJAAAAAGDy/wIAAgANAAMAABD9/wQAAgAJAAAAAGD///7/AgALAAIAAAD+//7/AgALAAIAAAD9//7/AgALAAIAAAD8//7/AgALAAIAAAD7//7/AgALAAIAAAD6//7/AgALAAIAAAD5//7/AgALAAIAAAD4//7/AgALAAIAAAD3//7/AgALAAIAAAD2//7/AgALAAIAAAD1//7/AgALAAIAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(200, 110)
+side = 2
+
+[node name="Toggle" type="Node2D" parent="LevelLayout"]
+position = Vector2(0, 1)
+
+[node name="TogglePlatformR" parent="LevelLayout/Toggle" instance=ExtResource("4")]
+position = Vector2(184, 75)
+toggle_count = 10
+
+[node name="TogglePlatformR2" parent="LevelLayout/Toggle" instance=ExtResource("4")]
+position = Vector2(200, 75)
+toggle_count = 10
+
+[node name="Toggle2" type="Node2D" parent="LevelLayout"]
+position = Vector2(0, -31)
+
+[node name="TogglePlatformR" parent="LevelLayout/Toggle2" instance=ExtResource("4")]
+position = Vector2(184, 75)
+toggle_count = 10
+
+[node name="TogglePlatformR2" parent="LevelLayout/Toggle2" instance=ExtResource("4")]
+position = Vector2(200, 75)
+toggle_count = 10
+
+[node name="Toggle4" type="Node2D" parent="LevelLayout"]
+position = Vector2(0, -95)
+
+[node name="TogglePlatformR" parent="LevelLayout/Toggle4" instance=ExtResource("4")]
+position = Vector2(184, 75)
+toggle_count = 10
+
+[node name="TogglePlatformR2" parent="LevelLayout/Toggle4" instance=ExtResource("4")]
+position = Vector2(200, 75)
+toggle_count = 10
+
+[node name="Toggle5" type="Node2D" parent="LevelLayout"]
+position = Vector2(-48, -127)
+
+[node name="TogglePlatformR" parent="LevelLayout/Toggle5" instance=ExtResource("4")]
+position = Vector2(184, 75)
+toggle_count = 10
+
+[node name="TogglePlatformR2" parent="LevelLayout/Toggle5" instance=ExtResource("4")]
+position = Vector2(200, 75)
+toggle_count = 10
+
+[node name="Toggle6" type="Node2D" parent="LevelLayout"]
+position = Vector2(-128, -127)
+
+[node name="TogglePlatformR" parent="LevelLayout/Toggle6" instance=ExtResource("4")]
+position = Vector2(184, 75)
+toggle_count = 10
+
+[node name="TogglePlatformR2" parent="LevelLayout/Toggle6" instance=ExtResource("4")]
+position = Vector2(200, 75)
+toggle_count = 10
+
+[node name="Toggle7" type="Node2D" parent="LevelLayout"]
+position = Vector2(-128, -127)
+
+[node name="TogglePlatformL" parent="LevelLayout/Toggle7" instance=ExtResource("5")]
+position = Vector2(88, 75)
+toggle_count = 4
+
+[node name="TogglePlatformL2" parent="LevelLayout/Toggle7" instance=ExtResource("5")]
+position = Vector2(104, 75)
+toggle_count = 4
+
+[node name="Toggle8" type="Node2D" parent="LevelLayout"]
+position = Vector2(-208, -127)
+
+[node name="TogglePlatformL" parent="LevelLayout/Toggle8" instance=ExtResource("5")]
+position = Vector2(88, 75)
+toggle_count = 4
+
+[node name="TogglePlatformL2" parent="LevelLayout/Toggle8" instance=ExtResource("5")]
+position = Vector2(104, 75)
+toggle_count = 4
+
+[node name="Trampoline" parent="LevelLayout" instance=ExtResource("6")]
+position = Vector2(-8, 112)
+
+[node name="Smasher" parent="LevelLayout" node_paths=PackedStringArray("brothers") instance=ExtResource("7")]
+position = Vector2(-88, -22)
+brothers = [NodePath("../Smasher2"), NodePath("../Smasher3")]
+
+[node name="Smasher2" parent="LevelLayout" instance=ExtResource("7")]
+position = Vector2(-104, -22)
+
+[node name="Smasher3" parent="LevelLayout" instance=ExtResource("7")]
+position = Vector2(-120, -22)
+
+[node name="Piston" parent="LevelLayout" node_paths=PackedStringArray("pair") instance=ExtResource("8")]
+position = Vector2(-200, 36)
+pair = NodePath("../Piston2")
+
+[node name="Piston2" parent="LevelLayout" node_paths=PackedStringArray("pair") instance=ExtResource("8")]
+position = Vector2(-168, -38)
+down = false
+pair = NodePath("../Piston")
+
+[node name="Switch" parent="LevelLayout" instance=ExtResource("9")]
+position = Vector2(136, 0)
+
+[node name="BarsContainer" parent="LevelLayout" instance=ExtResource("10")]
+position = Vector2(-32, 40)
+rotation = -1.57079
+
+[node name="BarsFull" parent="LevelLayout/BarsContainer" instance=ExtResource("11")]
+position = Vector2(3.85455e-07, 0)
+
+[node name="BarsFull2" parent="LevelLayout/BarsContainer" instance=ExtResource("11")]
+position = Vector2(0.000100775, 16)
+
+[node name="CrumblingPlatform" parent="." instance=ExtResource("12")]
+position = Vector2(136, 11)
+
+[node name="CrumblingPlatform2" parent="." instance=ExtResource("12")]
+position = Vector2(152, 11)

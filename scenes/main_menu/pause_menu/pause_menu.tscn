@@ -1,0 +1,272 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck0treo5ofpb5"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/pause_menu/pause_menu.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dxmhxgh88panf" path="res://scenes/main_menu/main_menu_bg/main_menu_bg.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://qabmj7jwym2d" path="res://assets/sprites/448x256.png" id="3"]
+[ext_resource type="Theme" uid="uid://cmtk0apea3mt3" path="res://scenes/main_menu/main_menu_theme.tres" id="4"]
+[ext_resource type="Theme" uid="uid://bgivtktx0mylw" path="res://scenes/main_menu/save_info_theme.tres" id="5"]
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu_options.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://bkvryhxdh1us4" path="res://scenes/mobile/clickable_area/clickable_area.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://yvod2t0pmrnt" path="res://assets/sprites/menu_selection_arrow.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://dfixrg2qs0ypo" path="res://assets/sprites/save_icon.png" id="9"]
+
+[node name="PauseMenu" type="Node2D" node_paths=PackedStringArray("options", "level_label", "retries_label", "time_label", "time_related_elements", "labels", "save_icon", "save_info", "v_box_container")]
+process_mode = 3
+script = ExtResource("1")
+options = NodePath("Options")
+level_label = NodePath("SaveInfo/HBoxContainer2/HBoxContainer/LevelNumber")
+retries_label = NodePath("SaveInfo/HBoxContainer2/HBoxContainer2/RetriesNumber")
+time_label = NodePath("SaveInfo/HBoxContainer2/HBoxContainer3/Number")
+time_related_elements = [NodePath("SaveInfo/HBoxContainer2/HBoxContainer/Margin"), NodePath("SaveInfo/HBoxContainer2/Separator2"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer3")]
+labels = [NodePath("Pause"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer/Level"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer2/Retries"), NodePath("SaveInfo/HBoxContainer2/HBoxContainer3/Label"), NodePath("Options/VBoxContainer/Continue"), NodePath("Options/VBoxContainer/RestartGame"), NodePath("Options/VBoxContainer/RestartLevel"), NodePath("Options/VBoxContainer/NextLevel"), NodePath("Options/VBoxContainer/PreviousLevel"), NodePath("Options/VBoxContainer/Settings"), NodePath("Options/VBoxContainer/MainMenu")]
+save_icon = NodePath("SaveIcon")
+save_info = NodePath("SaveInfo")
+v_box_container = NodePath("Options/VBoxContainer")
+
+[node name="MainMenuBG" parent="." instance=ExtResource("2")]
+z_index = 20
+
+[node name="Resolution" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.211765)
+z_index = 21
+texture = ExtResource("3")
+
+[node name="Pause" type="Label" parent="."]
+z_index = 21
+offset_left = -250.0
+offset_top = -77.0
+offset_right = 250.0
+offset_bottom = -61.0
+theme = ExtResource("4")
+theme_override_font_sizes/font_size = 0
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="SaveInfo" type="Control" parent="."]
+z_index = 21
+layout_mode = 3
+anchors_preset = 0
+offset_top = 47.0
+offset_right = 40.0
+offset_bottom = 87.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SaveInfo"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = -103.0
+offset_right = 200.0
+offset_bottom = -63.0
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Margin" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("5")
+text = "
+"
+horizontal_alignment = 2
+
+[node name="Level" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Level"
+horizontal_alignment = 2
+
+[node name="LevelNumber" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme = ExtResource("5")
+text = "000"
+
+[node name="Separator" type="Label" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "-"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Retries" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Retries"
+horizontal_alignment = 1
+
+[node name="RetriesNumber" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("5")
+text = "00000"
+
+[node name="Separator2" type="Label" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "-"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SaveInfo/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("5")
+text = "Time"
+horizontal_alignment = 1
+
+[node name="Number" type="Label" parent="SaveInfo/HBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+theme = ExtResource("5")
+text = "00:00"
+
+[node name="Options" type="Control" parent="." node_paths=PackedStringArray("controller", "selection_arrow", "options")]
+z_index = 21
+layout_mode = 3
+anchors_preset = 0
+offset_top = 10.0
+offset_right = 40.0
+offset_bottom = 50.0
+script = ExtResource("6")
+loop = true
+controller = NodePath("..")
+selection_arrow = NodePath("SelectionArrow")
+options = [NodePath("VBoxContainer/Continue"), NodePath("VBoxContainer/RestartGame"), NodePath("VBoxContainer/RestartLevel"), NodePath("VBoxContainer/NextLevel"), NodePath("VBoxContainer/PreviousLevel"), NodePath("VBoxContainer/Settings"), NodePath("VBoxContainer/MainMenu")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 0
+offset_left = -256.0
+offset_top = -8.0
+offset_right = 256.0
+offset_bottom = 204.0
+localize_numeral_system = false
+theme_override_constants/separation = 0
+
+[node name="Continue" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Continue"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/Continue" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 1.0
+offset_right = 62.0
+offset_bottom = 15.0
+options = NodePath("../../..")
+
+[node name="Separator" type="ColorRect" parent="Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RestartGame" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Restart game"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/RestartGame" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 18.0
+offset_right = 62.0
+offset_bottom = 32.0
+options = NodePath("../../..")
+
+[node name="RestartLevel" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Restart level"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/RestartLevel" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 29.0
+offset_right = 62.0
+offset_bottom = 43.0
+options = NodePath("../../..")
+
+[node name="NextLevel" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Next level"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/NextLevel" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 40.0
+offset_right = 62.0
+offset_bottom = 54.0
+options = NodePath("../../..")
+
+[node name="PreviousLevel" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Previous level"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/PreviousLevel" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 51.0
+offset_right = 62.0
+offset_bottom = 65.0
+options = NodePath("../../..")
+
+[node name="Separator2" type="ColorRect" parent="Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Settings" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/Settings" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 68.0
+offset_right = 62.0
+offset_bottom = 82.0
+options = NodePath("../../..")
+
+[node name="MainMenu" type="Label" parent="Options/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Main menu"
+horizontal_alignment = 1
+
+[node name="ClickableArea" parent="Options/VBoxContainer/MainMenu" node_paths=PackedStringArray("options") instance=ExtResource("7")]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 79.0
+offset_right = 62.0
+offset_bottom = 93.0
+options = NodePath("../../..")
+
+[node name="SelectionArrow" type="Node2D" parent="Options"]
+position = Vector2(-57, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Options/SelectionArrow"]
+texture = ExtResource("8")
+centered = false
+
+[node name="SaveIcon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+position = Vector2(0, -20)
+texture = ExtResource("9")

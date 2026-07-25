@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmqnu17jsp054"]
+
+[ext_resource type="Script" path="res://scenes/shooter/shooter.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://b14edduia51e1" path="res://assets/sfx/Fireballs - Torch  Shake Fast.wav" id="4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqwn6"]
+atlas = ExtResource("2")
+region = Rect2(72, 18, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[node name="Shooter" type="Node2D" node_paths=PackedStringArray("timer", "marker", "sprite", "audio")]
+z_index = 4
+script = ExtResource("1")
+timer = NodePath("Timer")
+marker = NodePath("Marker2D")
+sprite = NodePath("Sprite2D")
+audio = NodePath("AudioStreamPlayer2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_lqwn6")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.25098)
+script = ExtResource("3")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4")
+volume_db = -3.0
+panning_strength = 2.5
+bus = &"Shooter"

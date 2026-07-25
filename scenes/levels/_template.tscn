@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=4 uid="uid://n4kwgcxrkt38"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bk5wkvb2swvfv" path="res://scenes/directional_block/directional_block.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bb51ja1alpmys" path="res://scenes/piston/piston.tscn" id="5"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 10.0
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AADz//v/AgACAAAAAAD0//v/AgACAAAAAAD1//v/AgACAAAAAADz/wQAAgACAAAAAAD0/wQAAgACAAAAAAD1/wQAAgACAAAAAAD2/wQAAgACAAAAAAD3/wQAAgACAAAAAAD3/wIAAgACAAAAAAD2/wIAAgACAAAAAAD1/wIAAgACAAAAAAD0/wIAAgACAAAAAAD0/wAAAgACAAAAAAD1/wAAAgACAAAAAAD2/wAAAgACAAAAAAD3/wAAAgACAAAAAAD8//z/AgAAAAEAAAD8//3/AgAAAAEAAAD8//7/AgAAAAEAAAD8////AgAAAAEAAAD9/wAAAgAAAAEAAAD+/wAAAgAAAAEAAAD+////AgAAAAEAAAD/////AgAAAAEAAAD///7/AgAAAAEAAAD+//7/AgAAAAEAAAD+//3/AgAAAAEAAAD+//z/AgAAAAEAAAD9//z/AgAAAAEAAAD9//3/AgAAAAEAAAD9//7/AgAAAAEAAAD9////AgAAAAEAAAD8/wAAAgAAAAEAAAD//wAAAgAAAAEAAAD///3/AgAAAAEAAAD///z/AgAAAAEAAAD8//v/AgAAAAEAAAD8//r/AgAAAAEAAAD8//n/AgAAAAEAAAD9//n/AgAAAAEAAAD9//r/AgAAAAEAAAD9//v/AgAAAAEAAAD+//v/AgAAAAEAAAD+//r/AgAAAAEAAAD+//n/AgAAAAEAAAD///n/AgAAAAEAAAD///r/AgAAAAEAAAD///v/AgAAAAEAAAD7/wUAAgACAAAAAAD+/wMAAgAEAAEAAAD//wMAAgAEAAEAAAD+/wUAAgAGAAAAAAD//wUAAgAGAAAAAAD9/wMAAgABAAAAAAD9/wUAAgAGAAAAAAAFAAYAAgAAAAEAAAAFAAUAAgABAAAAAAABAAYAAgAAAAEAAAABAAUAAgAAAAEAAAACAAUAAgAAAAEAAAADAAUAAgAAAAEAAAAEAAUAAgAAAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(24, 80)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(202, 88)
+side = 2
+
+[node name="DirectionalBlock" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(190, 81)
+
+[node name="DirectionalBlock2" parent="LevelLayout" instance=ExtResource("4")]
+position = Vector2(8, -50)
+direction = 0
+
+[node name="Piston" parent="LevelLayout" node_paths=PackedStringArray("pair") instance=ExtResource("5")]
+position = Vector2(88, 89)
+down = false
+pair = NodePath("../Piston2")
+
+[node name="Piston2" parent="LevelLayout" node_paths=PackedStringArray("pair") instance=ExtResource("5")]
+position = Vector2(-33, 82)
+pair = NodePath("../Piston")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-208, 0)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=4 uid="uid://bcvh74ckfnx4s"]
+
+[ext_resource type="PackedScene" uid="uid://c8xpmnt7xgndy" path="res://scenes/levels/level_layout.tscn" id="1"]
+[ext_resource type="TileSet" uid="uid://bk2q6ytevcns5" path="res://scenes/dungeon_tileset.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dslj7mcvrpgj" path="res://scenes/player_spawn_point/player_spawn_point.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://hfj4fk1p11c2" path="res://scenes/moving_platform/moving_platform.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://626abysmbyys" path="res://scenes/toggle_platform/toggle_platform_r.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cbwde5q0aprdd" path="res://scenes/toggle_platform/toggle_platform_l.tscn" id="6"]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelLayout" parent="." instance=ExtResource("1")]
+time = 7.5
+
+[node name="TileMap" type="TileMapLayer" parent="LevelLayout"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD6////AgAEAAEAAAD7////AgAEAAEAAAD8////AgAEAAEAAAD9////AgAEAAEAAAD+////AgAEAAEAAAD/////AgAEAAEAAAAAAP//AgAEAAEAAAABAP//AgAEAAEAAAACAP//AgAEAAEAAAADAP//AgAEAAEAAAAEAP//AgAEAAEAAAAFAP//AgAEAAEAAADz/wQAAgACAAAAAAD0/wQAAgACAAAAAAD1/wQAAgACAAAAAAD//wAAAgAAAAEAAAD//wEAAgAAAAEAAAD//wIAAgAAAAEAAAD//wMAAgAAAAEAAAD//wQAAgAAAAEAAAD//wUAAgAAAAEAAAD//wYAAgAAAAEAAAAAAAYAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAAAAgAAAAEAAAD2/wQAAgACAAAAAAD3/wQAAgACAAAAAAD4/wQAAgACAAAAAAD5/wQAAgAAAAEAAAD6/wQAAgAAAAEAAAD7/wQAAgACAAAAAAD8/wQAAgACAAAAAAD+/wUAAgAFAAAAAAD6/wMAAgAEAAEAAAD5/wMAAgAEAAEAAAD1/wEAAgAAAAEAAAD1/wAAAgACAAAAAAD2/wAAAgACAAAAAAD2/wEAAgAAAAEAAAD3/wEAAgAHAAEAAAD2/wIAAgAHAAAAAAD1/wIAAgAHAAAAAADz/wIAAgAFAAAAAAD0/wIAAgAFAAAAAADz/wAAAgAGAAAAAAD0/wAAAgAGAAAAAAAIAAUAAgACAAAAAAAJAAUAAgACAAAAAAAIAAYAAgAAAAEAAAAJAAYAAgAAAAEAAAAHAAYAAgAGAAEAAAAHAAUAAgAGAAEAAAAEAAMAAgACAAAAAAAFAAMAAgACAAAAAAAJAAIAAgACAAAAAAAKAAIAAgAAAAEAAAALAAIAAgAAAAEAAAAMAAIAAgAAAAEAAAAKAAMAAgAAAAEAAAAKAAQAAgAAAAEAAAAKAAUAAgAAAAEAAAAKAAYAAgAAAAEAAAALAAYAAgAAAAEAAAALAAUAAgAAAAEAAAALAAQAAgAAAAEAAAAMAAQAAgAAAAEAAAAMAAMAAgAAAAEAAAAMAAUAAgAAAAEAAAAMAAYAAgAAAAEAAAALAAMAAgAAAAEAAAAJAAMAAgAGAAEAAAAJAAQAAgAGAAEAAAALAAAAAgACAAAAAAAMAAAAAgACAAAAAAALAAEAAgAAAAEAAAAMAAEAAgAAAAEAAADz//n/AgAAAAEAAADz//r/AgAAAAEAAAD0//n/AgAAAAEAAAAMAPn/AgAAAAEAAAALAPn/AgAAAAEAAAAMAPr/AgAAAAEAAAAKAAAAAgACAAAAAAAKAAEAAgAAAAEAAAD3/wAAAgAHAAEAAAA=")
+tile_set = ExtResource("2")
+
+[node name="PlayerSpawnPoint" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(-200, 110)
+
+[node name="PlayerSpawnPoint2" parent="LevelLayout" instance=ExtResource("3")]
+position = Vector2(24, 110)
+side = 2
+
+[node name="MovingPlatform" parent="." instance=ExtResource("4")]
+position = Vector2(-40, -36)
+length = 6
+speed = 4.0
+long = true
+
+[node name="TogglePlatformR" parent="." instance=ExtResource("5")]
+position = Vector2(104, -24)
+
+[node name="TogglePlatformR2" parent="." instance=ExtResource("5")]
+position = Vector2(120, -24)
+
+[node name="TogglePlatformL" parent="." instance=ExtResource("6")]
+position = Vector2(-120, -24)
+
+[node name="TogglePlatformL2" parent="." instance=ExtResource("6")]
+position = Vector2(-104, -24)

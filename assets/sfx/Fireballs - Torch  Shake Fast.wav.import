@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b14edduia51e1"
+path="res://.godot/imported/Fireballs - Torch  Shake Fast.wav-f35a692819321840431377c4c1fe96bf.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Fireballs - Torch  Shake Fast.wav"
+dest_files=["res://.godot/imported/Fireballs - Torch  Shake Fast.wav-f35a692819321840431377c4c1fe96bf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=96000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

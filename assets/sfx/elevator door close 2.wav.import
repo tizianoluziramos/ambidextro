@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://coxrsagbcs1lm"
+path="res://.godot/imported/elevator door close 2.wav-6de45d914a712632ed6ffc556fb7a668.sample"
+
+[deps]
+
+source_file="res://assets/sfx/elevator door close 2.wav"
+dest_files=["res://.godot/imported/elevator door close 2.wav-6de45d914a712632ed6ffc556fb7a668.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=192000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

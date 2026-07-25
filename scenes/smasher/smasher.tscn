@@ -1,0 +1,435 @@
+[gd_scene load_steps=19 format=3 uid="uid://bharunv3wfeb2"]
+
+[ext_resource type="Script" path="res://scenes/smasher/smasher.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://540spaatibe2" path="res://assets/sprites/props_16_margin.png" id="2"]
+[ext_resource type="Script" path="res://scenes/destroy_color_rect.gd" id="3"]
+[ext_resource type="Script" path="res://scenes/smasher/smasher_raycast.gd" id="4"]
+[ext_resource type="AudioStream" uid="uid://u08rha7cmkqa" path="res://assets/sfx/Anchor Chain Motor Loop B.wav" id="5"]
+[ext_resource type="AudioStream" uid="uid://duw3yqhmuqa27" path="res://assets/sfx/MECHANICS Medium Snap.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://kgdpr2mwfvbv" path="res://assets/sfx/Ball_Ad_Board_Metal.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://ur1bypi5wg2w" path="res://assets/sfx/MECHANICS Small Switch Push.wav" id="8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdqiq"]
+atlas = ExtResource("2")
+region = Rect2(54, 36, 18, 18)
+margin = Rect2(-1, -1, -2, -2)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6luor"]
+atlas = ExtResource("2")
+region = Rect2(72, 54, 18, 18)
+filter_clip = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3m8so"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4r6w"]
+size = Vector2(16, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uh35"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkyj1"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcct"]
+size = Vector2(14, 4.00005)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26kjg"]
+size = Vector2(16, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1uad"]
+size = Vector2(16, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktiks"]
+size = Vector2(16, 24)
+
+[node name="Smasher" type="Node2D" node_paths=PackedStringArray("lateral_barriers", "audio_chain", "audio_lock", "audio_hit", "audio_drop", "block", "interpolation_down", "interpolation_up", "marker", "chains", "floor_colision", "celing_colision", "damage_colision", "toggle_colision", "raycasts")]
+z_index = 2
+script = ExtResource("1")
+lateral_barriers = [NodePath("Block/LaretalBarrierCollisionL"), NodePath("Block/LaretalBarrierCollisionR")]
+audio_chain = NodePath("AudioStreamPlayer2DChain")
+audio_lock = NodePath("AudioStreamPlayer2DLock")
+audio_hit = NodePath("AudioStreamPlayer2DHit")
+audio_drop = NodePath("AudioStreamPlayer2DDrop")
+block = NodePath("Block")
+interpolation_down = NodePath("Block/Area2DInterpolationDown")
+interpolation_up = NodePath("Block/Area2DInterpolationUp")
+marker = NodePath("Block/Marker2D")
+chains = NodePath("Block/Chains")
+floor_colision = NodePath("Block/CollisionShape2D")
+celing_colision = NodePath("Block/StaticBody2D2/CeilingCrushDamageCollision")
+damage_colision = NodePath("Block/StaticBody2D/DamageCollision")
+toggle_colision = NodePath("Block/CollisionShapeToggle")
+raycasts = [NodePath("RayCastL"), NodePath("RayCastM"), NodePath("RayCastR")]
+
+[node name="Block" type="AnimatableBody2D" parent="."]
+physics_interpolation_mode = 1
+collision_mask = 4
+
+[node name="Chains" type="ColorRect" parent="Block"]
+z_index = -3
+clip_contents = true
+offset_left = 8.0
+offset_right = 24.0
+offset_bottom = 7.0
+rotation = -3.14159
+color = Color(1, 1, 1, 0)
+
+[node name="Chain" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 8)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -16.0
+offset_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain2" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 24)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain3" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 40)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain3"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain4" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 56)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain4"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain5" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 72)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain5"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain6" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 88)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain6"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain7" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 104)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain7"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain8" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 120)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain8"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain9" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 136)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain9"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain10" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 152)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain10"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain11" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 168)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain11"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain12" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 184)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain12"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain13" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 200)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain13"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain14" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 216)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain14"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="Chain15" type="Sprite2D" parent="Block/Chains"]
+position = Vector2(8, 232)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_kdqiq")
+
+[node name="ColorRect" type="ColorRect" parent="Block/Chains/Chain15"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0.313726)
+script = ExtResource("3")
+
+[node name="SmasherSprite" type="Sprite2D" parent="Block"]
+position = Vector2(0, 7.99998)
+texture = SubResource("AtlasTexture_6luor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_3m8so")
+
+[node name="CollisionShapeToggle" type="CollisionShape2D" parent="Block"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_g4r6w")
+
+[node name="LaretalBarrierCollisionL" type="CollisionShape2D" parent="Block"]
+position = Vector2(-7.5, 14.5)
+shape = SubResource("RectangleShape2D_1uh35")
+disabled = true
+
+[node name="LaretalBarrierCollisionR" type="CollisionShape2D" parent="Block"]
+position = Vector2(7.5, 14.5)
+shape = SubResource("RectangleShape2D_hkyj1")
+disabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Block"]
+physics_interpolation_mode = 1
+collision_layer = 2
+collision_mask = 0
+
+[node name="DamageCollision" type="CollisionShape2D" parent="Block/StaticBody2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_ktcct")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Block"]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CeilingCrushDamageCollision" type="CollisionShape2D" parent="Block/StaticBody2D2"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_26kjg")
+disabled = true
+one_way_collision = true
+
+[node name="Marker2D" type="Marker2D" parent="Block"]
+position = Vector2(0, 16)
+
+[node name="Area2D" type="Area2D" parent="Block"]
+position = Vector2(0, 21)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block/Area2D"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_n1uad")
+
+[node name="Area2DInterpolationDown" type="Area2D" parent="Block"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block/Area2DInterpolationDown"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_ktiks")
+
+[node name="Area2DInterpolationUp" type="Area2D" parent="Block"]
+position = Vector2(0, -35)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block/Area2DInterpolationUp"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_ktiks")
+
+[node name="RayCastL" type="RayCast2D" parent="." node_paths=PackedStringArray("block")]
+position = Vector2(-7, 16)
+target_position = Vector2(0, 420)
+collision_mask = 9
+script = ExtResource("4")
+block = NodePath("../Block")
+
+[node name="RayCastM" type="RayCast2D" parent="." node_paths=PackedStringArray("block")]
+position = Vector2(0, 16)
+target_position = Vector2(0, 420)
+collision_mask = 9
+script = ExtResource("4")
+block = NodePath("../Block")
+
+[node name="RayCastR" type="RayCast2D" parent="." node_paths=PackedStringArray("block")]
+position = Vector2(7, 16)
+target_position = Vector2(0, 420)
+collision_mask = 9
+script = ExtResource("4")
+block = NodePath("../Block")
+
+[node name="AudioStreamPlayer2DChain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5")
+panning_strength = 2.5
+bus = &"Smasher"
+
+[node name="AudioStreamPlayer2DLock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6")
+panning_strength = 2.5
+bus = &"Smasher"
+
+[node name="AudioStreamPlayer2DHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7")
+volume_db = 3.0
+panning_strength = 2.5
+bus = &"Smasher"
+
+[node name="AudioStreamPlayer2DDrop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8")
+panning_strength = 2.5
+bus = &"Smasher"
+
+[connection signal="body_entered" from="Block/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Block/Area2D" to="." method="_on_area_2d_body_exited"]
